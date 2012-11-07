@@ -3,6 +3,7 @@
 /mob/living/carbon/brain
 	var/obj/item/container = null
 	var/timeofhostdeath = 0
+	stat = 2
 
 	New()
 		var/datum/reagents/R = new/datum/reagents(1000)
