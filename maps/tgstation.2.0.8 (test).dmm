@@ -2290,7 +2290,7 @@
 "aSb" = (/obj/item/weapon/storage/lightbox/tubes,/obj/item/weapon/storage/lightbox/tubes,/turf/simulated/floor/plating,/area/storage/auxillary)
 "aSc" = (/obj/machinery/alarm{dir = 8; icon_state = "alarm0"; pixel_x = 24},/obj/item/weapon/storage/lightbox/bulbs,/obj/item/weapon/storage/belt/utility,/turf/simulated/floor/plating,/area/storage/auxillary)
 "aSd" = (/turf/simulated/floor{dir = 8; icon_state = "carpetside"},/area/crew_quarters/theatre)
-"aSe" = (/obj/structure/powerswitch,/turf/simulated/floor,/area/crew_quarters/theatre)
+"aSe" = (/turf/simulated/floor,/area/crew_quarters/theatre)
 "aSf" = (/obj/structure/disposalpipe/segment,/turf/simulated/wall,/area/hallway/primary/starboard)
 "aSg" = (/turf/simulated/wall,/area/hallway/primary/starboard)
 "aSh" = (/turf/simulated/floor{dir = 10; icon_state = "carpetside"},/area/chapel/main)
