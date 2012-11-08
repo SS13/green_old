@@ -35,6 +35,7 @@ var/flying_time_to_station = 15  //15 sec
 			usr << "\blue Shuttle is already moving."
 
 
+
 proc/move_arrival_shuttle()
 	if (arrival_shuttle_moving)
 		return
@@ -45,12 +46,34 @@ proc/move_arrival_shuttle()
 	if (arrival_shuttle_location == 1)
 		fromArea = locate(/area/shuttle/arrival/pre_game)
 		a.autosay("\"Arrival shuttle will leave the CentComm's anabiosis center [(flying_time_from_station == 0) ? "now" : "in [flying_time_from_station] seconds."]\"", "Shuttle Autopilot")
+		sleep(arrival_shuttle_tickstomove*(flying_time_from_station-1))
+		for(var/obj/machinery/door/poddoor/M in world)
+			switch(M.id)//Doors close at the same time.
+				if("ARRSHUT")
+					spawn(0)
+						M.close()
+				if("ARROUT")
+					spawn(0)
+						M.close()
+		sleep(arrival_shuttle_tickstomove)
 	else
 		fromArea = locate(/area/shuttle/arrival/station)
 		a.autosay("\"Arrival shuttle will leave the [station_name()] [(flying_time_from_station == 0) ? "now" : "in [flying_time_from_station] seconds."]\"", "Shuttle Autopilot")
+		sleep(arrival_shuttle_tickstomove*(flying_time_from_station-1))
+		for(var/obj/machinery/door/poddoor/M in world)
+			switch(M.id)//Doors close at the same time.
+				if("ARRSHUT")
+					spawn(0)
+						M.close()
+				if("STIN")
+					spawn(0)
+						M.close()
+		sleep(arrival_shuttle_tickstomove)
 	toArea = locate(/area/shuttle/arrival/spess)
 	start_arrival_shuttle_location = arrival_shuttle_location
-	sleep(arrival_shuttle_tickstomove*flying_time_from_station)
+
+
+
 //	if(arrival_shuttle_location == 2)
 //		if(check_people())
 //			a.autosay("Please, leave arrival shuttle before it can return to CentComm.", "Shuttle Autopilot")
@@ -65,10 +88,7 @@ proc/move_arrival_shuttle()
 				else
 					shake_camera(M, 4, 2)
 					M.Weaken (10)
-	for(var/obj/machinery/door/unpowered/D in world)
-		if( get_area(D) == toArea )
-			spawn(0)
-				D.close()
+
 	arrival_shuttle_location = 0
 	if (start_arrival_shuttle_location == 1)
 		toArea = locate(/area/shuttle/arrival/station)
@@ -78,7 +98,7 @@ proc/move_arrival_shuttle()
 		a.autosay("\"Arrival shuttle left the [station_name()]. [(flying_time_to_station != 0) ? "ETA: [flying_time_to_station] sec." : ""]\"", "Shuttle Autopilot")
 	fromArea = locate(/area/shuttle/arrival/spess)
 	arrival_shuttle_location = 0
-	sleep(arrival_shuttle_tickstomove*flying_time_to_station)
+	sleep(arrival_shuttle_tickstomove*(flying_time_to_station-1))
 	fromArea.move_contents_to(toArea)
 	for(var/mob/M in toArea)
 		if(M.client)
@@ -88,15 +108,30 @@ proc/move_arrival_shuttle()
 				else
 					shake_camera(M, 10, 2)
 					M.Weaken (10)
-	for(var/obj/machinery/door/unpowered/D in world)
-		if( get_area(D) == toArea )
-			spawn(0)
-				D.close()
+
 	if(start_arrival_shuttle_location == 1)
 		arrival_shuttle_location = 2
 		a.autosay("\"Arrival shuttle docked with the [station_name()].\"", "Shuttle Autopilot")
+		sleep(arrival_shuttle_tickstomove) // wait until doors opened
+		for(var/obj/machinery/door/poddoor/M in world)
+			switch(M.id)//Doors close at the same time.
+				if("ARRSHUT")
+					spawn(0)
+						M.open()
+				if("STIN")
+					spawn(0)
+						M.open()
 	else
 		arrival_shuttle_location = 1
+		sleep(arrival_shuttle_tickstomove) // wait until doors opened
+		for(var/obj/machinery/door/poddoor/M in world)
+			switch(M.id)//Doors close at the same time.
+				if("ARRSHUT")
+					spawn(0)
+						M.open()
+				if("ARROUT")
+					spawn(0)
+						M.open()
 		a.autosay("\"Arrival shuttle docked with the the CentComm's anabiosis center.\"", "Shuttle Autopilot")
 	arrival_shuttle_moving = 0
 	del(a)

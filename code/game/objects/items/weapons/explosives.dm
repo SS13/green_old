@@ -10,6 +10,9 @@
 		return
 	if (istype(target, /turf/unsimulated) || istype(target, /turf/simulated/shuttle) || istype(target, /obj/item/weapon/storage/) || ismob(target))
 		return
+	if (istype(target, /obj/machinery/door/poddoor/))
+		user << "\red Wait, it's famous titanium blast door! You think, that planting C4 on it is a stupid thing"
+		return
 	user << "Planting explosives..."
 	if(ismob(target))
 		user.attack_log += "\[[time_stamp()]\] <font color='red'> [user.real_name] tried planting [name] on [target:real_name] ([target:ckey])</font>"

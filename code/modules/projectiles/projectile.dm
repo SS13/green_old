@@ -60,6 +60,7 @@
 	proc/check_fire(var/mob/living/target as mob, var/mob/living/user as mob)  //Checks if you can hit them or not.
 		if(!istype(target) || !istype(user))
 			return 0
+		user << "PIF PAF"
 		var/obj/item/projectile/test/in_chamber = new /obj/item/projectile/test(get_step_to(user,target)) //Making the test....
 		in_chamber.target = target
 		in_chamber.flags = flags //Set the flags...
@@ -146,6 +147,7 @@
 
 
 	proc/fired()
+
 		spawn while(src)
 			if((!( current ) || loc == current))
 				current = locate(min(max(x + xo, 1), world.maxx), min(max(y + yo, 1), world.maxy), z)

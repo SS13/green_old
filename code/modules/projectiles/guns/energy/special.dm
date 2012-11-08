@@ -1,4 +1,4 @@
-//obj/item/weapon/gun/energy/ionrifle
+/obj/item/weapon/gun/energy/ionrifle
 	name = "ion rifle"
 	desc = "A man portable anti-armor weapon designed to disable mechanical threats"
 	icon_state = "ionrifle"
