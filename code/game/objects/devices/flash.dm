@@ -44,7 +44,7 @@
 
 
 	log_admin("ATTACK: [user] ([user.ckey]) flashed [M] ([M.ckey]) with [src].")
-	message_admins("ATTACK: [user] ([user.ckey]) flashed [M] ([M.ckey]) with [src].")
+	message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[user]'>JMP</A>) flashed [M] ([M.ckey]) with [src].", 2)
 	log_attack("<font color='red'>[user.name] ([user.ckey]) Used the [src.name] to flash [M.name] ([M.ckey])</font>")
 
 
@@ -278,7 +278,7 @@
 	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to flash [M.name] ([M.ckey])</font>")
 
 	log_admin("ATTACK: [user] ([user.ckey]) flashed [M] ([M.ckey]) with [src].")
-	message_admins("ATTACK: [user] ([user.ckey])(<a href=\"byond://?src=%admin_ref%;teleto=\ref[user]\">Jump</a>) flashed [M] ([M.ckey]) with [src].")
+	message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[user]'>JMP</A>) flashed [M] ([M.ckey]) with [src].", 2)
 	log_attack("<font color='red'>[user.name] ([user.ckey]) Used the [src.name] to flash [M.name] ([M.ckey])</font>")
 
 	playsound(src.loc, 'flash.ogg', 100, 1)

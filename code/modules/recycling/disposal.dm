@@ -121,7 +121,7 @@
 					del(G)
 					log_attack("<font color='red'>[usr] ([usr.ckey]) placed [GM] ([GM.ckey]) in a disposals unit.</font>")
 					log_admin("ATTACK: [usr] ([usr.ckey]) placed [GM] ([GM.ckey]) in a disposals unit.")
-					//message_admins("ATTACK: [usr] ([usr.ckey]) placed [GM] ([GM.ckey]) in a disposals unit.")
+					//message_admins("ATTACK: [usr] ([usr.ckey]) placed [GM] ([GM.ckey]) in a disposals unit.", 2)
 		else
 			if(!I || isnull(I))
 				//CRASH("disposal/attackby() was called, but I was nulled before calling user.drop_item()")
@@ -164,7 +164,7 @@
 
 				log_attack("<font color='red'>[user] ([user.ckey]) climbed into a disposals unit.</font>")
 				log_admin("ATTACK: [user] ([user.ckey]) climbed into in a disposals unit.")
-				message_admins("ATTACK: [user] ([user.ckey])(<a href=\"byond://?src=%admin_ref%;teleto=\ref[user]\">Jump</a>) climbed into in a disposals unit.")
+				message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[user]'>JMP</A>) climbed into in a disposals unit.", 2)
 
 				msg = "[user.name] climbs into the [src]."
 				user << "You climb into the [src]."
@@ -172,7 +172,7 @@
 
 				log_attack("<font color='red'>[user] ([user.ckey]) placed [target] ([target.ckey]) in a disposals unit.</font>")
 				log_admin("ATTACK: [user] ([user.ckey]) placed [target] ([target.ckey]) in a disposals unit.")
-				message_admins("ATTACK: [user] ([user.ckey])(<a href=\"byond://?src=%admin_ref%;teleto=\ref[user]\">Jump</a>) placed [target] ([target.ckey]) in a disposals unit.")
+				message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[user]'>JMP</A>) placed [target] ([target.ckey]) in a disposals unit.", 2)
 
 				msg = "[user.name] stuffs [target.name] into the [src]!"
 				user << "You stuff [target.name] into the [src]!"

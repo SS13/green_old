@@ -107,7 +107,7 @@
 
 			log_attack("<font color='red'>[user.name] ([user.ckey]) injected a power cell with plasma.</font>")
 			log_admin("ATTACK: [user] ([user.ckey]) injected a power cell with plasma.")
-			message_admins("ATTACK: [user] ([user.ckey])(<a href=\"byond://?src=%admin_ref%;teleto=\ref[user]\">Jump</a>) injected a power cell with plasma.")
+			message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[user]'>JMP</A>) injected a power cell with plasma.", 2)
 
 			rigged = 1
 

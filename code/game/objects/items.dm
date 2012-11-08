@@ -241,7 +241,7 @@
 	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to stab [M.name] ([M.ckey])</font>")
 
 	log_admin("ATTACK: [user] ([user.ckey]) used [src] on [M] ([M.ckey]).")
-	message_admins("ATTACK: [user] ([user.ckey]) used [src] on [M] ([M.ckey]).")
+	message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[user]'>JMP</A>) used [src] on [M] ([M.ckey]).", 2)
 	log_attack("<font color='red'>[user.name] ([user.ckey]) Used the [src.name] to stab [M.name] ([M.ckey])</font>")
 
 
