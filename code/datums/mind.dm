@@ -379,9 +379,8 @@ datum/mind
 
 				if ("steal")
 					var/list/possibilities = GenerateTheft(assigned_role,src)
-					var/list/temp_poss = possibilities[1]
 					var/list/choices = list()
-					for(var/datum/objective/steal/steal in temp_poss)
+					for(var/datum/objective/steal/steal in possibilities)
 						choices["[steal.steal_target]"] = steal
 					var/new_target = input("Select target:", "Objective target") as null|anything in choices
 					if (!new_target) return
