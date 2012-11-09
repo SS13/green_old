@@ -92,15 +92,15 @@
 		switch(difficulty)
 			if(LENIENT)
 				success_weights = list(1.5, 1, 0.75, 0.5)
-				target_weight = success_ratio*100
+				target_weight = success_ratio*200
 			if(NORMAL)
-				target_weight = success_ratio*150
+				target_weight = success_ratio*300
 			if(HARD)
 				success_weights = list(0.66, 0.8, 1, 1.25)
-				target_weight = success_ratio*200
+				target_weight = success_ratio*400
 			if(IMPOSSIBLE) //YOU SHALL NOT PASS
 				success_weights = list(0.5, 0.75, 1.2, 2)
-				target_weight = success_ratio*300
+				target_weight = success_ratio*600
 
 		for(var/i = 1, i <= 4, i++)
 		//Iterate through the success rates, and determine the weights to chose based on the highest to
