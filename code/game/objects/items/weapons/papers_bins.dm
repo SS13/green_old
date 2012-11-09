@@ -468,7 +468,7 @@ NOTEBOOK
 			target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been wrapped with [src.name]  by [user.name] ([user.ckey])</font>")
 			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to wrap [target.name] ([target.ckey])</font>")
 			log_admin("ATTACK: [user] ([user.ckey]) wrapped up [target] ([target.ckey]) with [src].")
-			message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[user]'>JMP</A>) wrapped up [target] ([target.ckey]) with [src].", 2)
+			message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[user]'>JMP</A>) wrapped up [target] ([target.ckey]) with [src].", 2)
 			log_attack("<font color='red'>[user.name] ([user.ckey]) used the [src.name] to wrap [target.name] ([target.ckey])</font>")
 
 		else

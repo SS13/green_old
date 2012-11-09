@@ -469,7 +469,7 @@ var/engwords = list("travel", "blood", "join", "hell", "destroy", "technology", 
 		user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used [name] on [M.name] ([M.ckey])</font>")
 
 		log_admin("ATTACK: [user] ([user.ckey]) used the [name] on [M] ([M.ckey]).")
-		message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[user]'>JMP</A>) used the [name] on [M] ([M.ckey]).", 2)
+		message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[user]'>JMP</A>) used the [name] on [M] ([M.ckey]).", 2)
 		log_attack("<font color='red'>[user.name] ([user.ckey]) used [name] on [M.name] ([M.ckey])</font>")
 
 

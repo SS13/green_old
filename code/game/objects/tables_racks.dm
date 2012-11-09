@@ -149,7 +149,7 @@ TABLE AND RACK OBJECT INTERATIONS
 				G.assailant.attack_log += text("\[[time_stamp()]\] <font color='red'>Smashed [G.affecting.name] ([G.affecting.ckey]) on a table.</font>")
 
 				log_admin("ATTACK: [G.assailant] ([G.assailant.ckey]) smashed [G.affecting] ([G.affecting.ckey]) on a table.", 2)
-				message_admins("ATTACK: [G.assailant] ([G.assailant.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[G]'>JMP</A>) smashed [G.affecting] ([G.affecting.ckey]) on a table.", 2)
+				message_admins("ATTACK: [G.assailant] ([G.assailant.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[G]'>JMP</A>) smashed [G.affecting] ([G.affecting.ckey]) on a table.", 2)
 				log_attack("<font color='red'>[G.assailant] ([G.assailant.ckey]) smashed [G.affecting] ([G.affecting.ckey]) on a table.</font>")
 
 				var/mob/living/carbon/human/H = G.affecting
@@ -542,7 +542,7 @@ TABLE AND RACK OBJECT INTERATIONS
 				G.assailant.attack_log += text("\[[time_stamp()]\] <font color='red'>Smashed [G.affecting.name] ([G.affecting.ckey]) on a table.</font>")
 
 				log_admin("ATTACK: [G.assailant] ([G.assailant.ckey]) smashed [G.affecting] ([G.affecting.ckey]) on a table.")
-				message_admins("ATTACK: [G.assailant] ([G.assailant.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[G]'>JMP</A>) smashed [G.affecting] ([G.affecting.ckey]) on a table.", 2)
+				message_admins("ATTACK: [G.assailant] ([G.assailant.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[G]'>JMP</A>) smashed [G.affecting] ([G.affecting.ckey]) on a table.", 2)
 				log_attack("<font color='red'>[G.assailant] ([G.assailant.ckey]) smashed [G.affecting] ([G.affecting.ckey]) on a table.</font>")
 
 				var/mob/living/carbon/human/H = G.affecting

@@ -135,7 +135,7 @@ CRITTER GRENADE
 
 			log_attack("<font color='red'>[user.name] ([user.ckey]) primed a flashbang.</font>")
 			log_admin("ATTACK: [user] ([user.ckey]) primed a flashbang.")
-			message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[user]'>JMP</A>) primed a flashbang.", 2)
+			message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[user]'>JMP</A>) primed a flashbang.", 2)
 
 			src.active = 1
 			src.icon_state = "flashbang1"
@@ -260,7 +260,7 @@ CRITTER GRENADE
 			if(clown_check(user))
 				log_attack("<font color='red'>[user.name] ([user.ckey]) primed a flashbang.</font>")
 				log_admin("ATTACK: [user] ([user.ckey]) primed a flashbang.")
-				message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[user]'>JMP</A>) primed a flashbang.", 2)
+				message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[user]'>JMP</A>) primed a flashbang.", 2)
 				user << "\red You prime the flashbang! [det_time/10] seconds!"
 				src.active = 1
 				src.icon_state = "flashbang1"
@@ -301,7 +301,7 @@ CRITTER GRENADE
 			user << "\red You prime the clusterbang! [det_time/10] seconds!"
 			log_attack("<font color='red'>[user.name] ([user.ckey]) primed a [src].</font>")
 			log_admin("ATTACK: [user] ([user.ckey]) primed a [src].")
-			message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[user]'>JMP</A>) primed a [src].", 2)
+			message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[user]'>JMP</A>) primed a [src].", 2)
 			src.active = 1
 			src.icon_state = "clusterbang1"
 			playsound(src.loc, 'armbomb.ogg', 75, 1, -3)

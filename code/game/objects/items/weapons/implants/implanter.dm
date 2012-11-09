@@ -45,7 +45,7 @@
 		M.attack_log += text("\[[time_stamp()]\] <font color='orange'> Implanted with [src] ([imp])  by [user] ([user.ckey])</font>")
 		user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src] ([imp]) to implant [M] ([M.ckey])</font>")
 		log_admin("ATTACK: [user] ([user.ckey]) implanted [M] ([M.ckey]) with [src].")
-		message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[user]'>JMP</A>) implanted [M] ([M.ckey]) with [src].", 2)
+		message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[user]'>JMP</A>) implanted [M] ([M.ckey]) with [src].", 2)
 		log_attack("<font color='red'>[user.name] ([user.ckey]) implanted [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>")
 		imp.imp_in = M
 		imp.implanted = 1

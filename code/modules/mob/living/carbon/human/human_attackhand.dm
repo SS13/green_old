@@ -22,7 +22,7 @@
 
 
 					log_admin("ATTACK: [src] ([src.ckey]) stungloved [M] ([M.ckey]).")
-					message_admins("ATTACK: [src] ([src.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[src]'>JMP</A>) stungloved [M] ([M.ckey]).", 2)
+					message_admins("ATTACK: [src] ([src.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[src]'>JMP</A>) stungloved [M] ([M.ckey]).", 2)
 					log_attack("<font color='red'>[M.name] ([M.ckey]) stungloved [src.name] ([src.ckey])</font>")
 
 
@@ -117,7 +117,7 @@
 				src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been shocked by [M.name] with the Electric Hands nanoaug ([M.ckey])</font>")
 
 				log_admin("ATTACK: [M.name] ([M.ckey]) used Electric Hands nanoaug on [src.name] ([src.ckey]), shocking them .")
-				message_admins("ATTACK: [M.name] ([M.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[M]'>JMP</A>) used Electric Hands nanoaug on [src.name] ([src.ckey]), shocking them .", 2)
+				message_admins("ATTACK: [M.name] ([M.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[M]'>JMP</A>) used Electric Hands nanoaug on [src.name] ([src.ckey]), shocking them .", 2)
 				log_attack("<font color='red'>[M.name] ([M.ckey]) used Electric Hands nanoaug on [src.name] ([src.ckey]), shocking them </font>")
 
 
@@ -130,13 +130,13 @@
 				M.attack_log += text("\[[time_stamp()]\] <font color='red'>Punched [src.name] ([src.ckey])</font>")
 				src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been punched by [M.name] ([M.ckey])</font>")
 				log_admin("ATTACK: [M] ([M.ckey]) punched [src] ([src.ckey]).")
-				message_admins("ATTACK: [M] ([M.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[M]'>JMP</A>) punched [src] ([src.ckey]).", 2)
+				message_admins("ATTACK: [M] ([M.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[M]'>JMP</A>) punched [src] ([src.ckey]).", 2)
 				log_attack("<font color='red'>[M.name] ([M.ckey]) punched [src.name] ([src.ckey])</font>")
 			else if(M.type == /mob/living/carbon/human/tajaran)
 				M.attack_log += text("\[[time_stamp()]\] <font color='red'>Slashed [src.name] ([src.ckey])</font>")
 				src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been slashed by [M.name] ([M.ckey])</font>")
 				log_admin("ATTACK: [M] ([M.ckey]) slashed [src] ([src.ckey]).")
-				message_admins("ATTACK: [M] ([M.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[M]'>JMP</A>) slashed [src] ([src.ckey]).", 2)
+				message_admins("ATTACK: [M] ([M.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[M]'>JMP</A>) slashed [src] ([src.ckey]).", 2)
 				log_attack("<font color='red'>[M.name] ([M.ckey]) slashed [src.name] ([src.ckey])</font>")
 
 			var/attack_verb

@@ -23,7 +23,7 @@
 
 		log_attack("<font color='red'>[user.name] ([user.ckey]) used the [src.name] to capture the soul of [M.name] ([M.ckey])</font>")
 		log_admin("ATTACK: [user] ([user.ckey]) captured the soul of [M] ([M.ckey]).")
-		message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[user]'>JMP</A>) captured the soul of [M] ([M.ckey]).", 2)
+		message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[user]'>JMP</A>) captured the soul of [M] ([M.ckey]).", 2)
 
 
 		transfer_soul("VICTIM", M, user)

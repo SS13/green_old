@@ -654,12 +654,12 @@
 								user.attack_log += "\[[time_stamp()]\] <b>[user]/[user.ckey]</b> shot <b>[M]/[M.ckey]</b> with a <b>syringegun</b> ([R])"
 								log_attack("<font color='red'>[user] ([user.ckey]) shot [M] ([M.ckey]) with a syringegun ([R])</font>")
 								log_admin("ATTACK: [user] ([user.ckey]) shot [M] ([M.ckey]) with a syringegun ([R]).", 2)
-								message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[user]'>JMP</A>) shot [M] ([M.ckey]) with a syringegun ([R]).", 2)
+								message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[user]'>JMP</A>) shot [M] ([M.ckey]) with a syringegun ([R]).", 2)
 							else
 								M.attack_log += "\[[time_stamp()]\] <b>UNKNOWN SUBJECT (No longer exists)</b> shot <b>[M]/[M.ckey]</b> with a <b>syringegun</b> ([R])"
 								log_attack("<font color='red'>UNKNOWN shot [M] ([M.ckey]) with a <b>syringegun</b> ([R])</font>")
 								log_admin("ATTACK: UNKNOWN shot [M] ([M.ckey]) with a <b>syringegun</b> ([R]).")
-								message_admins("ATTACK: UNKNOWN shot [M] ([M.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[M]'>JMP</A>) with a <b>syringegun</b> ([R]).", 2)
+								message_admins("ATTACK: UNKNOWN shot [M] ([M.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[M]'>JMP</A>) with a <b>syringegun</b> ([R]).", 2)
 							D.reagents.trans_to(M, 15)
 							M.take_organ_damage(5)
 							for(var/mob/O in viewers(world.view, D))
@@ -1356,7 +1356,7 @@
 		M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been injected with [src.name] by [user.name] ([user.ckey])</font>")
 		user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to inject [M.name] ([M.ckey])</font>")
 		log_admin("ATTACK: [user] ([user.ckey]) injected [M] ([M.ckey]) with [src].")
-		message_admins("ATTACK: [user] ([user.ckey](<A HREF='?src=%admin_ref%;adminplayerobservejump=[user]'>JMP</A>) injected [M] ([M.ckey]) with [src].", 2)
+		message_admins("ATTACK: [user] ([user.ckey](<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[user]'>JMP</A>) injected [M] ([M.ckey]) with [src].", 2)
 		log_attack("<font color='red'>[user.name] ([user.ckey]) injected [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>")
 
 
@@ -1585,7 +1585,7 @@
 					M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been fed [src.name] by [user.name] ([user.ckey]) Reagents: \ref[reagents]</font>")
 					user.attack_log += text("\[[time_stamp()]\] <font color='red'>Fed [M.name] by [M.name] ([M.ckey]) Reagents: \ref[reagents]</font>")
 					log_admin("ATTACK: [user] ([user.ckey]) fed [M] ([M.ckey]) with [src].")
-					message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[user]'>JMP</A>) fed [M] ([M.ckey]) with [src].", 2)
+					message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[user]'>JMP</A>) fed [M] ([M.ckey]) with [src].", 2)
 
 					log_attack("<font color='red'>[user.name] ([user.ckey]) fed [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>")
 
@@ -1650,7 +1650,7 @@
 				M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been fed [src.name] by [user.name] ([user.ckey]) Reagents: \ref[reagents]</font>")
 				user.attack_log += text("\[[time_stamp()]\] <font color='red'>Fed [M.name] by [M.name] ([M.ckey]) Reagents: \ref[reagents]</font>")
 				log_admin("ATTACK: [user] ([user.ckey]) fed [M] ([M.ckey]) with [src].")
-				message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[user]'>JMP</A>) fed [M] ([M.ckey]) with [src].", 2)
+				message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[user]'>JMP</A>) fed [M] ([M.ckey]) with [src].", 2)
 
 				for(var/mob/O in viewers(world.view, user))
 					O.show_message("\red [user] feeds [M] [src].", 1)
@@ -1817,7 +1817,7 @@
 			M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been fed [src.name] by [user.name] ([user.ckey]) Reagents: \ref[reagents]</font>")
 			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Fed [M.name] by [M.name] ([M.ckey]) Reagents: \ref[reagents]</font>")
 			log_admin("ATTACK: [user] ([user.ckey]) fed [M] ([M.ckey]) with [src].")
-			message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[user]'>JMP</A>) fed [M] ([M.ckey]) with [src].", 2)
+			message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[user]'>JMP</A>) fed [M] ([M.ckey]) with [src].", 2)
 
 			log_attack("<font color='red'>[user.name] ([user.ckey]) fed [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>")
 
@@ -1958,7 +1958,7 @@
 			M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been fed [src.name] by [user.name] ([user.ckey]) Reagents: \ref[reagents]</font>")
 			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Fed [M.name] by [M.name] ([M.ckey]) Reagents: \ref[reagents]</font>")
 			log_admin("ATTACK: [user] ([user.ckey]) fed [M] ([M.ckey]) with [src].")
-			message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[user]'>JMP</A>) fed [M] ([M.ckey]) with [src].", 2)
+			message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[user]'>JMP</A>) fed [M] ([M.ckey]) with [src].", 2)
 
 
 			log_attack("<font color='red'>[user.name] ([user.ckey]) fed [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>")
@@ -2663,7 +2663,7 @@ obj/item/weapon/reagent_containers/glass/bottle/cyanide
 			M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been fed [src.name] by [user.name] ([user.ckey]) Reagents: \ref[reagents]</font>")
 			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Fed [src.name] by [M.name] ([M.ckey]) Reagents: \ref[reagents]</font>")
 			log_admin("ATTACK: [user] ([user.ckey]) fed [M] ([M.ckey]) with [src].")
-			message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[user]'>JMP</A>) fed [M] ([M.ckey]) with [src].", 2)
+			message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[user]'>JMP</A>) fed [M] ([M.ckey]) with [src].", 2)
 
 
 			log_attack("<font color='red'>[user.name] ([user.ckey]) fed [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>")

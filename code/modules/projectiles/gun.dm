@@ -92,7 +92,7 @@
 			M.attack_log += text("\[[]\] <b>[]/[]</b> shot <b>[]/[]</b> point blank with a <b>[]</b>", time_stamp(), user, user.ckey, M, M.ckey, src)
 			user.attack_log += text("\[[]\] <b>[]/[]</b> shot <b>[]/[]</b> point blank with a <b>[]</b>", time_stamp(), user, user.ckey, M, M.ckey, src)
 			log_admin("ATTACK: [user] ([user.ckey]) shot [M] ([M.ckey]) point blank with [src].")
-			message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[user]'>JMP</A>) shot [M] ([M.ckey]) point blank with [src].", 2)
+			message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[user]'>JMP</A>) shot [M] ([M.ckey]) point blank with [src].", 2)
 			del(in_chamber)
 			update_icon()
 			return
@@ -118,7 +118,7 @@
 			M.attack_log += text("\[[]\] <b>[]/[]</b> stunned <b>[]/[]</b> with a <b>[]</b>", time_stamp(), user, user.ckey, M, M.ckey, src)
 			user.attack_log += text("\[[]\] <b>[]/[]</b> stunned <b>[]/[]</b> with a <b>[]</b>", time_stamp(), user, user.ckey, M, M.ckey, src)
 			log_admin("ATTACK: [user] ([user.ckey]) stunned [M] ([M.ckey]) with [src].")
-			message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[user]'>JMP</A>) stunned [M] ([M.ckey]) with [src].", 2)
+			message_admins("ATTACK: [user] ([user.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[user]'>JMP</A>) stunned [M] ([M.ckey]) with [src].", 2)
 			del(in_chamber)
 			update_icon()
 			return

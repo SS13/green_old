@@ -102,13 +102,13 @@
 				M.attack_log += "\[[time_stamp()]\] <b>[firer]/[firer.ckey]</b> shot <b>[M]/[M.ckey]</b> with a <b>[src]</b>"
 				firer.attack_log += "\[[time_stamp()]\] <b>[firer]/[firer.ckey]</b> shot <b>[M]/[M.ckey]</b> with a <b>[src]</b>"
 				log_admin("ATTACK: [firer] ([firer.ckey]) shot [M] ([M.ckey]) with [src].")
-				message_admins("ATTACK: [firer] ([firer.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[firer]'>JMP</A>) shot [M] ([M.ckey]) with [src].", 2)
+				message_admins("ATTACK: [firer] ([firer.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[firer]'>JMP</A>) shot [M] ([M.ckey]) with [src].", 2)
 				log_attack("<font color='red'>[firer] ([firer.ckey]) shot [M] ([M.ckey]) with a [src]</font>")
 
 			else
 				M.attack_log += "\[[time_stamp()]\] <b>UNKNOWN SUBJECT (No longer exists)</b> shot <b>[M]/[M.ckey]</b> with a <b>[src]</b>"
 				log_admin("ATTACK: UNKNOWN (no longer exists) shot [M] ([M.ckey]) with [src].")
-				message_admins("ATTACK: UNKNOWN (no longer exists) shot [M] ([M.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=[M]'>JMP</A>) with [src].", 2)
+				message_admins("ATTACK: UNKNOWN (no longer exists) shot [M] ([M.ckey])(<A HREF='?src=%admin_ref%;adminplayerobservejump=\ref[M]'>JMP</A>) with [src].", 2)
 				log_attack("<font color='red'>UNKNOWN shot [M] ([M.ckey]) with a [src]</font>")
 
 
