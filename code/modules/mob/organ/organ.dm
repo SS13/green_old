@@ -347,49 +347,6 @@ var/list/wound_progressions = list(
 					H.name = "[owner.original_name]'s head"
 
 					/////////dropping all that stuff on the head/////////
-
-					if(owner.glasses)
-						if(istype(owner.glasses, /obj/item/clothing) && owner.glasses:canremove)
-							var/obj/item/clothing/W = owner.glasses
-							owner.u_equip(W)
-							if (W)
-								W.loc = owner.loc
-								W.dropped(owner)
-						else
-							owner.u_equip(owner.head)
-
-					if(owner.head)
-						if(istype(owner.head, /obj/item/clothing) && owner.head:canremove)
-							var/obj/item/clothing/W = owner.head
-							owner.u_equip(W)
-							if (W)
-								W.loc = owner.loc
-								W.dropped(owner)
-						else
-							owner.u_equip(owner.head) // who knows what shit can be there
-
-					if(owner.l_ear)
-						if(istype(owner.l_ear, /obj/item) && owner.l_ear:canremove)
-							var/obj/item/W = owner.l_ear
-							owner.u_equip(W)
-							if (W)
-								W.loc = owner.loc
-								W.dropped(owner)
-						else
-							owner.u_equip(owner.l_ear)
-
-
-					if(owner.r_ear)
-						if(istype(owner.r_ear, /obj/item) && owner.r_ear:canremove)
-							var/obj/item/W = owner.r_ear
-							owner.u_equip(W)
-							if (W)
-								W.loc = owner.loc
-								W.dropped(owner)
-						else
-							owner.u_equip(owner.r_ear)
-
-
 					if(owner.wear_mask)
 						if(istype(owner.wear_mask, /obj/item/clothing) && owner.wear_mask:canremove)
 							var/obj/item/clothing/W = owner.wear_mask
@@ -400,12 +357,54 @@ var/list/wound_progressions = list(
 						else
 							owner.u_equip(owner.wear_mask)
 
+					if(ishuman(owner))
+						if(owner.glasses)
+							if(istype(owner.glasses, /obj/item/clothing) && owner.glasses:canremove)
+								var/obj/item/clothing/W = owner.glasses
+								owner.u_equip(W)
+								if (W)
+									W.loc = owner.loc
+									W.dropped(owner)
+							else
+								owner.u_equip(owner.head)
+
+						if(owner.head)
+							if(istype(owner.head, /obj/item/clothing) && owner.head:canremove)
+								var/obj/item/clothing/W = owner.head
+								owner.u_equip(W)
+								if (W)
+									W.loc = owner.loc
+									W.dropped(owner)
+							else
+								owner.u_equip(owner.head) // who knows what shit can be there
+
+						if(owner.l_ear)
+							if(istype(owner.l_ear, /obj/item) && owner.l_ear:canremove)
+								var/obj/item/W = owner.l_ear
+								owner.u_equip(W)
+								if (W)
+									W.loc = owner.loc
+									W.dropped(owner)
+							else
+								owner.u_equip(owner.l_ear)
+
+
+						if(owner.r_ear)
+							if(istype(owner.r_ear, /obj/item) && owner.r_ear:canremove)
+								var/obj/item/W = owner.r_ear
+								owner.u_equip(W)
+								if (W)
+									W.loc = owner.loc
+									W.dropped(owner)
+							else
+								owner.u_equip(owner.r_ear)
+						owner.update_face()
+						owner.update_body()
 
 
 					owner.UpdateDamageIcon() // blood on the face without face looks wierd
 
-					owner.update_face()
-					owner.update_body()
+
 					owner.death()
 				if(ARM_RIGHT)
 					H = new /obj/item/weapon/organ/r_arm(owner.loc, owner)

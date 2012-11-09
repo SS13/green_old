@@ -48,6 +48,7 @@
 	//get message text, limit it's length.and clean/escape html
 	if(!msg)
 		msg = input(src,"Message:", "Private message") as text|null // This is to stop identification of stealthmins for now -- Erthilo
+		msg = sanitize(copytext(msg,1,MAX_MESSAGE_LEN))
 		if(!msg)	return
 		if(!C)
 			if(holder)	src << "<font color='red'>Error: Admin-PM: Client not found.</font>"
@@ -55,9 +56,9 @@
 			return
 
 	//clean the message if it's not sent by a GA or GM
-	if(holder || (holder.rank in list("Game Admin", "Game Master")) )
+/*	if(holder || (holder.rank in list("Game Admin", "Game Master")) )
 		msg = sanitize(copytext(msg,1,MAX_MESSAGE_LEN))
-		if(!msg)	return
+		if(!msg)	return*/
 
 	if(C.holder)
 		if(holder)	//both are admins
