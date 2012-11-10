@@ -210,7 +210,7 @@
 			else
 				world << "<B>The [special_role_text] has failed!<B>"
 				//feedback_add_details("traitor_success","FAIL")
-			var/savefile/traitor_logs = new("data/player_saves/[copytext(traitor.key, 1, 2)]/[traitor.key]/traitor.sav")
+			var/savefile/traitor_logs = new("data/player_saves/[copytext(traitor.key, 1, 2)]/[traitor.key]/traitorstats.sav")
 			var/list/infos
 			traitor_logs >> infos
 			if(istype(infos))

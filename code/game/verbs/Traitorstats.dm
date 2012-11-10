@@ -4,7 +4,7 @@
 	set desc = "Thats your personal raiting in syndicate. Hiegher rating - harder missions"
 	if(istype(usr,/mob))
 		var/mob/M = usr
-		var/savefile/info = new("data/player_saves/[copytext(M.ckey, 1, 2)]/[M.ckey]/traitor.sav")
+		var/savefile/info = new("data/player_saves/[copytext(M.ckey, 1, 2)]/[M.ckey]/traitorstats.sav")
 		var/list/infos
 		info >> infos
 		if(istype(infos))
@@ -34,7 +34,7 @@
 
 			dat+= "</center><BR><BR>"
 			dat+= text("Successfully stole [] valuable items of [] requested.<BR> ", round(steal_success*steal_need), steal_need)
-			dat+= text("Assassinated [] targets of [] ordered .<BR>", round(kill_success*kill_need), kill_need)
+			dat+= text("Assassinated [] targets of [] ordered.<BR>", round(kill_success*kill_need), kill_need)
 			dat+= text("Framed [] syndicate enemies of [] needed.<BR>", round(frame_success*frame_need), frame_need)
 			dat+= text("Protected [] important employees of [] pointed.<BR>", round(protect_success*protect_need), protect_need)
 
@@ -59,7 +59,7 @@
 			else if(total_overall_success > 3)
 				ranked = "ROOKIE"
 			else
-				ranked = "NEWEBE"
+				ranked = "NEWBIE"
 
 			dat+= text("<BR><BR><center>According to the data your rank in our organisation - []</center>", ranked)
 
