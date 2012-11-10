@@ -64,8 +64,8 @@
 			dat+= text("<BR><BR><center>According to the data your rank in our organisation - []</center>", ranked)
 
 
-			//M << browse((text("<HEAD><TITLE>Security Records</TITLE></HEAD><TT>[]</TT>", dat), "window=secure_rec;size=600x400")
-			M << browse(text("<HEAD><TITLE>Security Records</TITLE></HEAD><BODY bgcolor='#100000' text='white'><TT><strong>[]</strong></TT></BODY>", dat), "window=trait_rec;size=500x300")
+
+			M << browse(text("<HEAD><TITLE>Traitor statistics</TITLE></HEAD><BODY bgcolor='#100000' text='white'><TT><strong>[]</strong></TT></BODY>", dat), "window=trait_rec;size=500x320")
 
 
 
