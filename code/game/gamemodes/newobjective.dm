@@ -72,7 +72,7 @@
 //HANDLE ASSIGNING OBJECTIVES BASED OFF OF PREVIOUS SUCCESS//
 /////////////////////////////////////////////////////////////
 
-	var/savefile/info = new("data/player_saves/[copytext(traitor.key, 1, 2)]/[traitor.key]/traitorstats.sav")
+	var/savefile/info = new("data/player_saves/[copytext(traitor.key, 1, 2)]/[traitor.key]/traitor.sav")
 	var/list/infos
 	info >> infos
 	if(istype(infos))
@@ -92,15 +92,15 @@
 		switch(difficulty)
 			if(LENIENT)
 				success_weights = list(1.5, 1, 0.75, 0.5)
-				target_weight = success_ratio*100
-			if(NORMAL)
 				target_weight = success_ratio*150
+			if(NORMAL)
+				target_weight = success_ratio*200
 			if(HARD)
 				success_weights = list(0.66, 0.8, 1, 1.25)
-				target_weight = success_ratio*200
+				target_weight = success_ratio*300
 			if(IMPOSSIBLE) //YOU SHALL NOT PASS
 				success_weights = list(0.5, 0.75, 1.2, 2)
-				target_weight = success_ratio*300
+				target_weight = success_ratio*500
 
 		for(var/i = 1, i <= 4, i++)
 		//Iterate through the success rates, and determine the weights to chose based on the highest to

@@ -4,7 +4,7 @@
 	set desc = "Thats your personal raiting in syndicate. Hiegher rating - harder missions"
 	if(istype(usr,/mob))
 		var/mob/M = usr
-		var/savefile/info = new("data/player_saves/[copytext(M.ckey, 1, 2)]/[M.ckey]/traitorstats.sav")
+		var/savefile/info = new("data/player_saves/[copytext(M.key, 1, 2)]/[M.key]/traitor.sav")
 		var/list/infos
 		info >> infos
 		if(istype(infos))
@@ -40,13 +40,13 @@
 
 			var/ranked
 
-			if(total_overall_success > 130)
+			if(total_overall_success > 200)
 				ranked = "SHEPARD"
-			else if(total_overall_success > 110)
+			else if(total_overall_success > 150)
 				ranked = "NANOTRASEN FEAR"
-			else if(total_overall_success > 90)
+			else if(total_overall_success > 120)
 				ranked = "SILENT ASSASSIN"
-			else if(total_overall_success > 70)
+			else if(total_overall_success > 90)
 				ranked = "PROFESSIONAL"
 			else if(total_overall_success > 50)
 				ranked = "BOND. SPACE BOND"
