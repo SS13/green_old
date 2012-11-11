@@ -62,7 +62,9 @@
 
 
 /datum/game_mode/proc/forge_wizard_objectives(var/datum/mind/wizard)
-	wizard.objectives = SelectObjectives("Wizard",wizard,1)
+	for(var/datum/objective/o in SelectObjectives("Wizard", wizard, 1))
+		o.owner = wizard
+		wizard.objectives += o
 	return
 
 
