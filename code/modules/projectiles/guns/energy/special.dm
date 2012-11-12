@@ -246,6 +246,8 @@ obj/item/weapon/gun/energy/staff
 		update_icon()
 		return 1
 
+
+
 /obj/item/weapon/gun/energy/floragun
 	name = "floral somatoray"
 	desc = "A tool that discharges controlled radiation which induces mutation in plant cells."
