@@ -3721,3 +3721,20 @@ datum
 				M:slowed_metabolism = 1
 				..(0,02)
 				return
+
+		freezer
+			name = "Liquid vacuum"
+			id = "freezer"
+			description = "Unknown substance"
+			reagent_state = SOLID
+			color = "#619494"
+
+			on_mob_life(var/mob/living/M as mob)
+				if(!M) M = holder.my_atom
+				if (!M.freezed)
+					freezemob(M)
+				if( holder.has_reagent("freezer") )
+					holder.remove_reagent("freezer", 2)
+				..()
+				return
+

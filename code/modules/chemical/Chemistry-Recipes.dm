@@ -1452,3 +1452,10 @@ datum
 			result = "metabolic"
 			required_reagents = list("leporazine" = 1, "lithium" = 1, "oxygen" = 1)
 			result_amount = 2
+
+		freezer
+			name = "Liquid vacuum"
+			id = "freezer"
+			result = "freezer"
+			required_reagents = list("ice" = 1, "cryoxadone" = 1, "frostoil" = 1)
+			result_amount = 1

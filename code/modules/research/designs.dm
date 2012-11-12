@@ -66,6 +66,8 @@ datum
 				return
 
 
+
+
 ///////////////////Computer Boards///////////////////////////////////
 
 		camera
@@ -1534,6 +1536,17 @@ datum
 				materials = list("$metal" = 200, "$glass" = 20, "$silver" = 10)
 				build_path = "/obj/item/weapon/secstorage/sbriefcase"
 
+/////////////////////////////////////////
+///////////////kriegs items//////////////
+/////////////////////////////////////////
+		feezinggun
+			name = "Freezer gun"
+			desc = "Special gun to freeze some badasses"
+			id = "feezinggun"
+			req_tech = list("combat" = 3, "materials" = 4, "powerstorage" = 3, "magnets" = 2)
+			build_type = PROTOLATHE
+			materials = list("$metal" = 5000, "$glass" = 500, "$silver" = 3000, "$uranium" = 250)
+			build_path = "/obj/item/weapon/gun/energy/freezegun"
 /////////////////////////////////////////
 //////////////////Test///////////////////
 /////////////////////////////////////////

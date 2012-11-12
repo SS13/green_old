@@ -4,9 +4,9 @@ obj/item/weapon/gun/energy/freezegun
 	icon = 'gun.dmi'
 	icon_state = "freezegun"
 	item_state = "freezegun"
-	fire_sound = 'emitter.ogg'
+	fire_sound = 'pulse3.ogg'
 	flags =  FPRINT | TABLEPASS | CONDUCT | USEDELAY
-	charge_cost = 200
+	charge_cost = 1000
 	projectile_type = "/obj/item/projectile/freezeball"
 	origin_tech = null
 	var/charge_tick = 0
@@ -26,7 +26,7 @@ obj/item/weapon/gun/energy/freezegun
 		if(charge_tick < 4) return 0
 		charge_tick = 0
 		if(!power_supply) return 0
-		power_supply.give(200)
+		power_supply.give(500)
 		update_icon()
 		return 1
 
@@ -40,24 +40,26 @@ obj/item/weapon/gun/energy/freezegun
 
 
 	on_hit(var/atom/freezetg)
-
+		icon = null
 		freezemob(freezetg)
 
 /obj/structure/freezedmob
 	name = "Pile of ice"
 	icon = 'device.dmi'
-	icon_state = "singlebath.bottom"
+	icon_state = "singlebath-bottom"
 	desc = "Big pile of ice. Some aborigens at waterless planets can kill for ot"
 	density = 1
 	anchored = 0
 	unacidable = 1//shouldnt I think
-	var/health = 100
-	var/ice = 100
+	var/health = 200
+	var/ice = 150
 	var/mob/living/occupant
 	var/charge_tick = 0
+	var/datum/gas_mixture/incide_air
 
 	New()
 		..()
+		generate_air()
 		processing_objects.Add(src)
 
 
@@ -65,14 +67,17 @@ obj/item/weapon/gun/energy/freezegun
 		processing_objects.Remove(src)
 		..()
 
-	process()
+	process() // soooo uglycode!
+		if(occupant && occupant.stat != 2)
+			occupant:adjustOxyLoss(-4) // 4 critguys
+			occupant.weakened= 2
+			occupant.bodytemperature = 1
 		var/turf/simulated/location = src.loc
 		if (!istype(location))
 			return 0
 		var/datum/gas_mixture/environment = location.return_air()
-		if (environment.temperature < 273)
-			return 0
-		else
+
+		if(ice<200)
 			charge_tick++
 			if(charge_tick < 4) return 0
 			charge_tick = 0
@@ -80,16 +85,27 @@ obj/item/weapon/gun/energy/freezegun
 			icecheck()
 		return 1
 
+/obj/structure/freezedmob/return_air()
+	return incide_air
 
 
-
+/obj/structure/freezedmob/proc/generate_air()
+	incide_air = new
+	incide_air.temperature = 260
+	incide_air.volume = 200
+	incide_air.oxygen = O2STANDARD*incide_air.volume/(R_IDEAL_GAS_EQUATION*incide_air.temperature)
+	incide_air.nitrogen = N2STANDARD*incide_air.volume/(R_IDEAL_GAS_EQUATION*incide_air.temperature)
+	incide_air.update_values()
+	return incide_air
 
 /obj/structure/freezedmob/ex_act(severity)
 	switch(severity)
 		if (1)
-			src.occupant.loc = src.loc
 			src.occupant.death()
+			src.occupant.loc = src.loc
+			src.occupant.freezed = 0
 			src.occupant.gib()
+
 			del(src)
 		if (2)
 			if (prob(50))
@@ -110,15 +126,18 @@ obj/item/weapon/gun/energy/freezegun
 
 /obj/structure/freezedmob/blob_act()
 	if (prob(75))
-		src.occupant.loc = src.loc
 		src.occupant.death()
+		src.occupant.loc = src.loc
+		src.occupant.freezed = 0
 		src.occupant.gib()
+
 		del(src)
 
 
 /obj/structure/freezedmob/meteorhit(obj/O as obj)
-	src.occupant.loc = src.loc
 	src.occupant.death()
+	src.occupant.loc = src.loc
+	src.occupant.freezed = 0
 	src.occupant.gib()
 	del(src)
 
@@ -126,8 +145,9 @@ obj/item/weapon/gun/energy/freezegun
 /obj/structure/freezedmob/proc/healthcheck()
 	if (src.health <= 0)
 		playsound(src, "shatter", 70, 1)
-		src.occupant.loc = src.loc
 		src.occupant.death()
+		src.occupant.loc = src.loc
+		src.occupant.freezed = 0
 		src.occupant.gib()
 		del(src)
 	else
@@ -140,7 +160,9 @@ obj/item/weapon/gun/energy/freezegun
 		src.occupant.loc = src.loc
 		var/mob/living/M = src.occupant
 		M.canmove = 1
-		M.confused = 0
+		M.weakened = 2
+		M.freezed = 0
+		M.bodytemperature = 250
 		for(var/obj/item/I in src)
 			I.loc = src.loc
 		src.occupant << "Thanks god, ice finally melted"
@@ -178,9 +200,12 @@ proc/freezemob(mob/M as mob in world)
 	sleep(5)
 
 	var /obj/structure/freezedmob/I = new /obj/structure/freezedmob( M.loc )
+	M.freezed = 1
 	I.name = "Ice statue"
 	I.desc = text("You can hardly recognize [] under the layer of ice", M.name)
 	I.dir = M.dir
+	if (M.lying)
+		I.density = 0
 	if (ishuman(M))
 		var/mob/living/carbon/human/the_man = M
 		var/icon/frozen_img = new/icon(M.icon, M.icon_state, I.dir)
@@ -194,7 +219,7 @@ proc/freezemob(mob/M as mob in world)
 		I.icon = frozen_img
 	else
 		var/icon/overlay
-		if(istype(src, /mob/living/carbon/metroid))
+		if(istype(M, /mob/living/carbon/metroid))
 			overlay = new/icon(M.icon, M.icon_state)
 		else
 			overlay = new/icon(M.icon, M.icon_state, I.dir)
@@ -205,9 +230,11 @@ proc/freezemob(mob/M as mob in world)
 		M.client.perspective = EYE_PERSPECTIVE
 		M.client.eye = I
 	M.loc = I
+	M.weakened = 5 //dunno how make it true or falce, but mob shouldnt use hist equip while freezed
 	I.occupant = M
-	M.confused = 100000 // lol
 	return 1
+
+/mob/var/freezed = 0
 
 /mob/living/carbon/human/proc/get_overlays(var/lying)
 	var/list/wholebody
