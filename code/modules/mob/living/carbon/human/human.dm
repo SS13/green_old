@@ -167,15 +167,15 @@
 			B.data = list("donor"=src,"viruses"=null,"blood_DNA"=dna.unique_enzymes,"blood_type"=dna.b_type,"resistances"=null,"trace_chem"=null,"virus2"=(virus2 ? virus2.getcopy() : null),"antibodies"=0)
 
 /mob/living/carbon/human/drip(var/amt as num)
+	world << "DRIP [amt]!!! ALERT ALERT! MOB HAD [vessel.get_reagent_amount("blood")] BLOOD"
 	if(!amt)
 		return
 
-	var/amm = 0.1 * amt
 	var/turf/T = get_turf(src)
 	var/list/obj/effect/decal/cleanable/blood/drip/nums = list()
 	var/list/iconL = list("1","2","3","4","5")
 
-	vessel.remove_reagent("blood",amm)
+	vessel.remove_reagent("blood",amt)
 
 	for(var/obj/effect/decal/cleanable/blood/drip/G in T)
 		nums += G

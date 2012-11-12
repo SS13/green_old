@@ -113,8 +113,10 @@ MASS SPECTROMETER
 		user.show_message(text("\red Severe brain damage detected. Subject likely to have mental retardation."), 1)
 	else if (M.getBrainLoss() >= 10)
 		user.show_message(text("\red Significant brain damage detected. Subject may have had a concussion."), 1)
-	if (M.virus2 || M.reagents.reagent_list.len > 0)
+	if (M.reagents.reagent_list.len > 0)
 		user.show_message(text("\red Foreign substances detected in bloodstream."), 1)
+	if (M.virus2)
+		user.show_message(text("\red Virus detected in blood"), 1)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		for(var/name in H.organs)

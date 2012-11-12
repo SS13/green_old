@@ -64,8 +64,8 @@
 					foundVirus++
 
 			// jesus fuck, no, don't display vira by just looking at them
-			/*if(patient.virus2)
-				foundVirus++*/
+			if(patient.virus2)
+				foundVirus++
 			patient.health_img.icon_state = "hud[RoundHealth(patient.health)]"
 			C.images += patient.health_img
 			if(patient.stat == 2)

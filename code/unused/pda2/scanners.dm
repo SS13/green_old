@@ -41,6 +41,9 @@
 			dat += "\blue \t Damage Specifics: [C.getOxyLoss() > 50 ? "\red" : "\blue"][C.getOxyLoss()]-[C.getToxLoss() > 50 ? "\red" : "\blue"][C.getToxLoss()]-[C.getFireLoss() > 50 ? "\red" : "\blue"][C.getFireLoss()]-[C.getBruteLoss() > 50 ? "\red" : "\blue"][C.getBruteLoss()]\n"
 			dat += "\blue \t Key: Suffocation/Toxin/Burns/Brute\n"
 			dat += "\blue \t Body Temperature: [C.bodytemperature-T0C]&deg;C ([C.bodytemperature*1.8-459.67]&deg;F)"
+			dat += text("Blood []",C:vessel.get_reagent_amount("blood"))
+			if(patient.virus2)
+				dat += "\red \n<b>Warning Virus Detected.</b>
 			if(C.virus)
 				dat += "\red \n<b>Warning Virus Detected.</b>\nName: [C.virus.name].\nType: [C.virus.spread].\nStage: [C.virus.stage]/[C.virus.max_stages].\nPossible Cure: [C.virus.cure]"
 
