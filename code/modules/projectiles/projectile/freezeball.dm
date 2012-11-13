@@ -73,7 +73,7 @@ obj/item/weapon/gun/energy/freezegun
 			occupant:adjustOxyLoss(-4) // 4 critguys
 			occupant.weakened= 2
 			occupant.bodytemperature = 1
-		if(ice<200)
+		if(ice<=200)
 			freeze_tick++
 			if(freeze_tick < 4) return 0
 			freeze_tick = 0
@@ -178,9 +178,10 @@ obj/item/weapon/gun/energy/freezegun
 		src.occupant << "Thanks god, ice finally melted"
 		del(src)
 	else
-		if(src.ice >= 200)
-			src.sighn_of_life = src.occupant.stat
+		if(src.ice > 200)
+
 			src.occupant.stat = 2
+			src.ice = 200
 	return
 
 /obj/structure/freezedmob/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -215,6 +216,7 @@ proc/freezemob(mob/M as mob in world)
 
 	var /obj/structure/freezedmob/I = new /obj/structure/freezedmob( M.loc )
 	M.freezed = 1
+	I.sighn_of_life = M.stat
 	I.name = "Ice statue"
 	I.desc = text("You can hardly recognize [] under the layer of ice", M.name)
 	I.dir = M.dir
