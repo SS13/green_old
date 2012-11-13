@@ -228,17 +228,24 @@ proc/freezemob(mob/M as mob in world)
 		frozen_img.Blend("#6495ED",ICON_MULTIPLY)
 		frozen_img.SetIntensity(1.4)
 		for (var/image/block in the_man.get_overlays(M.lying))
-			var/icon/temp = new/icon(block.icon, block.icon_state, null, 1)
-			temp.Blend("#6495ED",ICON_MULTIPLY)
-			temp.SetIntensity(1.4)
-			frozen_img.Blend(temp, ICON_OVERLAY)
+			var/icon/temp = new/icon(block.icon)
+			for(var/a in temp.IconStates())
+				if((a == block.icon_state) || length(text("[]", block.icon)) < 4) //Time to laugh at me.
+					temp = icon(block.icon, block.icon_state, null, 1)
+					temp.Blend("#6495ED",ICON_MULTIPLY)
+					temp.SetIntensity(1.4)
+					frozen_img.Blend(temp, ICON_OVERLAY)
 		I.icon = frozen_img
+
 	else
 		var/icon/overlay
 		overlay = new/icon(M.icon, M.icon_state, null, 1)
 		overlay.Blend("#6495ED",ICON_MULTIPLY)
 		overlay.SetIntensity(1.4)
 		I.icon = overlay
+
+/*	var/icon/mobpic = getFlatIcon(M, I.dir) //damn, not working. GOD WHY!?
+	I.icon = mobpic*/
 	if(M.client)
 		M.client.perspective = EYE_PERSPECTIVE
 		M.client.eye = I
@@ -248,6 +255,7 @@ proc/freezemob(mob/M as mob in world)
 	return 1
 
 /mob/var/freezed = 0
+
 
 /mob/living/carbon/human/proc/get_overlays(var/lying)
 	var/list/wholebody

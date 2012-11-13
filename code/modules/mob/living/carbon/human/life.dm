@@ -639,7 +639,7 @@
 			//as that may be realistic but it's no fun
 			if((bodytemperature > (T0C + 50)) || (bodytemperature < (T0C + 10)) && (!istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))) // Last bit is just disgusting, i know
 				if(environment.temperature > (T0C + 50) || (environment.temperature < (T0C + 10)))
-					if((environment.temperature < 100) && (bodytemperature < 110) && (src.getFireLoss() > 80))
+					if((environment.temperature < 100) && (bodytemperature < 110))
 						freezemob(src)
 					var/transfer_coefficient
 

@@ -246,6 +246,7 @@
 				environment_heat_capacity = loc:heat_capacity
 
 			if((environment.temperature > (T0C + 50)) || (environment.temperature < (T0C + 10)))
+
 				var/transfer_coefficient
 
 				transfer_coefficient = 1

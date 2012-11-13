@@ -360,7 +360,7 @@
 				environment_heat_capacity = loc:heat_capacity
 
 			if((environment.temperature > (T0C + 50)) || (environment.temperature < (T0C + 10)))
-				if((environment.temperature < 100) && (bodytemperature < 110) && (src.getFireLoss() > 70))
+				if((environment.temperature < 100) && (bodytemperature < 110))
 					freezemob(src)
 				var/transfer_coefficient
 
