@@ -3178,7 +3178,7 @@ datum
 				slurr_adj = 15
 
 
-			sbiten
+		sbiten
 			name = "Sbiten"
 			id = "sbiten"
 			description = "A spicy Vodka! Might be a little hot for the little guys!"

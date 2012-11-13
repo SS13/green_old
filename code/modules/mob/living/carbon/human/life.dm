@@ -623,6 +623,8 @@
 
 			var/thermal_protection = get_thermal_protection()
 
+
+
 			//world << "Loc temp: [loc_temp] - Body temp: [bodytemperature] - Fireloss: [getFireLoss()] - Thermal protection: [get_thermal_protection()] - Fire protection: [thermal_protection + add_fire_protection(loc_temp)]"
 
 			if(stat != 2 && abs(bodytemperature - 310.15) < 50)
@@ -637,6 +639,8 @@
 			//as that may be realistic but it's no fun
 			if((bodytemperature > (T0C + 50)) || (bodytemperature < (T0C + 10)) && (!istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))) // Last bit is just disgusting, i know
 				if(environment.temperature > (T0C + 50) || (environment.temperature < (T0C + 10)))
+					if((environment.temperature < 100) && (bodytemperature < 110) && (src.getFireLoss() > 80))
+						freezemob(src)
 					var/transfer_coefficient
 
 					transfer_coefficient = 1

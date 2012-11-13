@@ -6,7 +6,7 @@ obj/item/weapon/gun/energy/freezegun
 	item_state = "freezegun"
 	fire_sound = 'pulse3.ogg'
 	flags =  FPRINT | TABLEPASS | CONDUCT | USEDELAY
-	charge_cost = 1000
+	charge_cost = 500
 	projectile_type = "/obj/item/projectile/freezeball"
 	origin_tech = null
 	var/charge_tick = 0
@@ -54,8 +54,9 @@ obj/item/weapon/gun/energy/freezegun
 	var/health = 200
 	var/ice = 150
 	var/mob/living/occupant
-	var/charge_tick = 0
+	var/freeze_tick = 0
 	var/datum/gas_mixture/incide_air
+	var/sighn_of_life = 0
 
 	New()
 		..()
@@ -72,15 +73,22 @@ obj/item/weapon/gun/energy/freezegun
 			occupant:adjustOxyLoss(-4) // 4 critguys
 			occupant.weakened= 2
 			occupant.bodytemperature = 1
-		var/turf/simulated/location = src.loc
-		if (!istype(location))
-			return 0
-		var/datum/gas_mixture/environment = location.return_air()
-
 		if(ice<200)
-			charge_tick++
-			if(charge_tick < 4) return 0
-			charge_tick = 0
+			freeze_tick++
+			if(freeze_tick < 4) return 0
+			freeze_tick = 0
+			var/turf/location = src.loc //optimisation shit
+			if (istype(location, /turf/space))
+				ice += 25
+				icecheck()
+				return 1
+			if (istype(location, /turf/unsimulated)) // possible centcomm or smth
+				ice -= 9
+				icecheck()
+				return 1
+			if (!istype(location, /turf/simulated))
+				return 0
+			var/datum/gas_mixture/environment = location.return_air()
 			ice -= (environment.temperature-273)/2
 			icecheck()
 		return 1
@@ -162,11 +170,17 @@ obj/item/weapon/gun/energy/freezegun
 		M.canmove = 1
 		M.weakened = 2
 		M.freezed = 0
+		M.stat = src.sighn_of_life
 		M.bodytemperature = 250
+		M.silent = 0
 		for(var/obj/item/I in src)
 			I.loc = src.loc
 		src.occupant << "Thanks god, ice finally melted"
 		del(src)
+	else
+		if(src.ice >= 200)
+			src.sighn_of_life = src.occupant.stat
+			src.occupant.stat = 2
 	return
 
 /obj/structure/freezedmob/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -204,25 +218,24 @@ proc/freezemob(mob/M as mob in world)
 	I.name = "Ice statue"
 	I.desc = text("You can hardly recognize [] under the layer of ice", M.name)
 	I.dir = M.dir
+	M.silent = 1
 	if (M.lying)
 		I.density = 0
 	if (ishuman(M))
 		var/mob/living/carbon/human/the_man = M
-		var/icon/frozen_img = new/icon(M.icon, M.icon_state, I.dir)
+		//var/icon/frozen_img = new/icon("icon" = 'empty', "icon_state" = "eyes_l", I.dir, 1)
+		var/icon/frozen_img = new/icon(M.icon, M.icon_state, null, 1)
 		frozen_img.Blend("#6495ED",ICON_MULTIPLY)
 		frozen_img.SetIntensity(1.4)
 		for (var/image/block in the_man.get_overlays(M.lying))
-			var/icon/temp = new/icon(block.icon, block.icon_state, I.dir)
+			var/icon/temp = new/icon(block.icon, block.icon_state, null, 1)
 			temp.Blend("#6495ED",ICON_MULTIPLY)
 			temp.SetIntensity(1.4)
 			frozen_img.Blend(temp, ICON_OVERLAY)
 		I.icon = frozen_img
 	else
 		var/icon/overlay
-		if(istype(M, /mob/living/carbon/metroid))
-			overlay = new/icon(M.icon, M.icon_state)
-		else
-			overlay = new/icon(M.icon, M.icon_state, I.dir)
+		overlay = new/icon(M.icon, M.icon_state, null, 1)
 		overlay.Blend("#6495ED",ICON_MULTIPLY)
 		overlay.SetIntensity(1.4)
 		I.icon = overlay

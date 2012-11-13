@@ -172,7 +172,7 @@ datum
 			name = "Virus Food"
 			id = "virusfood"
 			result = "virusfood"
-			required_reagents = list("water" = 1, "carbon" = 1)
+			required_reagents = list("water" = 1, "milk" = 1)
 			result_amount = 5
 
 		leporazine
@@ -287,7 +287,7 @@ datum
 			name = "ethanoloxidation"	//Kind of a placeholder in case someone ever changes it so that chemicals
 			id = "ethanoloxidation"		//	react in the body. Also it would be silly if it didn't exist.
 			result = "water"
-			required_reagents = list("ethylredoxrazine" = 1, "milk" = 1)
+			required_reagents = list("ethylredoxrazine" = 1, "ethanol" = 1)
 			result_amount = 2
 
 		glycerol
@@ -420,7 +420,7 @@ datum
 			name = "Chloral Hydrate"
 			id = "chloralhydrate"
 			result = "chloralhydrate"
-			required_reagents = list("milk" = 1, "chlorine" = 3, "water" = 1)
+			required_reagents = list("ethanol" = 1, "chlorine" = 3, "water" = 1)
 			result_amount = 1
 
 		zombiepowder
@@ -441,7 +441,7 @@ datum
 			name = "Lipozine"
 			id = "lipozine"
 			result = "lipozine"
-			required_reagents = list("sodiumchloride" = 1, "milk" = 1, "radium" = 1)
+			required_reagents = list("sodiumchloride" = 1, "ethanol" = 1, "radium" = 1)
 			result_amount = 3
 
 		accumulator
@@ -553,7 +553,7 @@ datum
 			name = "Diethylamine"
 			id = "diethylamine"
 			result = "diethylamine"
-			required_reagents = list ("ammonia" = 1, "milk" = 1)
+			required_reagents = list ("ammonia" = 1, "ethanol" = 1)
 			result_amount = 2
 
 		space_cleaner

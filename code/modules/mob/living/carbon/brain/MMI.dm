@@ -18,6 +18,7 @@
 
 	var/locked = 0
 	var/mob/living/carbon/brain/brainmob = null//The current occupant.
+//	brainmob.stat = 0
 	var/mob/living/silicon/robot = null//Appears unused.
 	var/obj/mecha = null//This does not appear to be used outside of reference in mecha.dm.
 
@@ -77,6 +78,7 @@
 			brainmob.loc = brain//Throw mob into brain.
 			brain.brainmob = brainmob//Set the brain to use the brainmob
 			brainmob.verbs += /mob/proc/ghost
+			brainmob.stat = 2
 			brainmob = null//Set mmi brainmob var to null
 
 			icon_state = "mmi_empty"
@@ -90,6 +92,7 @@
 			brainmob.dna = H.dna
 			brainmob.container = src
 			brainmob.verbs -= /mob/proc/ghost
+			brainmob.stat = 0
 
 			name = "Man-Machine Interface: [brainmob.real_name]"
 			icon_state = "mmi_full"
