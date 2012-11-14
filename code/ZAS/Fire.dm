@@ -232,7 +232,7 @@ obj/liquid_fuel
 
 	proc/Spread()
 		//Allows liquid fuels to sometimes flow into other tiles.
-		if(amount < 0.5) return
+		if(amount < 2) return
 		var/turf/simulated/S = loc
 		if(!istype(S)) return
 		for(var/d in cardinal)
@@ -376,5 +376,9 @@ datum/gas_mixture/proc/calculate_firelevel(obj/liquid_fuel/liquid)
 	apply_damage(0.6*mx*legs_exposure, BURN, "r_leg", 0, 0, "Fire")
 	apply_damage(0.4*mx*arms_exposure, BURN, "l_arm", 0, 0, "Fire")
 	apply_damage(0.4*mx*arms_exposure, BURN, "r_arm", 0, 0, "Fire")
+
+	if(getFireLoss() > 300)
+		new /obj/effect/decal/ash(loc)
+		del(src)
 
 	flash_pain()
