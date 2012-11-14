@@ -4079,6 +4079,15 @@ obj/item/weapon/reagent_containers/glass/bottle/cyanide
 		..()
 		reagents.add_reagent("ethanol", 30)
 
+/obj/item/weapon/reagent_containers/glass/bottle/freezer
+	name = "Ice cold bottle"
+	desc = "A small bottle of Liquid Vacuum. Bottle hopes that you are not physisist"
+	icon = 'chemical.dmi'
+	icon_state = "bottle20"
+
+	New()
+		..()
+		reagents.add_reagent("freezer", 30)
 var/blood_type = "A"
 
 /obj/item/weapon/reagent_containers/glass/bottle/blooda

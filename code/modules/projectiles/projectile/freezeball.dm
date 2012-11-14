@@ -126,9 +126,14 @@ obj/item/weapon/gun/energy/freezegun
 
 
 /obj/structure/freezedmob/bullet_act(var/obj/item/projectile/Proj)
-	health -= Proj.damage
-	..()
-	src.healthcheck()
+	if(Proj.damage_type == BURN)
+		ice -= Proj.damage
+		..()
+		src.icecheck()
+	else
+		health -= Proj.damage
+		..()
+		src.healthcheck()
 	return
 
 
@@ -170,17 +175,33 @@ obj/item/weapon/gun/energy/freezegun
 		M.canmove = 1
 		M.weakened = 2
 		M.freezed = 0
+		M.verbs -= /mob/proc/ghost
 		M.stat = src.sighn_of_life
 		M.bodytemperature = 250
 		M.silent = 0
+		if(M.stat != 2)
+			if (!M.client)
+				for(var/mob/dead/observer/ghost in world)
+					if(ghost.corpse == M && ghost.client)
+						ghost.cancel_camera()
+						ghost.reenter_corpse()
+						break
 		for(var/obj/item/I in src)
 			I.loc = src.loc
 		src.occupant << "Thanks god, ice finally melted"
 		del(src)
 	else
 		if(src.ice > 200)
-
-			src.occupant.stat = 2
+			if(src.occupant.stat != 2)
+				if(src.occupant.key)
+					var/mob/dead/observer/ghost = new(src)
+					ghost.key = src.occupant.key
+					ghost.corpse = src.occupant
+					if(src.occupant.timeofdeath)
+						ghost.timeofdeath = src.occupant.timeofdeath
+					if (ghost.client)
+						ghost.client.eye = ghost
+				src.occupant.stat = 2
 			src.ice = 200
 	return
 
@@ -227,16 +248,18 @@ proc/freezemob(mob/M as mob in world)
 		var/mob/living/carbon/human/the_man = M
 		//var/icon/frozen_img = new/icon("icon" = 'empty', "icon_state" = "eyes_l", I.dir, 1)
 		var/icon/frozen_img = new/icon(M.icon, M.icon_state, null, 1)
-		frozen_img.Blend("#6495ED",ICON_MULTIPLY)
-		frozen_img.SetIntensity(1.4)
 		for (var/image/block in the_man.get_overlays(M.lying))
 			var/icon/temp = new/icon(block.icon)
-			for(var/a in temp.IconStates())
-				if((a == block.icon_state) || length(text("[]", block.icon)) < 4) //Time to laugh at me.
-					temp = icon(block.icon, block.icon_state, null, 1)
-					temp.Blend("#6495ED",ICON_MULTIPLY)
-					temp.SetIntensity(1.4)
-					frozen_img.Blend(temp, ICON_OVERLAY)
+			if(length(text("[]", block.icon)) < 4)
+				frozen_img.Blend(icon(block.icon, block.icon_state, null, 1), ICON_OVERLAY)
+			else
+				for(var/a in temp.IconStates())
+					if((a == block.icon_state)) //Time to laugh at me.
+						//temp = icon(block.icon, block.icon_state, null, 1)
+						frozen_img.Blend(icon(block.icon, block.icon_state, null, 1), ICON_OVERLAY)
+						break
+		frozen_img.Blend("#6495ED",ICON_MULTIPLY)
+		frozen_img.SetIntensity(1.4)
 		I.icon = frozen_img
 
 	else

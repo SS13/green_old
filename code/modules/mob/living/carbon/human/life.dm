@@ -15,6 +15,7 @@
 	var/holdbreath = 0
 	var/lyingcheck = 0
 	var/buckle_check = 0
+	var/death_tick = 0
 
 /mob/living/carbon/human/Life()
 	set invisibility = 0
@@ -42,6 +43,20 @@
 		if(!lying && !buckled)
 			lying = 1
 			update_clothing()
+		death_tick++
+		if(death_tick > 10)
+			death_tick = 0
+			var/turf/location = src.loc //optimisation shit
+			if(istype(location, /turf/space))
+				freezemob(src)
+			else if(istype(location, /turf/simulated))
+				var/datum/gas_mixture/environment = location.return_air()
+				if(environment.temperature < 100)
+					freezemob(src)
+				else if(environment.temperature > 1000)
+					new /obj/effect/decal/ash(loc)
+					del(src)
+
 		return
 
 	life_tick++
@@ -639,7 +654,7 @@
 			//as that may be realistic but it's no fun
 			if((bodytemperature > (T0C + 50)) || (bodytemperature < (T0C + 10)) && (!istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))) // Last bit is just disgusting, i know
 				if(environment.temperature > (T0C + 50) || (environment.temperature < (T0C + 10)))
-					if((environment.temperature < 100) && (bodytemperature < 110))
+					if((environment.temperature < 100) && (bodytemperature < 130))
 						freezemob(src)
 					var/transfer_coefficient
 
