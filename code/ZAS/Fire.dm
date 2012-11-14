@@ -239,6 +239,8 @@ obj/liquid_fuel
 			if(S.air_check_directions & d)
 				if(rand(25))
 					var/turf/simulated/O = get_step(src,d)
+					for(var/obj.block in O)
+						if(block.density) break
 					if(!locate(/obj/liquid_fuel) in O)
 						new/obj/liquid_fuel(O,amount*0.25)
 						amount *= 0.75
@@ -284,7 +286,7 @@ datum/gas_mixture/proc/zburn(obj/liquid_fuel/liquid)
 
 		if(liquid)
 		//Liquid Fuel
-			if(liquid.amount <= 0)
+			if(liquid.amount <= 1) // so small amount of fuel cause infinite burning, so lets ignore it if amount less than 1
 				del liquid
 			else
 				total_fuel += liquid.amount
@@ -320,7 +322,7 @@ datum/gas_mixture/proc/zburn(obj/liquid_fuel/liquid)
 
 			if(liquid)
 				liquid.amount -= consumed_gas
-				if(liquid.amount <= 0) del liquid
+				if(liquid.amount <= 1) del liquid
 
 			update_values()
 			return consumed_gas*fuel_sources
