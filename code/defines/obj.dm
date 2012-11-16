@@ -918,6 +918,8 @@
 /obj/structure/stool/bed/chair/comfy/teal
 	icon_state = "comfychair_teal"
 
+
+
 /obj/structure/stool/bed/chair/office
 	anchored = 0
 

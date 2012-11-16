@@ -135,6 +135,7 @@
 
 /client/Move(n, direct)
 
+
 	if(mob.control_object)	Move_object(direct)
 
 	if(isobserver(mob))	return mob.Move(n,direct)
@@ -161,6 +162,15 @@
 		return
 
 	if(Process_Grab())	return
+
+
+
+	if(mob.buckled)
+		var/atom/O = mob.buckled
+		if(O == "Pilot's chair")
+			world << "yes it is"
+		return O.relaymove(mob, direct)
+
 	if(!mob.canmove)	return
 
 

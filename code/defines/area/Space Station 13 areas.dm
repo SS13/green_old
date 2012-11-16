@@ -131,6 +131,19 @@ proc/process_ghost_teleport_locs()
 	luminosity = 1
 	ul_Lighting = 0
 
+/area/shuttle/spaceship
+	name = "\improper Space Ship"
+	icon_state = "shuttle"
+	luminosity = 0
+
+/area/shuttle/spaceship/target
+	name = "\improper Space Ship"
+	icon_state = "shuttle"
+
+/area/shuttle/spaceship/init
+	name = "\improper Space Ship"
+	icon_state = "shuttle"
+
 /area/shuttle/arrival
 	name = "\improper Arrival Shuttle"
 
