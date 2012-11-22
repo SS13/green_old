@@ -195,6 +195,7 @@
 			seeprayers = 1
 
 			verbs += /obj/admins/proc/view_txt_log
+			verbs += /obj/admins/proc/view_ban_log
 			verbs += /obj/admins/proc/view_atk_log
 			verbs += /obj/admins/proc/toggleaban						//abandon mob
 			verbs += /obj/admins/proc/show_traitor_panel
@@ -349,6 +350,7 @@
 	verbs -= /obj/admins/proc/toggle_space_ninja						//toggle ninjas
 	verbs -= /obj/admins/proc/adjump
 	verbs -= /obj/admins/proc/view_txt_log
+	verbs -= /obj/admins/proc/view_ban_log
 	verbs -= /obj/admins/proc/view_atk_log
 	verbs -= /obj/admins/proc/spawn_atom
 	verbs -= /obj/admins/proc/adrev										//toggle admin revives

@@ -79,7 +79,7 @@ DEBUG
 
 
 /proc/ban_unban_log_save(var/formatted_log)
-	text2file(formatted_log,"data/ban_unban_log.txt")
+	text2file(formatted_log,"data/ban_log.txt")
 
 
 /proc/jobban_updatelegacybans()
