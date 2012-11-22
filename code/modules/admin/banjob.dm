@@ -80,6 +80,8 @@ DEBUG
 
 /proc/ban_unban_log_save(var/formatted_log)
 	text2file(formatted_log,"data/ban_log.txt")
+	var/savefile/S=new("data/ban_unban_log.txt")
+	S << formatted_log
 
 
 /proc/jobban_updatelegacybans()
