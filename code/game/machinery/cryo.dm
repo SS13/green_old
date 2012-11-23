@@ -161,8 +161,8 @@
 			if(occupant)
 				if(occupant.stat == 2)
 					return
-				occupant.bodytemperature += 2*(air_contents.temperature - occupant.bodytemperature)*current_heat_capacity/(current_heat_capacity + air_contents.heat_capacity())
-				occupant.bodytemperature = max(occupant.bodytemperature, air_contents.temperature) // this is so ugly i'm sorry for doing it i'll fix it later i promise
+				occupant.bodytemperature += (air_contents.temperature - occupant.bodytemperature)/5   //*current_heat_capacity/(current_heat_capacity + air_contents.heat_capacity())
+				//occupant.bodytemperature = max(occupant.bodytemperature, air_contents.temperature) // this is so ugly i'm sorry for doing it i'll fix it later i promise
 				occupant.stat = 1
 				if(occupant.bodytemperature < T0C)
 					occupant.sleeping = max(5, (1/occupant.bodytemperature)*2000)
