@@ -628,6 +628,8 @@
 		handle_environment(datum/gas_mixture/environment)
 			if(!environment)
 				return
+			if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
+				return
 			var/environment_heat_capacity = environment.heat_capacity()
 			var/loc_temp = T0C
 			if(istype(loc, /turf/space))
