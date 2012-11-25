@@ -319,7 +319,7 @@ Release Pressure: <A href='?src=\ref[src];pressure_adj=-1000'>-</A> <A href='?sr
 /obj/machinery/portable_atmospherics/canister/sleeping_agent/roomfiller/New()
 	..()
 	var/datum/gas/sleeping_agent/trace_gas = air_contents.trace_gases[1]
-	trace_gas.moles = 9*4000
+	trace_gas.moles = 9*40000
 	spawn(10)
 		var/turf/simulated/location = src.loc
 		if (istype(src.loc))
