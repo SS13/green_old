@@ -821,6 +821,7 @@
 #include "code\js\byjax.dm"
 #include "code\js\menus.dm"
 #include "code\kriegcode\spaceship.dm"
+#include "code\kriegcode\unbanlog.dm"
 #include "code\modules\admin\admin.dm"
 #include "code\modules\admin\admin_investigate.dm"
 #include "code\modules\admin\admin_memo.dm"
