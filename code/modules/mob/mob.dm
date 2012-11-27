@@ -640,8 +640,8 @@ note dizziness decrements automatically in the mob's Life() proc.
 	return
 
 /mob/proc/AdjustStunned(amount)
-	if(canstun)
-		stunned = max(stunned + amount,0)
+//	if(canstun)
+	stunned = max(stunned + amount,0)
 //		if(stunned)
 //			createGeas()
 	return
@@ -661,8 +661,8 @@ note dizziness decrements automatically in the mob's Life() proc.
 	return
 
 /mob/proc/AdjustWeakened(amount)
-	if(canweaken)
-		weakened = max(weakened + amount,0)
+//	if(canweaken)
+	weakened = max(weakened + amount,0)
 //		if(weakened)
 //			createGeas()
 	return
