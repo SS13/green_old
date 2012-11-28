@@ -89,6 +89,61 @@
 obj/item/weapon/organ
 	icon = 'human.dmi'
 
+	var/bites = 3
+
+
+/////////eating copy-pasta///////////////
+
+	attack(mob/M as mob, mob/user as mob, def_zone)
+		if(istype(M, /mob/living))
+			if(M == user)								//If you're eating it yourself.
+				var/fullness = M.nutrition
+				if (fullness <= 50)
+					M << "\red You hungrily chew out a piece of [src] and gobble it!"
+				if (fullness > 50 && fullness <= 150)
+					M << "\blue You hungrily begin to eat [src]."
+				if (fullness > 150 && fullness <= 350)
+					M << "\blue You take a bite of [src]."
+				if (fullness > 350 && fullness <= 550)
+					M << "\blue You unwillingly chew a bit of [src]."
+				if (fullness > (550 * (1 + M.overeatduration / 2000)))	// The more you eat - the more you can eat
+					M << "\red You cannot force any more of [src] to go down your throat."
+					return 0
+			else
+				if(!istype(M, /mob/living/carbon/metroid))		//If you're feeding it to someone else.
+					var/fullness = M.nutrition
+					if (fullness <= (550 * (1 + M.overeatduration / 1000)))
+						for(var/mob/O in viewers(world.view, user))
+							O.show_message("\red [user] attempts to feed [M] [src].", 1)
+					else
+						for(var/mob/O in viewers(world.view, user))
+							O.show_message("\red [user] cannot force anymore of [src] down [M]'s throat.", 1)
+							return 0
+
+					if(!do_mob(user, M)) return
+
+					M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been fed [src.name] by [user.name] ([user.ckey]) Reagents: \ref[reagents]</font>")
+					user.attack_log += text("\[[time_stamp()]\] <font color='red'>Fed [M.name] by [M.name] ([M.ckey]) Reagents: \ref[reagents]</font>")
+
+
+					log_attack("<font color='red'>[user.name] ([user.ckey]) fed [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>")
+
+					for(var/mob/O in viewers(world.view, user))
+						O.show_message("\red [user] feeds [M] [src].", 1)
+
+				else
+					user << "This creature does not seem to have a mouth!"
+					return
+			bites--
+			playsound(M.loc, 'eatfood.ogg', rand(10,50), 1)
+			M.nutrition += 10
+			if(bites == 0)
+				if(M == user) user << "\red You finish eating [src]."
+				else user << "\red [M] finishes eating [src]."
+				del(src)
+
+			return 1
+
 obj/item/weapon/organ/New(loc, mob/living/carbon/human/H)
 	..(loc)
 	if(!istype(H))
@@ -111,6 +166,7 @@ obj/item/weapon/organ/head
 	icon_state = "head_m_l"
 	var/mob/living/carbon/brain/brainmob
 	var/brain_op_stage = 0
+	bites = 6
 
 obj/item/weapon/organ/head/New()
 	..()
