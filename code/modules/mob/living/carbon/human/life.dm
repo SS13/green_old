@@ -430,14 +430,6 @@
 				//First, check for air from internal atmosphere (using an air tank and mask generally)
 				breath = get_breath_from_internal(BREATH_VOLUME) // Super hacky -- TLE
 				//breath = get_breath_from_internal(0.5) // Manually setting to old BREATH_VOLUME amount -- TLE
-				//If breathe from internal check for local pressure and rig equipement if it is needed.
-				if (breath)
-					var/datum/gas_mixture/air=loc.return_air();
-					if (air.return_pressure() < 50)
-						if (!istype(head,/obj/item/clothing/head/helmet/space) || !istype(wear_suit,/obj/item/clothing/suit/space) )
-							u_equip(wear_mask)
-							src << "\red The mask is blown away by pressure difference!"
-
 				//No breath from internal atmosphere so get breath from location
 				if(!breath)
 					if(istype(loc, /obj/))
