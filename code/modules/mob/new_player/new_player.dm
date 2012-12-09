@@ -374,7 +374,7 @@
 	proc/create_character()
 		spawning = 1
 		var/mob/living/carbon/human/new_character //	var/path/to/object/varname
-		if((preferences.species == "Tajaran"&& (is_alien_whitelisted(src, "Tajaran"))))
+		if((preferences.species == "Tajaran") && (is_alien_whitelisted(src, "Tajaran")))
 			new_character = new /mob/living/carbon/human/tajaran(loc)	//	varname = new /path/to/object(location_to_spawn_at)
 		else 
 			new_character = new /mob/living/carbon/human(loc)
