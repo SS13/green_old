@@ -374,9 +374,10 @@
 	proc/create_character()
 		spawning = 1
 		var/mob/living/carbon/human/new_character //	var/path/to/object/varname
-		if((preferences.species == "Tajaran"))	//	&& (is_alien_whitelisted(src, "Tajaran")) deleted
+		if((preferences.species == "Tajaran"&& (is_alien_whitelisted(src, "Tajaran"))))
 			new_character = new /mob/living/carbon/human/tajaran(loc)	//	varname = new /path/to/object(location_to_spawn_at)
-		  						//else new_character = new /mob/living/carbon/human(loc) deleted
+		else 
+			new_character = new /mob/living/carbon/human(loc)
 		new_character.lastarea = get_area(loc)
 
 		close_spawn_windows()
@@ -387,11 +388,11 @@
 			preferences.randomize_appearance_for(new_character)
 		else
 			preferences.copy_to(new_character)
-			if((preferences.species == "Soghun")) //This probably shouldn't be here, but I can't think of any other way	&	 && (is_alien_whitelisted(src, "Soghun")) deleted
+			if((preferences.species == "Soghun") && (is_alien_whitelisted(src, "Soghun"))) //This probably shouldn't be here, but I can't think of any other way	&	 && (is_alien_whitelisted(src, "Soghun")) deleted
 				new_character.mutantrace = "lizard"
 				new_character.soghun_talk_understand = 1
 				new_character.voice_name = "Soghun"
-			if((preferences.species == "Skrell"))	//	 && (is_alien_whitelisted(src, "Skrell")) deleted
+			if((preferences.species == "Soghun") && (is_alien_whitelisted(src, "Soghun")))
 				new_character.mutantrace = "skrell"
 				new_character.skrell_talk_understand = 1
 				new_character.voice_name = "Skrell"
