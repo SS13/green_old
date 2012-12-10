@@ -1,4 +1,6 @@
 #define QUANTIZE(variable)		(round(variable,0.0001))
+
+
 zone/proc/process()
 	. = 1
 
@@ -82,15 +84,88 @@ zone/proc/process()
 				if(C.A.zone.air.compare(C.B.zone.air) || total_space)
 					ZMerge(C.A.zone,C.B.zone)
 
-		//Share some
+		ShareRequired = 0
+		//Share test
 		for(var/zone/Z in connected_zones)
 			//Ensure we're not doing pointless calculations on equilibrium zones.
 			if(abs(air.total_moles - Z.air.total_moles) > 0.1 || abs(air.temperature - Z.air.temperature) > 0.1)
 				if(abs(Z.air.return_pressure() - air.return_pressure()) > vsc.airflow_lightest_pressure)
 					Airflow(src,Z)
 				ShareRatio( air , Z.air , connected_zones[Z]*vsc.zone_share_percent/200 )
+				ShareRequired = 1
 				//Divided by 200 since each zone is processed.  Each connection is considered twice
 				//Space tiles force it to try and move twice as much air.
+
+zone/proc/GroupShare()
+	var/list/Cluster = new/list()
+	ShareRequired = 0
+	Cluster += src
+	Cluster = JoinCluster(Cluster)
+
+	var/oxy = 0
+	var/nitro = 0
+	var/co2 = 0
+	var/plasma = 0
+	var/size = 0
+	var/heat = 0
+	var/heatcapacity = 0
+	var/list/traceavg = new/list()
+
+	for (var/zone/Z in Cluster)
+		var/zsize = max(1,Z.air.group_multiplier)
+		oxy += Z.air.oxygen*zsize
+		nitro += Z.air.nitrogen*zsize
+		co2 += Z.air.carbon_dioxide*zsize
+		plasma += Z.air.toxins*zsize
+		heat += Z.air.temperature*Z.air.heat_capacity()*zsize
+		heatcapacity += Z.air.heat_capacity()*zsize
+		size += zsize
+		for (var/datum/gas/G in Z.air.trace_gases)
+			var/datum/gas/avgG = locate(G.type) in traceavg
+			if (avgG)
+				avgG.moles += G.moles*zsize
+			else
+				avgG = new G.type
+				avgG.moles += G.moles*zsize
+				traceavg += avgG
+
+	oxy /= size
+	nitro /= size
+	plasma /= size
+	co2 /= size
+	heat /= heatcapacity //now it is actually an average temperature.
+	for (var/datum/gas/G in traceavg)
+		G.moles /= size
+
+	//Each 40 tiles of Cluster size increase the convection process length by 100%
+	var/ratio=vsc.zone_share_percent/(100+size*2.5)
+
+	for (var/zone/Z in Cluster)
+		Z.air.oxygen = (Z.air.oxygen - oxy) * (1-ratio) + oxy
+		Z.air.nitrogen = (Z.air.nitrogen - nitro) * (1-ratio) + nitro
+		Z.air.carbon_dioxide = (Z.air.carbon_dioxide - co2) * (1-ratio) + co2
+		Z.air.toxins = (Z.air.toxins - plasma) * (1-ratio) + plasma
+		Z.air.temperature = (Z.air.temperature - heat) * (1-ratio) + heat
+		for (var/datum/gas/G in Z.air.trace_gases)
+			var/datum/gas/avgG = locate(G.type) in traceavg
+			if (avgG)
+				G.moles = (G.moles - avgG.moles)*(1-ratio) + avgG.moles
+
+	for (var/zone/Z in Cluster)
+		ShareRequired = 0
+		Z.air.update_values()
+
+
+
+//Iteratively get all connected zones
+zone/proc/JoinCluster(var/list/Cluster)
+	for(var/zone/Z in connected_zones)
+		if (!(Z in Cluster))
+			Cluster += Z
+			Cluster = Z.JoinCluster(Cluster)
+	return Cluster
+
+
 
 proc/ShareRatio(datum/gas_mixture/A, datum/gas_mixture/B, ratio)
 	//Shares a specific ratio of gas between mixtures using simple weighted averages.

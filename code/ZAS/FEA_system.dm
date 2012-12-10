@@ -192,6 +192,10 @@ datum
 						if(. && Z && !output)
 							. = 0
 
+				for(var/zone/Z in zones)
+					if(Z.ShareRequired)
+						Z.GroupShare()
+
 				for(var/obj/fire/F in active_hotspots)
 					var/output = F.process()
 					if(. && F && !output)
