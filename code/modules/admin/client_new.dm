@@ -15,13 +15,13 @@
 	var/isbanned = CheckBan(src)
 	if (isbanned)
 		log_access("Failed Login: [src] - Banned")
-		message_admins("\blue Failed Login: [src] - Banned")
+		//message_admins("\blue Failed Login: [src] - Banned")
 		src << "<font color=red>You have been banned.</font><br>Reason : [isbanned]"
 		del(src)
 
 	if (!guests_allowed && IsGuestKey(key))
 		log_access("Failed Login: [src] - Guests not allowed")
-		message_admins("\blue Failed Login: [src] - Guests not allowed")
+		//message_admins("\blue Failed Login: [src] - Guests not allowed")
 		src << "<font color=red>You cannot play here.</font><br>Reason : Guests not allowed"
 		del(src)
 

@@ -6,7 +6,7 @@ world/IsBanned(key,address,computer_id)
 	//Guest Checking
 	if(IsGuestKey(key))
 		log_access("Failed Login: [key] - Guests not allowed")
-		message_admins("\blue Failed Login: [key] - Guests not allowed")
+		//message_admins("\blue Failed Login: [key] - Guests not allowed")
 		return list("reason"="guest", "desc"="\nReason: Guests not allowed.brb")
 
 	//whitelist
@@ -17,7 +17,7 @@ world/IsBanned(key,address,computer_id)
 	. = CheckBan( ckey(key), computer_id, address )
 	if(.)
 		log_access("Failed Login: [key] [computer_id] [address] - Banned [.["reason"]]")
-		message_admins("\blue Failed Login: [key] id:[computer_id] ip:[address] - Banned [.["reason"]]")
+		//message_admins("\blue Failed Login: [key] id:[computer_id] ip:[address] - Banned [.["reason"]]")
 		return .
 
 	return ..()	//default pager ban stuff
