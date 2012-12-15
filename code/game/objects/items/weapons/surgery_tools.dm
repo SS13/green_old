@@ -304,7 +304,7 @@ CIRCULAR SAW
 
 	var/mob/living/carbon/human/H = M
 	var/datum/organ/external/S = H.organs[user.zone_sel.selecting]
-	if(isnull(S))
+	if(isnull(S) && (user.zone_sel.selecting != "eyes" && user.zone_sel.selecting != "mouth"))
 		CRASH("External organ S is null in surgery_tools.dm")
 
 	if(((user.zone_sel.selecting == "l_arm") || (user.zone_sel.selecting == "r_arm") || (user.zone_sel.selecting == "l_leg") || (user.zone_sel.selecting == "r_leg")) & (istype(M, /mob/living/carbon/human)))
@@ -507,7 +507,7 @@ CIRCULAR SAW
 
 						M.face_op_stage = 2.0
 
-						S.status &= ~ORGAN_BLEEDING
+						//S.status &= ~ORGAN_BLEEDING
 						M.updatehealth()
 						M.UpdateDamageIcon()
 						return
