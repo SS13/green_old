@@ -1,0 +1,5 @@
+"The Emergency Shuttle Centcom",21.8366,82.1472,0,0,293.15,7500
+"The Security Checkpoint",21.8366,82.1472,0,0,293.15,52500
+"The Xenobiology Lab",21.8366,82.1472,0,0,293.15,70000
+"Med-Sci Maintenance",0.0203983,0.0767366,0,0,293.065,7500
+"Mining station EVA",21.8366,82.1472,0,0,293.15,2500

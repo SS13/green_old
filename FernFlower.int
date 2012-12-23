@@ -1,0 +1,12 @@
+// BEGIN_INTERNALS
+/*
+MAP_ICON_TYPE: 0
+WINDOW: icons\obj\objects.dmi;code\defines\mob\living\living.dm;code\modules\mob\living\living_defines.dm;code\modules\mob\simple_animal\hostile\hostile.dm;code\modules\mob\simple_animal\hostile\tree.dm;code\modules\mob\living\logout.dm;icons\obj\flora\pinetrees.dmi;icons\obj\flora\deadtrees.dmi;code\modules\mob\living\login.dm;code\modules\mob\simple_animal\mouse.dm;code\modules\mob\simple_animal\bear.dm;maps\tgstation.2.0.8 (test).dmm
+LAST_COMPILE_VERSION: 496.1144
+UPDATE_OBJ_TREE: ON
+DIR: code code\defines code\defines\mob code\defines\mob\living code\game code\game\machinery\pipe code\game\objects code\modules code\modules\mob code\modules\mob\living code\modules\mob\simple_animal code\modules\mob\simple_animal\hostile code\modules\power\singularity\particle_accelerator icons icons\obj icons\obj\flora maps maps\WIP 
+FILE: maps\tgstation.2.0.8 (test).dmm
+LAST_COMPILE_TIME: 1356266264
+AUTO_FILE_DIR: ON
+*/
+// END_INTERNALS

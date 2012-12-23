@@ -370,3 +370,11 @@
 	icon_state = "puddle-splash"
 	..()
 	icon_state = "puddle"
+
+/obj/structure/parasha
+	name = "parasha"
+	desc = "For real cock."
+	icon = 'watercloset.dmi'
+	icon_state = "parasha"
+	density = 0
+	anchored = 1

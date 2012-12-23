@@ -1,0 +1,6 @@
+"North Mining Outpost",21.8366,82.1472,0,0,293.15,40000
+"Genetics",21.8125,82.0565,0,0,293.15,70000
+"The Supermatter Engine",21.8366,82.1472,0,0,293.15,2500
+"Social Mainteance",21.8366,82.1472,0,0,293.15,5000
+"The Centcom Emergency Shuttle",0.01,0.01,0,0,2.7,7500
+"The Server Room",5.47674,163.921,0,0,179.47,37500
