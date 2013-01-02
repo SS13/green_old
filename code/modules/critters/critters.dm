@@ -134,6 +134,7 @@
 /obj/effect/critter/spesscarp
 	name = "Spess Carp"
 	desc = "A ferocious, fang-bearing creature that resembles a fish."
+	icon = 'critter.dmi'
 	icon_state = "spesscarp"
 	health = 100
 	max_health = 100

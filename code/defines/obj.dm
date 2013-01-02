@@ -875,6 +875,11 @@
 	desc = "This is used to lie in, sleep in or strap on"
 	icon_state = "woodbed"
 
+/obj/structure/stool/bed/bedbordel
+	name = "bordel bed"
+	desc = "This is used to lie in, sleep in or strap on"
+	icon_state = "bedbordel"
+
 
 /obj/structure/stool/bed/chair	//YES, chairs are a type of bed, which are a type of stool. This works, believe me.	-Pete
 	name = "chair"
@@ -1159,6 +1164,16 @@
 	desc = "A version of the four legged table. It is stronger."
 	icon_state = "reinf_table"
 	var/status = 2
+
+/obj/structure/red_table
+	name = "red table"
+	desc = "Lovely. Red."
+	icon = 'structures.dmi'
+	icon_state = "red_table"
+	density = 1
+	anchored = 1.0
+	layer = 2.8
+	var/dented = 0
 
 /obj/structure/altar/
 	name = "Church Altar"

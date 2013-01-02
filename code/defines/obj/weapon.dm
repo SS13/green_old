@@ -580,6 +580,10 @@
 	icon_state = "prisonsheet"
 	color = "prisonsheet"
 
+/obj/item/weapon/bedsheet/lovesheet
+	icon_state = "lovesheet"
+	color = "lovesheet"
+
 /obj/item/weapon/bikehorn
 	name = "bike horn"
 	desc = "A horn off of a bicycle."
