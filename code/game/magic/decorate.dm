@@ -2,7 +2,7 @@
 	name = "clock"
 	icon = 'decorate.dmi'
 	icon_state = "clock"
-	anchored = 1
+	anchored = 0
 	density = 1
 	opacity = 1
 
@@ -23,7 +23,7 @@
 	opacity = 0
 
 /obj/decorate/scarry2
-	name = "gibbed man"
+	name = "bloody air pump"
 	icon = 'decorate.dmi'
 	icon_state = "scarry2"
 	anchored = 1
