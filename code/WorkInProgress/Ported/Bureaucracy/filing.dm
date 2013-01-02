@@ -4,7 +4,7 @@
 	icon = 'bureaucracy.dmi'
 	icon_state = "filingcabinet"
 	density = 1
-	anchored = 1
+	anchored = 0
 
 /obj/structure/filingcabinet/attackby(obj/item/weapon/paper/P,mob/M)
 	if(istype(P))
