@@ -519,3 +519,28 @@
 	else
 		icon_state = "waterballoon-e"
 		item_state = "balloon-empty"
+
+/obj/item/toy/toygun
+	name = "toy gun"
+	desc = "Funny toy gun!"
+	icon = 'toy.dmi'
+	icon_state = "toygun1"
+	item_state = "toygun1"
+	var/active = 0.0
+	w_class = 2.0
+	flags = FPRINT | TABLEPASS | NOSHIELD
+	attack_verb = list("struck", "pistol whipped", "hit", "bashed")
+
+	attack_self(mob/user as mob)
+		src.active = !( src.active )
+		if (src.active)
+			playsound(user, 'Gunshot.ogg', 100, 1)
+			src.icon_state = "toygun2"
+			src.item_state = "toygun2"
+			src.w_class = 4
+		else
+			src.icon_state = "toygun1"
+			src.item_state = "toygun1"
+			src.w_class = 2
+		src.add_fingerprint(user)
+		return
