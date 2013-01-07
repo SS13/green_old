@@ -6,13 +6,6 @@
 	origin_tech = "combat=2;materials=2"
 	ammo_type = "/obj/item/ammo_casing/c38"
 
-	special_check(var/mob/living/carbon/human/M)
-		if(ishuman(M))
-			if(istype(M.w_uniform, /obj/item/clothing/under/det) && istype(M.head, /obj/item/clothing/head/det_hat) && istype(M.wear_suit, /obj/item/clothing/suit/storage/det_suit))
-				return 1
-			M << "\red You just don't feel cool enough to use this gun looking like that."
-		return 0
-		return 1
 
 	verb/rename_gun()
 		set name = "Name Gun"
