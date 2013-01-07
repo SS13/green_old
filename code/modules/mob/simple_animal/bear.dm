@@ -114,7 +114,7 @@
 				if(get_dist(src, target_mob) <= 1)	//Attacking
 					emote( pick( list("slashes at [target_mob]", "bites [target_mob]") ) )
 
-					var/damage = rand(20,30)
+					var/damage = rand(5,10)
 
 					if(ishuman(target_mob))
 						var/mob/living/carbon/human/H = target_mob

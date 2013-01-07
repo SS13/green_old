@@ -5,7 +5,7 @@
 	icon_state = "parrot"
 	icon_living = "parrot"
 	icon_dead = "parrot_dead"
-	speak = list("Hi","Hello!","Cracker?","BAWWWWK george mellons griffing me")
+	speak = list("Hi","Hello!","Cracker?","BAWWWWK morgan james griffing me", "no reson!")
 	speak_emote = list("squawks","says","yells")
 	emote_hear = list("squawks","bawks")
 	emote_see = list("flutters its wings", "glares at you")
@@ -89,3 +89,8 @@
 					src.ears = item_to_add
 	else
 		..()
+
+/mob/living/simple_animal/parrot/Move(var/dir)
+	..()
+	if(!stat)
+		flick("parrot_walk",src)

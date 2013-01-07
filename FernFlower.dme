@@ -1126,7 +1126,7 @@
 #include "code\modules\mob\simple_animal\rat.dm"
 #include "code\modules\mob\simple_animal\saturn.dm"
 #include "code\modules\mob\simple_animal\shade.dm"
-#include "code\modules\mob\simple_animal\wall-e.dm"
+#include "code\modules\mob\simple_animal\walle.dm"
 #include "code\modules\mob\simple_animal\worm.dm"
 #include "code\modules\mob\simple_animal\hostile\tree.dm"
 #include "code\modules\power\apc.dm"
