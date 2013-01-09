@@ -147,8 +147,12 @@
 	w_class = 3
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 
-	IsShield()
+/obj/item/weapon/katana/IsShield()
 		return 1
+
+/obj/item/weapon/katana/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+	playsound(loc, 'sound/weapons/bladeslice.ogg', 50, 1, -1)
+	return ..()
 
 /obj/item/weapon/bodybag
 	name = "body bag"
@@ -2280,3 +2284,43 @@ eternal248: Found broken and buggy Z-levels 7-12, ended up leading to my discove
 	descriptor = "molted blue"
 	color = "blue"
 	newDesc = "It has a faint bitter berry taste, but still is hard to stomach. Strangely crunchy."
+
+//obj/item/weapon/dualsaber
+//	icon_state = "dualsaber0"
+//	name = "double-bladed energy sword"
+//	desc = "Handle with care."
+//	force = 3
+//	throwforce = 5.0
+//	throw_speed = 1
+//	throw_range = 5
+//	w_class = 2.0
+//	force_unwielded = 3
+//	force_wielded = 30
+//	wieldsound = 'sound/weapons/saberon.ogg'
+//	unwieldsound = 'sound/weapons/saberoff.ogg'
+//	flags = FPRINT | TABLEPASS | NOSHIELD
+//	origin_tech = "magnets=3;syndicate=4"
+//	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+//
+///obj/item/weapon/dualsaber/update_icon()
+//	icon_state = "dualsaber[wielded]"
+//	return
+//
+//obj/item/weapon/dualsaber/IsShield()
+//	if(wielded)
+//		return 1
+//	else
+//		return 0
+
+/obj/item/weapon/melee/chain
+	name = "chain"
+	desc = "A tool used by great men to placate the frothing masses."
+	icon_state = "chain"
+	item_state = "chain"
+	flags = FPRINT | TABLEPASS | CONDUCT
+	slot_flags = SLOT_BELT
+	force = 10
+	throwforce = 7
+	w_class = 3
+	origin_tech = "combat=4"
+	attack_verb = list("flogged", "whipped", "lashed", "disciplined")

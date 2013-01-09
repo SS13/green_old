@@ -1167,7 +1167,7 @@
 
 /obj/structure/red_table
 	name = "red table"
-	desc = "Lovely. Red."
+	desc = "Lovely"
 	icon = 'structures.dmi'
 	icon_state = "red_table"
 	density = 1
