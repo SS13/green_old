@@ -34,12 +34,12 @@
 	icon_dead = "parrot_dead"
 	pass_flags = PASSTABLE
 
-	speak = list("Hi","Hello!","Cracker?","BAWWWWK george mellons griffing me")
+	speak = list("Hi","Hello!","Donut?","BAWWWWK morgan jaemes griffing me", "for no reasen!")
 	speak_emote = list("squawks","says","yells")
 	emote_hear = list("squawks","bawks")
 	emote_see = list("flutters its wings")
 
-	speak_chance = 1//1% (1 in 100) chance every tick; So about once per 150 seconds, assuming an average tick is 1.5s
+	speak_chance = 2//1% (1 in 100) chance every tick; So about once per 150 seconds, assuming an average tick is 1.5s
 	turns_per_move = 5
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/cracker/
 
@@ -664,6 +664,8 @@
 	src << "\red There is no perch nearby to sit on."
 	return
 
+
+
 /*
  * Sub-types
  */
@@ -676,3 +678,4 @@
 	ears = new /obj/item/device/radio/headset/headset_eng(src)
 	available_channels = list(":e")
 	..()
+
