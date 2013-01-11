@@ -2,7 +2,7 @@
 	name = "laser"
 	icon_state = "laser"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
-	damage = 40
+	damage = 20
 	damage_type = BURN
 	flag = "laser"
 	eyeblur = 4
@@ -61,7 +61,7 @@
 	name = "laser"
 	icon_state = "laser"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
-	damage = 40
+	damage = 20
 	damage_type = BURN
 	flag = "laser"
 	eyeblur = 4
