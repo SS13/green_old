@@ -135,7 +135,6 @@
 			verbs += /client/proc/mod_panel
 			verbs += /obj/admins/proc/toggleooc
 			verbs += /obj/admins/proc/toggleoocdead
-			verbs += /obj/admins/proc/show_player_panel
 			verbs += /client/proc/unban_panel
 			verbs += /client/proc/jobbans
 			verbs += /obj/admins/proc/votekill
