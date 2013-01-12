@@ -40,7 +40,7 @@
 				dat += "<font color=red>ERROR: SAFETY PROTOCOLS UNRESPONSIVE</font><BR>"
 			else if(issilicon(user) && (!emagged))
 				dat += "<A href='?src=\ref[src];AIrelock=1'>(<font color=red>Enable Safety Protocols?</font>)</A><BR>"
-			dat += "<A href='?src=\ref[src];burntest=1'>(<font color=red>Begin Atmospheric Burn Simulation</font>)</A><BR>"
+			dat += "<A href='?src=\ref[src];burntest=1'>(<font color=red>Begin Space Simulation</font>)</A><BR>"
 			dat += "Ensure the holodeck is empty before testing.<BR>"
 			dat += "<BR>"
 			dat += "<A href='?src=\ref[src];wildlifecarp=1'>(<font color=red>Begin Wildlife Simulation</font>)</A><BR>"
