@@ -20,7 +20,7 @@
 	//feedback_add_details("admin_verb","M") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 	for (var/mob/M in world)
-		if (M.client && M.client.holder && M.client.holder.level != 0) //Moderators cannot see it.
+		if (M.client && M.client.holder)
 			M << "<span class='adminobserver'><span class='prefix'>ADMIN:</span> <EM>[key_name(usr, M)]</EM> (<A HREF='?src=\ref[M.client.holder];adminplayerobservejump=\ref[mob]'>JMP</A>): <span class='message'>[msg]</span></span>"
 
 /client/proc/cmd_mod_say(msg as text)

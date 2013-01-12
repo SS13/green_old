@@ -131,10 +131,18 @@
 		else	return
 
 		if(holder.level == 0) //Moderators don't get asay, only msay
-			verbs -= /client/proc/cmd_admin_say
 			verbs -= /client/proc/investigate_show
-			verbs -= /client/proc/cmd_admin_gib_self
 			verbs += /client/proc/mod_panel
+			verbs += /obj/admins/proc/toggleooc
+			verbs += /obj/admins/proc/toggleoocdead
+			verbs += /obj/admins/proc/show_player_panel
+			verbs += /client/proc/unban_panel
+			verbs += /client/proc/jobbans
+			verbs += /obj/admins/proc/votekill
+			verbs += /client/proc/Jump
+			verbs += /client/proc/jumptokey
+			verbs += /client/proc/jumptomob
+			verbs += /client/proc/warn
 
 		//Temporary Admin
 		if (holder.level >= 1)
@@ -162,7 +170,7 @@
 			verbs += /obj/admins/proc/voteres 							//toggle votes
 			verbs += /obj/admins/proc/vmode
 			verbs += /obj/admins/proc/votekill
-			verbs += /client/proc/deadchat								//toggles deadchat
+			verbs += /client/proc/deadchat
 			//verbs += /client/proc/cmd_admin_mute	--was never used (according to stats trackind) - use show player panel --erro
 			verbs += /client/proc/dsay
 			verbs += /client/proc/game_panel
