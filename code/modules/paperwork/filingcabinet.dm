@@ -4,7 +4,7 @@
 	icon = 'bureaucracy.dmi'
 	icon_state = "filing_cabinet0"
 	density = 1
-	anchored = 1
+	anchored = 0
 	var/list/items = new/list()
 
 /obj/structure/filingcabinet/attackby(obj/item/P as obj, mob/user as mob)
