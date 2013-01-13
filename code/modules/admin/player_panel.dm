@@ -206,7 +206,8 @@
 
 			dat += {"<td><A HREF='?src=\ref[src];player_info=[M.ckey]'>[player_has_info(M.ckey) ? "Info" : "N/A"] </A></td>
 			<td><A href='?src=\ref[usr];priv_msg=\ref[M]'><b>PM</b></A> |
-			<A HREF='?src=\ref[src];adminplayerobservejump=\ref[M]'>JMP</A></font></td>
+			<A HREF='?src=\ref[src];adminplayerobservejump=\ref[M]'>JMP</A> |</font>
+			<font size="2"><A href='?src=\ref[src];warn=\ref[M]'>Warn</A> | <A href='?src=\ref[src];boot2=\ref[M]'>Boot</A> | <A href='?src=\ref[src];newban=\ref[M]'>Ban</A> | <A href='?src=\ref[src];jobban2=\ref[M]'>Jobban</A></td>
 			"}
 
 			switch(is_special_character(M))

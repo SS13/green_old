@@ -132,6 +132,8 @@
 
 		if(holder.level == 0) //Moderators don't get asay, only msay
 			verbs -= /client/proc/investigate_show
+			verbs -= /client/proc/cmd_admin_gib_self
+			verbs -= /client/proc/cmd_admin_say
 			verbs += /client/proc/mod_panel
 			verbs += /obj/admins/proc/toggleooc
 			verbs += /obj/admins/proc/toggleoocdead

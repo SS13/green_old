@@ -564,7 +564,7 @@ var/global/BSACooldown = 0
 
 	//JOBBAN'S INNARDS
 	if(href_list["jobban3"])
-		if (src.rank in list( "Admin Candidate", "Temporary Admin", "Trial Admin", "Badmin", "Game Admin", "Game Master"  ))
+		if (src.rank in list("Moderator", "Admin Candidate", "Temporary Admin", "Trial Admin", "Badmin", "Game Admin", "Game Master"  ))
 			var/mob/M = locate(href_list["jobban4"])
 			if(!M)
 				alert("Mob no longer exists!")
@@ -706,7 +706,7 @@ var/global/BSACooldown = 0
 				href_list["ban"] = 1 // lets it fall through and refresh
 
 	if (href_list["newban"])
-		if ((src.rank in list( "Temporary Admin", "Admin Candidate", "Trial Admin", "Badmin", "Game Admin", "Game Master"  )))
+		if ((src.rank in list("Moderator", "Temporary Admin", "Admin Candidate", "Trial Admin", "Badmin", "Game Admin", "Game Master"  )))
 			var/mob/M = locate(href_list["newban"])
 			if(!ismob(M)) return
 			if ((M.client && M.client.holder && (M.client.holder.level >= src.level)))
@@ -803,7 +803,7 @@ var/global/BSACooldown = 0
 		usr << browse(dat, "window=jobban2;size=600x250")
 		return
 	if(href_list["newjobban2"])
-		if ((src.rank in list(/*"Moderator", */"Administrator", "Badmin", "Tyrant"  )))
+		if ((src.rank in list("Moderator", "Administrator", "Badmin", "Tyrant"  )))
 			var/mob/M = locate(href_list["jobban4"])
 			var/job = href_list["newjobban2"]
 			if(!ismob(M)) return
@@ -1578,7 +1578,7 @@ var/global/BSACooldown = 0
 		return
 
 	if (href_list["jumpto"])
-		if(rank in list("Badmin", "Game Admin", "Game Master"))
+		if(rank in list("Moderator", "Badmin", "Game Admin", "Game Master"))
 			var/mob/M = locate(href_list["jumpto"])
 			usr.client.jumptomob(M)
 		else
