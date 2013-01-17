@@ -4,8 +4,8 @@ vs_control/var
 	zone_share_percent = 20
 	zone_share_percent_NAME = "Zone Share Percent"
 	zone_share_percent_DESC = "Percentage of air difference to move per tick"
-	IgnitionLevel = 0.02
-	IgnitionLevel_DESC = "Moles of oxygen*plasma - co2 needed to burn."
+	IgnitionLevel = 0.5
+	IgnitionLevel_DESC = "Moles of oxygen+plasma - co2 needed to burn."
 	airflow_lightest_pressure = 30
 	airflow_lightest_pressure_NAME = "Airflow - Small Movement Threshold %"
 	airflow_lightest_pressure_DESC = "Percent of 1 Atm. at which items with the small weight classes will move."
