@@ -115,6 +115,7 @@
 			lying = 1
 		else
 			lying = 0
+		return
 
 	// Automatically drop anything in store / id / belt if you're not wearing a uniform.
 	if (!w_uniform)
