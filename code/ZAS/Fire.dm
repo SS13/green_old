@@ -335,13 +335,13 @@ datum/gas_mixture/proc/calculate_firelevel(obj/liquid_fuel/liquid)
 		datum/gas/volatile_fuel/fuel = locate() in trace_gases
 		liquid_concentration = 0
 
-		oxy_concentration = oxygen*100 / volume
-		tox_concentration = toxins*40 / volume
+		oxy_concentration = oxygen / volume
+		tox_concentration = toxins / volume
 		fuel_concentration = 0
 
 	if(fuel) fuel_concentration = (fuel.moles*5) / volume
 	if(liquid) liquid_concentration = (liquid.amount*15) / volume
-	return min(oxy_concentration * ((tox_concentration<0.001?0:tox_concentration) + liquid_concentration + fuel_concentration)*100*(temperature/T0C+0.1),100)
+	return (oxy_concentration + tox_concentration + liquid_concentration + fuel_concentration)*100
 
 /mob/living/carbon/human/proc/FireBurn(mx as num)
 	//Burns mobs due to fire. Respects heat transfer coefficients on various body parts.
