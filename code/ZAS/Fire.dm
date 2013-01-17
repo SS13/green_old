@@ -293,7 +293,7 @@ datum/gas_mixture/proc/zburn(obj/liquid_fuel/liquid)
 				fuel_sources++
 
 			//Toxins
-		if(toxins > 0.00001) fuel_sources++
+		if(toxins > 0.3) fuel_sources++
 
 		if(!fuel_sources) return 0 //If there's no fuel, there's no burn. Can't divide by zero anyway.
 
@@ -305,10 +305,10 @@ datum/gas_mixture/proc/zburn(obj/liquid_fuel/liquid)
 				//Reaches a maximum practical temperature of around 4500.
 
 			//Increase temperature.
-			temperature += (max( 1700*log(0.4*firelevel + 1.23) , temperature ) - temperature)*0.02
+			temperature = max( 1700*log(0.4*firelevel + 1.23) , temperature )
 
 			//Consume some gas.
-			var/consumed_gas = min(oxygen,0.005*firelevel,total_fuel) / fuel_sources
+			var/consumed_gas = min(oxygen,0.05*firelevel,total_fuel) / fuel_sources
 
 			oxygen = max(0,oxygen-consumed_gas)
 
@@ -341,7 +341,7 @@ datum/gas_mixture/proc/calculate_firelevel(obj/liquid_fuel/liquid)
 
 	if(fuel) fuel_concentration = (fuel.moles*5) / volume
 	if(liquid) liquid_concentration = (liquid.amount*15) / volume
-	return (oxy_concentration + tox_concentration + liquid_concentration + fuel_concentration)*100
+	return min(oxy_concentration * ((tox_concentration<0.001?0:tox_concentration) + liquid_concentration + fuel_concentration)*100*(temperature/T0C+0.1),100)
 
 /mob/living/carbon/human/proc/FireBurn(mx as num)
 	//Burns mobs due to fire. Respects heat transfer coefficients on various body parts.
