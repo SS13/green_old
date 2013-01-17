@@ -117,7 +117,7 @@
 			return list(ACCESS_LAWYER, ACCESS_COURT)
 		if("Captain")
 			return get_all_accesses()
-		if("Internal Security")
+		if("Commissar")
 			return get_all_accesses()
 		if("Security Officer")
 			return list(ACCESS_SECURITY, ACCESS_BRIG, ACCESS_COURT, ACCESS_MAINT_TUNNELS)
@@ -408,7 +408,7 @@
 	return list("Assistant", "Captain", "Head of Personnel", "Bartender", "Chef", "Botanist", "Quartermaster", "Cargo Technician",
 				"Shaft Miner", "Clown", "Mime", "Janitor", "Librarian", "Lawyer", "Chaplain", "Chief Engineer", "Station Engineer",
 				"Atmospheric Technician", "Roboticist", "Chief Medical Officer", "Medical Doctor", "Chemist", "Geneticist",
-				"Research Director", "Scientist", "Head of Security", "Warden", "Detective", "Security Officer", "Internal Security")
+				"Research Director", "Scientist", "Head of Security", "Warden", "Detective", "Security Officer", "Commissar")
 
 /proc/get_all_centcom_jobs()
 	return list("VIP Guest","Custodian","Thunderdome Overseer","Intel Officer","Medical Officer","Death Commando","Research Officer","BlackOps Commander","Supreme Commander")

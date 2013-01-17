@@ -109,7 +109,7 @@
 	flags_inv = HIDEEARS
 
 /obj/item/clothing/head/comcap
-	name = "commissar cap"
+	name = "Commissar cap"
 	desc = "Better you do not meet the person who wears it."
 	icon_state = "comcap"
 	flags = FPRINT | TABLEPASS | SUITSPACE | HEADCOVERSEYES

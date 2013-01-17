@@ -147,7 +147,7 @@
 				traitor_job = correct_person:assigned_role
 	else
 		var/list/job_tmp = get_all_jobs()
-		job_tmp.Remove("Captain", "Chaplain", "AI", "Cyborg", "Security Officer", "Detective", "Head Of Security", "Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Internal Security")
+		job_tmp.Remove("Captain", "Chaplain", "AI", "Cyborg", "Security Officer", "Detective", "Head Of Security", "Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Commissar")
 		traitor_job = pick(job_tmp)
 	if(prob(prob_right_dude) && ticker.mode == "cult")
 		if(correct_person:assigned_role=="MODE")
@@ -183,7 +183,7 @@
 		var/list/job_tmp = get_all_jobs()
 		job_tmp-=nonhuman_positions
 		job_tmp-=command_positions
-		job_tmp.Remove("Security Officer", "Detective", "Warden", "MODE", "Internal Security")
+		job_tmp.Remove("Security Officer", "Detective", "Warden", "MODE", "Commissar")
 		traitor_job = pick(job_tmp)
 	if(prob(prob_right_dude) && ticker.mode.config_tag == "revolution")
 		if(correct_person.assigned_role=="MODE")

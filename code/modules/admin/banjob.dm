@@ -22,8 +22,6 @@ var/jobban_keylist[0]		//to store the keys & ranks
 				return "Guest Job-ban"
 			if(config.usewhitelist && !check_whitelist(M))
 				return "Whitelisted Job"
-		if(rank == "Internal Security" && config.whitelist_internal_security && !check_whitelist_internal_security(M))
-			return 1
 
 		for (var/s in jobban_keylist)
 			if( findtext(s,"[M.ckey] - [rank]") )

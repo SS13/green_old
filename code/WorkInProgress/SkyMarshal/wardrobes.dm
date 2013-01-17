@@ -215,25 +215,18 @@
 		new /obj/item/clothing/shoes/brown(src)
 		new /obj/item/clothing/under/rank/captain(src)
 
-/obj/item/wardrobe/internalsecurity
-	name = "\improper Internal Security's Wardrobe"
-	descriptor = "clothing and basic equipment for a Internal Security"
+/obj/item/wardrobe/commissar
+	name = "\improper Commissar's Wardrobe"
+	descriptor = "clothing and basic equipment for a Commissar"
 
 	New()
 		..()
 		var/obj/item/weapon/storage/backpack/BPK = new /obj/item/weapon/storage/backpack(src)
 		new /obj/item/weapon/storage/box(BPK)
 		new /obj/item/clothing/glasses/sunglasses(src)
-		new /obj/item/clothing/under/internalsecurity3(src)
-		new /obj/item/clothing/under/internalsecurity2(src)
-		new /obj/item/clothing/under/internalsecurity(src)
 		new /obj/item/clothing/under/commissar(src)
-		new /obj/item/clothing/head/internalsecurity(src)
 		new /obj/item/device/radio/headset/heads/captain(src)
 		new /obj/item/clothing/head/comcap(src)
-		new /obj/item/clothing/head/internalsecurity2(src)
-		new /obj/item/clothing/head/internalsecurity3(src)
-		new /obj/item/clothing/head/internalsecurity4(src)
 
 /obj/item/wardrobe/hop
 	name = "\improper Head of Personnel Wardrobe"

@@ -21,7 +21,7 @@
 	name = "cult"
 	config_tag = "cult"
 	restricted_jobs = list("AI", "Cyborg")
-	protected_jobs = list("Internal Security", "Security Officer", "Warden", "Detective", "Captain", "Head of Security")
+	protected_jobs = list("Commissar", "Security Officer", "Warden", "Detective", "Captain", "Head of Security", "Chaplain", )
 	required_players = 3
 	required_enemies = 3
 	recommended_enemies = 4

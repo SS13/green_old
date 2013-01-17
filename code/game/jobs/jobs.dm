@@ -6,7 +6,7 @@ var/const
 	WARDEN			=(1<<2)
 	DETECTIVE		=(1<<3)
 	OFFICER			=(1<<4)
-	INTERNALSECURITY =(1<<14)
+	COMMISSAT		=(1<<14)
 	CHIEF			=(1<<5)
 	ENGINEER		=(1<<6)
 	ATMOSTECH		=(1<<7)
@@ -108,7 +108,7 @@ var/list/security_positions = list(
 	"Warden",
 	"Detective",
 	"Security Officer",
-	"Internal Security"
+	"Commissar"
 )
 
 
@@ -132,7 +132,7 @@ var/list/nonhuman_positions = list(
 			return 2
 		if("Research Director","Head of Security","Chief Engineer","Warden")
 			return 3
-		if("Captain","Head of Personnel","Wizard","MODE", "Internal Security")
+		if("Captain","Head of Personnel","Wizard","MODE", "Commissar")
 			return 4
 		else
 			message_admins("\"[job]\" NOT GIVEN RANK, REPORT JOBS.DM ERROR TO A CODER")

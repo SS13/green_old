@@ -46,14 +46,14 @@
 	armor = list(melee = 10, bullet = 10, laser = 80, energy = 50, bomb = 0, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/armor/internalsecurity
-	name = "internal security coat"
+	name = "Commissar coat"
 	desc = "A coat, which is worn only by honorfull IS members."
 	icon_state = "retpolcoat"
 	item_state = "retpolcoat"
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/armor/commissarcoat
-	name = "internal security commissar coat"
+	name = "Commissar coat"
 	desc = "A coat, which is worn only by honorfull IS members."
 	icon_state = "commissarcoat"
 	item_state = "commissarcoat"
