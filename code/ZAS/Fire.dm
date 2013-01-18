@@ -301,7 +301,7 @@ datum/gas_mixture/proc/zburn(obj/liquid_fuel/liquid)
 				//Reaches a maximum practical temperature of around 4500.
 
 			//Increase temperature.
-			temperature = max( 1700*log(0.4*firelevel + 1.23) , temperature )
+			temperature += (max( 1700*log(0.4*firelevel + 1.23) , temperature ) - temperature)*0.02
 
 			//Consume some gas.
 			var/consumed_gas = min(oxygen,0.05*firelevel,total_fuel) / fuel_sources
