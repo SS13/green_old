@@ -331,8 +331,8 @@ datum/gas_mixture/proc/calculate_firelevel(obj/liquid_fuel/liquid)
 		datum/gas/volatile_fuel/fuel = locate() in trace_gases
 		liquid_concentration = 0
 
-		oxy_concentration = oxygen*100 / volume
-		tox_concentration = toxins*40 / volume
+		oxy_concentration = oxygen / volume
+		tox_concentration = toxins / volume
 		fuel_concentration = 0
 
 	if(fuel) fuel_concentration = (fuel.moles*5) / volume
