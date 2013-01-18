@@ -94,12 +94,7 @@ obj
 						obj/liquid_fuel/liquid = locate() in S
 
 					firelevel = air_contents.calculate_firelevel(liquid)
-
-
-					if (firelevel * air_contents.temperature>250000)
-						if (prob(firelevel/100))
-							explosion(S, -1, -1, 1, 3)
-
+					 //DELETED HERE
 					//Ensure that there is an appropriate amount of fuel and O2 here.
 					if(firelevel > 0.25 && (air_contents.toxins || fuel || liquid))
 
@@ -294,7 +289,7 @@ datum/gas_mixture/proc/zburn(obj/liquid_fuel/liquid)
 				fuel_sources++
 
 			//Toxins
-		if(toxins > 0.001) fuel_sources++
+		if(toxins > 0.0001) fuel_sources++
 
 		if(!fuel_sources) return 0 //If there's no fuel, there's no burn. Can't divide by zero anyway.
 
@@ -309,7 +304,7 @@ datum/gas_mixture/proc/zburn(obj/liquid_fuel/liquid)
 			temperature += (max( 1700*log(0.4*firelevel + 1.23) , temperature ) - temperature)*0.02
 
 			//Consume some gas.
-			var/consumed_gas = min(oxygen,0.005*firelevel,total_fuel) / fuel_sources
+			var/consumed_gas = min(oxygen,0.05*firelevel,total_fuel) / fuel_sources
 
 			oxygen = max(0,oxygen-consumed_gas)
 
@@ -336,8 +331,8 @@ datum/gas_mixture/proc/calculate_firelevel(obj/liquid_fuel/liquid)
 		datum/gas/volatile_fuel/fuel = locate() in trace_gases
 		liquid_concentration = 0
 
-		oxy_concentration = oxygen / volume
-		tox_concentration = toxins / volume
+		oxy_concentration = oxygen*100 / volume
+		tox_concentration = toxins*40 / volume
 		fuel_concentration = 0
 
 	if(fuel) fuel_concentration = (fuel.moles*5) / volume
