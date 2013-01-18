@@ -171,7 +171,7 @@
 
 //FIREBALLAN
 
-/client/proc/fireball(mob/living/T as mob in oview())
+/client/proc/fireball()
 	set category = "Spells"
 	set name = "Fireball"
 	set desc = "This spell fires a fireball at a target and does not require wizard garb."
@@ -181,28 +181,64 @@
 //	if(!usr.casting()) return
 
 	usr.verbs -= /client/proc/fireball
-	spawn(200)
+	spawn(100)
 		usr.verbs += /client/proc/fireball
 
 	usr.say("ONI SOMA")
-	//	usr.spellvoice()
+	usr.spellvoice('onisoma.ogg')
+
+	var/mob/living/user = src
+	if(!istype(user))
+		return
+
+	var/i
+	var/turf/T
+	var/range = 15
+
+	var/x = user.loc.x
+	var/y = user.loc.y
+	var/z = user.loc.z
+
+	switch(user.dir)
+		if(NORTH)
+			T = get_turf(locate(x, y + range, z))
+		if(EAST)
+			T = get_turf(locate(x + range, y, z))
+		if(SOUTH)
+			T = get_turf(locate(x, y - range, z))
+		if(WEST)
+			T = get_turf(locate(x - range, y, z))
+		else
+			return
 
 	var/obj/effect/overlay/A = new /obj/effect/overlay( usr.loc )
+
 	A.icon_state = "fireball"
-	A.icon = 'wizard.dmi'
+	A.icon = 'icons/obj/wizard.dmi'
 	A.name = "a fireball"
 	A.anchored = 0
 	A.density = 0
-	var/i
+	A.luminosity = 3
+
+	step_to(A, T, 0)
 	for(i=0, i<100, i++)
-		step_to(A,T,0)
-		if (get_dist(A,T) <= 1)
-			T.take_overall_damage(20,25)
-			explosion(T.loc, -1, -1, 2, 2)
+		var/hit = 0
+		var/moving = step_to(A,T,0)
+		for(var/mob/living/target in range(1, A))
+			hit = 1
+			target.take_overall_damage(20,25)
+		if(hit)
+			explosion(A.loc, -1, -1, 2, 2)
+			del(A)
+			return
+		if(!moving)
+			explosion(A.loc, -1, -1, 2, 2)
 			del(A)
 			return
 		sleep(2)
-	del(A)
+	if(A)
+		explosion(A.loc, -1, -1, 2, 2)
+		del(A)
 	return
 
 //KNOCK
@@ -243,7 +279,7 @@
 		usr.verbs += /mob/proc/kill
 
 	usr.say("EI NATH")
-	usr.spellvoice()
+	usr.spellvoice('einath.ogg')
 
 	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 	s.set_up(4, 1, M)
@@ -330,7 +366,7 @@
 	var/area/thearea = teleportlocs[A]
 
 	usr.say("SCYAR NILA [uppertext(A)]")
-	usr.spellvoice()
+	usr.spellvoice('scyarnila.ogg')
 
 	var/datum/effect/effect/system/harmless_smoke_spread/smoke = new /datum/effect/effect/system/harmless_smoke_spread()
 	smoke.set_up(5, 0, usr.loc)

@@ -68,6 +68,7 @@ obj
 
 		layer = TURF_LAYER
 
+
 		var
 			volume = CELL_VOLUME
 			temperature = FIRE_MINIMUM_TEMPERATURE_TO_EXIST
@@ -93,7 +94,6 @@ obj
 						obj/liquid_fuel/liquid = locate() in S
 
 					firelevel = air_contents.calculate_firelevel(liquid)
-
 
 
 					if (firelevel * air_contents.temperature>250000)
@@ -131,6 +131,7 @@ obj
 									if(!(locate(/obj/fire) in enemy_tile))
 										if( prob( firelevel*10 ) )
 											new/obj/fire(enemy_tile,firelevel)
+											playsound('fire_large.ogg')
 
 					var/datum/gas_mixture/flow = air_contents.remove_ratio(0.25)
 					//The reason we're taking a part of the air instead of all of it is so that it doesn't jump to

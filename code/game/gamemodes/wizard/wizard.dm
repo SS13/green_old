@@ -81,6 +81,7 @@
 
 		wizard_mob.real_name = newname
 		wizard_mob.name = newname
+			wizard_mob << sound('wizardis.ogg',volume=50)
 	return
 
 
@@ -258,3 +259,4 @@ Made a proc here so it's not repeated several times.*/
 //		playsound(usr.loc, pick('null.ogg','null.ogg'), 100, 1)
 //	else
 //		playsound(usr.loc, pick('null.ogg','null.ogg'), 100, 1)
+
