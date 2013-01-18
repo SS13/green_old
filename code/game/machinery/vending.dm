@@ -696,4 +696,3 @@ To combat this, I changed the window name. -- Doohl
 		return 1
 	else
 		return 0
-

@@ -398,3 +398,13 @@
 					sleep(1)
 	else
 		..()
+
+//EMOTE
+/mob/living/simple_animal/corgi/proc/call_sound_emote(var/E)
+	switch(E)
+		if("YAP", "Bark!")
+			for(var/mob/M in viewers(usr, null))
+				M << sound(pick('A_SMDOG.ogg'))
+		if("Woof!")
+			for(var/mob/M in viewers(usr, null))
+				M << sound(pick('wolfhowl01.ogg'))

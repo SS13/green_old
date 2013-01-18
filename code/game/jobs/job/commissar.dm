@@ -1,7 +1,7 @@
 
 /datum/job/Commissar
 	title = "Commissar"
-	flag = HOS
+	flag = COMMISSAR
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 2
@@ -22,7 +22,6 @@
 		H.equip_if_possible(new /obj/item/weapon/handcuffs(H), H.slot_in_backpack)
 		H.equip_if_possible(new /obj/item/weapon/chem_grenade/sleepsmoke(H), H.slot_in_backpack)
 		H.equip_if_possible(new /obj/item/weapon/gun/energy/elitetaser(H), H.slot_s_store)
-		H.equip_if_possible(new /obj/item/weapon/pepperspray/elited(H.back), H.slot_in_backpack)
 		var/obj/item/weapon/implant/loyalty/L = new/obj/item/weapon/implant/loyalty(H)
 		L.imp_in = H
 		L.implanted = 1

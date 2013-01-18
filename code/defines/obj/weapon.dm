@@ -1680,6 +1680,7 @@ eternal248: Found broken and buggy Z-levels 7-12, ended up leading to my discove
 	m_amt = 12000
 	origin_tech = "materials=1"
 	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	hitsound = 'knife_hit_flesh1.ogg'
 
 /obj/item/weapon/butch
 	name = "butcher's cleaver"
@@ -1738,6 +1739,7 @@ eternal248: Found broken and buggy Z-levels 7-12, ended up leading to my discove
 	flags = FPRINT | TABLEPASS | CONDUCT
 	origin_tech = "materials=1"
 	attack_verb = list("attacked", "stabbed", "poked")
+	hitsound = 'knife_hit_flesh.ogg'
 
 
 /obj/item/weapon/kitchen/utensil/fork
@@ -1752,6 +1754,7 @@ eternal248: Found broken and buggy Z-levels 7-12, ended up leading to my discove
 	icon_state = "knife"
 	force = 10.0
 	throwforce = 10.0
+	hitsound = 'knife_hit_flesh2.ogg'
 
 /obj/item/weapon/kitchen/utensil/spoon
 	name = "spoon"

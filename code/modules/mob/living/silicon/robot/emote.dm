@@ -223,3 +223,9 @@
 			for(var/mob/O in hearers(src, null))
 				O.show_message(message, m_type)
 	return
+
+/mob/living/silicon/robot/proc/call_sound_emote(var/E)
+	switch(E)
+		if("Beep")
+			for(var/mob/M in viewers(usr, null))
+				M << sound(pick('Beep001.ogg'))

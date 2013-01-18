@@ -29,3 +29,9 @@
 	max_co2 = 0
 	min_n2 = 0
 	max_n2 = 0
+
+/mob/living/simple_animal/walle/proc/call_sound_emote(var/E)
+	switch(E)
+		if("Bep!", "Beep!")
+			for(var/mob/M in viewers(usr, null))
+				M << sound(pick('Beep001.ogg'))
