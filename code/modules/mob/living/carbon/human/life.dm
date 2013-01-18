@@ -876,9 +876,9 @@
 				// sleeping slows the metabolism, hunger increases more slowly
 				if(stat == 1)
 					if(istajaran(src)) //Tajarans get hungry slightly faster
-						nutrition = max (0, nutrition - HUNGER_FACTOR*1.25)
+						nutrition = max (0, nutrition - HUNGER_FACTOR*20)
 					if(mutantrace == "lizard") //Soghuns get hungry much slower
-						nutrition = max (0, nutrition - HUNGER_FACTOR*0.5)
+						nutrition = max (0, nutrition - HUNGER_FACTOR*10)
 					else
 						nutrition = max (0, nutrition - HUNGER_FACTOR)
 				else

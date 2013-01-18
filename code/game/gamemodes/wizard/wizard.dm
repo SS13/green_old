@@ -255,8 +255,8 @@ Outputs the appropriate voice if the user is not a mime.
 Made a proc here so it's not repeated several times.*/
 /mob/proc/spellvoice()
 //	if(!usr.miming)No longer necessary.
-//	if(usr.gender=="male")
-//		playsound(usr.loc, pick('null.ogg','null.ogg'), 100, 1)
+	if(usr.gender=="male")
+		playsound(usr.loc, pick('einath.ogg','onisoma.ogg', 'scyarnila.ogg'), 100, 5)
 //	else
 //		playsound(usr.loc, pick('null.ogg','null.ogg'), 100, 1)
 
