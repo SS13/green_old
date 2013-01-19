@@ -1,15 +1,40 @@
-/obj/alien/weeds/New()
+#define NODERANGE 3
+
+/obj/effect/alien/weeds
+	name = "weeds"
+	desc = "Weird purple weeds."
+	icon_state = "weeds"
+
+	anchored = 1
+	density = 0
+	var/health = 15
+	var/obj/effect/alien/weeds/node/linked_node = null
+
+/obj/effect/alien/weeds/node
+	icon_state = "weednode"
+	name = "purple sac"
+	desc = "Weird purple octopus-like thing."
+	luminosity = NODERANGE
+	var/node_range = NODERANGE
+
+/obj/effect/alien/weeds/node/New()
+	..(src.loc, src)
+
+
+/obj/effect/alien/weeds/New(pos, node)
 	..()
+	linked_node = node
 	if(istype(loc, /turf/space))
 		del(src)
 		return
-	icon_state = pick("weeds", "weeds1", "weeds2")
-	spawn(rand(150,300))
+	if(icon_state == "weeds")icon_state = pick("weeds", "weeds1", "weeds2")
+	spawn(rand(150, 200))
 		if(src)
 			Life()
 	return
 
-/obj/alien/weeds/proc/Life()
+/obj/effect/alien/weeds/proc/Life()
+	set background = 1
 	var/turf/U = get_turf(src)
 /*
 	if (locate(/obj/movable, U))
@@ -32,8 +57,11 @@ Alien plants should do something if theres a lot of poison
 		for(var/dirn in cardinal)
 			var/turf/T = get_step(src, dirn)
 
-			if (!istype(T) || T.density || locate(/obj/alien/weeds) in T || istype(T.loc, /area/arrival) || istype(T, /turf/space))
+			if (!istype(T) || T.density || locate(/obj/effect/alien/weeds) in T || istype(T.loc, /area/arrival) || istype(T, /turf/space))
 				continue
+
+			if(!linked_node || get_dist(linked_node, src) > linked_node.node_range)
+				return
 
 	//		if (locate(/obj/movable, T)) // don't propogate into movables
 	//			continue
@@ -42,10 +70,10 @@ Alien plants should do something if theres a lot of poison
 				if(O.density)
 					continue direction_loop
 
-			new /obj/alien/weeds(T)
+			new /obj/effect/alien/weeds(T, linked_node)
 
 
-/obj/alien/weeds/ex_act(severity)
+/obj/effect/alien/weeds/ex_act(severity)
 	switch(severity)
 		if(1.0)
 			del(src)
@@ -57,7 +85,7 @@ Alien plants should do something if theres a lot of poison
 				del(src)
 	return
 
-/obj/alien/weeds/attackby(var/obj/item/weapon/W, var/mob/user)
+/obj/effect/alien/weeds/attackby(var/obj/item/weapon/W, var/mob/user)
 	if(W.attack_verb.len)
 		visible_message("\red <B>\The [src] have been [pick(W.attack_verb)] with \the [W][(user ? " by [user]." : ".")]")
 	else
@@ -68,24 +96,24 @@ Alien plants should do something if theres a lot of poison
 	if(istype(W, /obj/item/weapon/weldingtool))
 		var/obj/item/weapon/weldingtool/WT = W
 
-		if(WT.welding)
+		if(WT.remove_fuel(0, user))
 			damage = 15
-			playsound(loc, 'Welder.ogg', 100, 1)
+			playsound(loc, 'sound/items/Welder.ogg', 100, 1)
 
 	health -= damage
 	healthcheck()
 
-/obj/alien/weeds/proc/healthcheck()
+/obj/effect/alien/weeds/proc/healthcheck()
 	if(health <= 0)
 		del(src)
 
 
-/obj/alien/weeds/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/effect/alien/weeds/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature > 300)
 		health -= 5
 		healthcheck()
 
-/*/obj/alien/weeds/burn(fi_amount)
+/*/obj/effect/alien/weeds/burn(fi_amount)
 	if (fi_amount > 18000)
 		spawn( 0 )
 			del(src)
@@ -93,3 +121,5 @@ Alien plants should do something if theres a lot of poison
 		return 0
 	return 1
 */
+
+#undef NODERANGE
