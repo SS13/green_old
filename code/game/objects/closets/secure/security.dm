@@ -233,7 +233,7 @@
 
 /obj/structure/closet/secure_closet/commissar
 	name = "Commissar's Locker"
-	req_access = list(ACCESS_CAPTAIN)
+	req_access = list(ACCESS_HOS)
 	icon_state = "capsecure1"
 	icon_closed = "capsecure"
 	icon_locked = "capsecure1"
