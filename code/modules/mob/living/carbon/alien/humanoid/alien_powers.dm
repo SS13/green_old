@@ -18,15 +18,16 @@ Doesn't work on other aliens/AI.*/
 	else	return 1
 
 /mob/living/carbon/alien/humanoid/verb/plant()
-	set name = "Plant Weeds (50)"
+	set name = "Plant Weeds (100)"
 	set desc = "Plants some alien weeds"
 	set category = "Alien"
 
-	if(powerc(50,1))
-		adjustToxLoss(-50)
+	if(powerc(100,1))
+		adjustToxLoss(-100)
 		for(var/mob/O in viewers(src, null))
 			O.show_message(text("\green <B>[src] has planted some alien weeds!</B>"), 1)
-		new /obj/effect/alien/weeds/node(loc)
+		var/obj/alien/weeds/W = new (loc)
+		W.Life()
 	return
 
 /mob/living/carbon/alien/humanoid/verb/call_to()
@@ -77,11 +78,11 @@ Doesn't work on other aliens/AI.*/
 The first proc defines the acid throw function while the other two work in the game itself. Probably a good idea to revise this later.
 I kind of like the right click only--the window version can get a little confusing. Perhaps something telling the alien they need to right click?
 /N*/
-/obj/proc/acid(user as mob)
-	var/obj/effect/alien/acid/A = new(src.loc)
+/obj/proc/acid()
+	var/obj/alien/acid/A = new(src.loc)
 	A.target = src
 	for(var/mob/M in viewers(src, null))
-		M.show_message(text("\green <B>[user] vomits globs of vile stuff all over [src]. It begins to sizzle and melt under the bubbling mess of acid!</B>"), 1)
+		M.show_message(text("\green <B>[src] vomits globs of vile stuff all over [src]!</B>"), 1)
 	A.tick()
 
 /mob/living/carbon/alien/humanoid/proc/corrode_target() //Aliens only see items on the list of objects that they can actually spit on./N
