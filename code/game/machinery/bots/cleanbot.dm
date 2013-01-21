@@ -26,7 +26,6 @@
 	health = 25
 	maxhealth = 25
 	var/cleaning = 0
-	var/locked = 1
 	var/screwloose = 0
 	var/oddbutton = 0
 	var/blood = 1
