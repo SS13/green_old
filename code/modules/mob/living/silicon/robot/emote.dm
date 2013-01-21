@@ -165,7 +165,7 @@
 				message = "<B>[src]</B> beeps at [param]."
 			else
 				message = "<B>[src]</B> beeps."
-			playsound(src.loc, 'twobeep.ogg', 50, 0)
+			playsound(src.loc, 'Beep001.ogg', 50, 2)
 			m_type = 2
 
 		if("ping")
