@@ -341,6 +341,7 @@
 			A << sound('sound/ambience/shipambience.ogg', repeat = 1, wait = 0, volume = 35, channel = 2)
 
 		switch(src.name)
+			if ("Detective's Office") sound = pick('sound/ambience/noir.ogg')
 			if ("Chapel") sound = pick('sound/ambience/ambicha1.ogg','sound/ambience/ambicha2.ogg','sound/ambience/ambicha3.ogg','sound/ambience/ambicha4.ogg')
 			if ("Morgue") sound = pick('sound/ambience/ambimo1.ogg','sound/ambience/ambimo2.ogg','sound/music/title2.ogg')
 			if ("Space") sound = pick('sound/ambience/ambispace.ogg','sound/music/title2.ogg',)
@@ -349,7 +350,7 @@
 			if ("AI Upload Foyer") sound = pick('sound/ambience/ambimalf.ogg')
 			if ("AI Upload Chamber") sound = pick('sound/ambience/ambimalf.ogg')
 			if ("Mine")
-				sound = pick('sound/ambience/ambimine.ogg')
+				sound = pick('sound/ambience/DF.ogg')
 				musVolume = 25
 
 			if("Telecoms Teleporter") sound = pick('sound/ambience/ambisin2.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/ambigen10.ogg')
