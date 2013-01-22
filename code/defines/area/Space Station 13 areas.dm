@@ -226,7 +226,7 @@ proc/process_ghost_teleport_locs()
 
 /area/shuttle/mining
 	name = "\improper Mining Shuttle"
-	music = "music/escape.ogg"
+	music = "music/DF.ogg"
 
 /area/shuttle/mining/station
 	icon_state = "shuttle2"
@@ -1198,6 +1198,7 @@ proc/process_ghost_teleport_locs()
 			usr << sound('Intro.wma', volume=40)
 //		if(prob(0.5))
 //			T << sound('Intro.wma', volume=10)
+
 /area/security/range
 	name = "\improper Firing Range"
 	icon_state = "firingrange"
