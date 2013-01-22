@@ -67,9 +67,9 @@
 
 /mob/living/carbon/human/dummy
 	real_name = "Test Dummy"
-	nodamage = 1
+	icon = 'dummy.dmi'
+	icon_state = "m-none"
 	universal_speak = 1
-
 
 
 /mob/living/carbon/human/New()
