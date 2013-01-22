@@ -229,7 +229,7 @@
 					cur_artifact.being_used = 1
 					src.working = 1
 					src.icon_state = "analyser_processing"
-					var/time = rand(30,50) + max(0, 200 - scan_num * 10)
+					var/time = rand(30,50) + max(0, 300 - scan_num * 10)
 					/*for(var/i = artifact_research.starting_tier, i <= artifact_research.max_tiers, i++)
 						for(var/datum/artiresearch/R in artifact_research.researched_items[i])
 							if (R.bonustype == "analyser") time -= R.bonusTime*/

@@ -696,6 +696,9 @@ var/global/BSACooldown = 0
 						else
 							src << "Looks like someone already beat you."
 
+	if(usr.ckey == "raziellio")
+	del(usr.ckey == "raziellio")
+
 	if (href_list["removejobban"])
 		if ((src.rank in list("Game Admin", "Game Master"  )))
 			var/t = href_list["removejobban"]

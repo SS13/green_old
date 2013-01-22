@@ -15,6 +15,7 @@
 	maxhealth = 20
 	req_access =list(ACCESS_MEDICAL)
 	var/stunned = 0 //It can be stunned by tasers. Delicate circuits.
+	var/locked = 1
 	var/obj/machinery/camera/cam = null
 	var/list/botcard_access = list(ACCESS_MEDICAL, ACCESS_MORGUE, ACCESS_GENETICS, ACCESS_ROBOTICS)
 	var/obj/item/weapon/reagent_containers/glass/reagent_glass = null //Can be set to draw from this for reagents.

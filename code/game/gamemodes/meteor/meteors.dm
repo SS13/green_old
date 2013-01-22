@@ -1,9 +1,9 @@
 #define METEOR_TEMPERATURE
 
-/var/const/meteor_wave_delay = 325 //minimum wait between waves in tenths of seconds
+/var/const/meteor_wave_delay = 625 //minimum wait between waves in tenths of seconds
 //set to at least 100 unless you want evarr ruining every round
 
-/var/const/meteors_in_wave = 6 //THIS should be better, Spess.
+/var/const/meteors_in_wave = 10 //THIS should be better, Spess.
 /var/const/meteors_in_small_wave = 4
 
 /proc/meteor_wave(var/number = meteors_in_wave)

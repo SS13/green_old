@@ -138,7 +138,7 @@ mob/living/carbon/proc/handle_hallucinations()
 							'behind_you1.ogg', 'behind_you2.ogg', 'far_noise.ogg', 'growl1.ogg', 'growl2.ogg',\
 							'growl3.ogg', 'im_here1.ogg', 'im_here2.ogg', 'i_see_you1.ogg', 'i_see_you2.ogg',\
 							'look_up1.ogg', 'look_up2.ogg', 'over_here1.ogg', 'over_here2.ogg', 'over_here3.ogg',\
-							'turn_around1.ogg', 'turn_around2.ogg', 'veryfar_noise.ogg', 'wail.ogg', 'einath.ogg', 'onisoma.ogg')
+							'turn_around1.ogg', 'turn_around2.ogg', 'veryfar_noise.ogg', 'wail.ogg')
 						src << pick(creepyasssounds)
 			if(66 to 70)
 				//Flashes of danger

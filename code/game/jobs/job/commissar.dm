@@ -1,3 +1,4 @@
+
 /datum/job/Commissar
 	title = "Commissar"
 	flag = COMMISSAR
@@ -5,7 +6,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "all heads"
+
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
