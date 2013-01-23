@@ -60,22 +60,22 @@
 				mouthshoot = 0
 				return
 			if(istype(src.in_chamber, /obj/item/projectile/bullet) && !istype(src.in_chamber, /obj/item/projectile/bullet/stunshot) && !istype(src.in_chamber, /obj/item/ammo_casing/shotgun/beanbag))
-				M.apply_damage(75, BRUTE, "head", used_weapon = "Suicide attempt with a projectile weapon.")
-				M.apply_damage(85, BRUTE, "chest")
+				M.apply_damage(55, BRUTE, "head", used_weapon = "Suicide attempt with a projectile weapon.")
+				M.apply_damage(65, BRUTE, "chest")
 				M.visible_message("\red \The [user] pulls the trigger.")
 			else if(istype(src.in_chamber, /obj/item/projectile/bullet/stunshot) || istype(src.in_chamber, /obj/item/projectile/energy/electrode))
 				M.apply_damage(10, BURN, "head", used_weapon = "Suicide attempt with a stun round.")
 				M.visible_message("\red \The [user] pulls the trigger, but luckily it was a stun round.")
 			else if(istype(src.in_chamber, /obj/item/ammo_casing/shotgun/beanbag))
-				M.apply_damage(20, BRUTE, "head", used_weapon = "Suicide attempt with a beanbag.")
+				M.apply_damage(14, BRUTE, "head", used_weapon = "Suicide attempt with a beanbag.")
 				M.visible_message("\red \The [user] pulls the trigger, but luckily it was a stun round.")
 			else if(istype(src.in_chamber, /obj/item/projectile/beam) || istype(src.in_chamber, /obj/item/projectile/energy))
-				M.apply_damage(75, BURN, "head", used_weapon = "Suicide attempt with an energy weapon")
-				M.apply_damage(85, BURN, "chest")
+				M.apply_damage(55, BURN, "head", used_weapon = "Suicide attempt with an energy weapon")
+				M.apply_damage(65, BURN, "chest")
 				M.visible_message("\red \The [user] pulls the trigger.")
 			else
-				M.apply_damage(75, BRUTE, "head", used_weapon = "Suicide attempt with a gun")
-				M.apply_damage(85, BRUTE, "chest")
+				M.apply_damage(55, BRUTE, "head", used_weapon = "Suicide attempt with a gun")
+				M.apply_damage(65, BRUTE, "chest")
 				M.visible_message("\red \The [user] pulls the trigger. Ow.")
 			del(in_chamber)
 			mouthshoot = 0
@@ -87,7 +87,7 @@
 			if(silenced)
 				playsound(user, fire_sound, 10, 1)
 			else
-				playsound(user, fire_sound, 50, 1)
+				playsound(user, fire_sound, 50, 5)
 			M.apply_damage(30+in_chamber.damage, BRUTE, user.zone_sel.selecting, used_weapon = "Point Blank Shot") //So we'll put him an inch from death.
 			M.attack_log += text("\[[]\] <b>[]/[]</b> shot <b>[]/[]</b> point blank with a <b>[]</b>", time_stamp(), user, user.ckey, M, M.ckey, src)
 			user.attack_log += text("\[[]\] <b>[]/[]</b> shot <b>[]/[]</b> point blank with a <b>[]</b>", time_stamp(), user, user.ckey, M, M.ckey, src)
@@ -113,7 +113,7 @@
 			if(silenced)
 				playsound(user, fire_sound, 10, 1)
 			else
-				playsound(user, fire_sound, 50, 1)
+				playsound(user, fire_sound, 50, 5)
 			user.visible_message("\red <B>\The [M] has been stunned with the taser gun by \the [user]!</B>")
 			M.attack_log += text("\[[]\] <b>[]/[]</b> stunned <b>[]/[]</b> with a <b>[]</b>", time_stamp(), user, user.ckey, M, M.ckey, src)
 			user.attack_log += text("\[[]\] <b>[]/[]</b> stunned <b>[]/[]</b> with a <b>[]</b>", time_stamp(), user, user.ckey, M, M.ckey, src)
@@ -181,7 +181,7 @@
 		if(silenced)
 			playsound(user, fire_sound, 10, 1)
 		else
-			playsound(user, fire_sound, 50, 1)
+			playsound(user, fire_sound, 50, 5)
 			if(reflex)
 				user.visible_message("\red \The [user] fires \the [src] by reflex!", "\red You reflex fire \the [src]!", "\blue You hear a [istype(in_chamber, /obj/item/projectile/beam) ? "laser blast" : "gunshot"]!")
 			else
