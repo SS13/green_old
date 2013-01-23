@@ -220,7 +220,7 @@
 	desc = "Wall-mounted Medical Equipment dispenser."
 	icon_state = "wallmed"
 	icon_deny = "wallmed-deny"
-	req_access_txt = "0"
+	req_access_txt = "5"
 	product_paths = "/obj/item/weapon/reagent_containers/pill/dexalin;/obj/item/stack/medical/advanced/bruise_pack;/obj/item/stack/medical/advanced/ointment;/obj/item/weapon/reagent_containers/syringe/inaprovaline;/obj/item/device/healthanalyzer"
 	product_amounts = "4,4;4;3;2"
 //	product_prices = "1;1;2;2"
