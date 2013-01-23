@@ -11,7 +11,6 @@
 		if ("swing_hit") soundin = pick('genhit1.ogg', 'genhit2.ogg', 'genhit3.ogg')
 		if ("hiss") soundin = pick('hiss1.ogg','hiss2.ogg','hiss3.ogg','hiss4.ogg')
 		if ("pageturn") soundin = pick('pageturn1.ogg', 'pageturn2.ogg','pageturn3.ogg')
-		if ("A_SMDOG") soundin = pick('A_SMDOG.ogg', 'wolfhowl01.ogg')
 
 	var/sound/S = sound(soundin)
 	S.wait = 0 //No queue
@@ -52,7 +51,6 @@
 		if ("clownstep") soundin = pick('clownstep1.ogg','clownstep2.ogg')
 		if ("swing_hit") soundin = pick('genhit1.ogg', 'genhit2.ogg', 'genhit3.ogg')
 		if ("hiss") soundin = pick('hiss1.ogg','hiss2.ogg','hiss3.ogg','hiss4.ogg')
-		if ("A_SMDOG") soundin = pick('A_SMDOG.ogg', 'wolfhowl01.ogg')
 
 	var/sound/S = sound(soundin)
 	S.wait = 0 //No queue
@@ -72,9 +70,9 @@ client/verb/Toggle_Soundscape() //All new ambience should be added here so it wo
 	set name = "Toggle Ambience"
 	usr:client:no_ambi = !usr:client:no_ambi
 	if(usr:client:no_ambi)
-		usr << sound(pick('shipambience.ogg','ambigen1.ogg','ambigen3.ogg','ambigen4.ogg','ambigen5.ogg','ambigen6.ogg','ambigen7.ogg','ambigen8.ogg','ambigen9.ogg','ambigen10.ogg','ambigen11.ogg','ambigen12.ogg','ambigen14.ogg','ambicha1.ogg','ambicha2.ogg','ambicha3.ogg','ambicha4.ogg','ambimalf.ogg','ambispace.ogg','ambimine.ogg','title2.ogg','noir.ogg','DF.ogg'), repeat = 0, wait = 0, volume = 0, channel = 2)
+		usr << sound(pick('shipambience.ogg','ambigen1.ogg','ambigen3.ogg','ambigen4.ogg','ambigen5.ogg','ambigen6.ogg','ambigen7.ogg','ambigen8.ogg','ambigen9.ogg','ambigen10.ogg','ambigen11.ogg','ambigen12.ogg','ambigen14.ogg','ambicha1.ogg','ambicha2.ogg','ambicha3.ogg','ambicha4.ogg','ambimalf.ogg','ambispace.ogg','ambimine.ogg','title2.ogg'), repeat = 0, wait = 0, volume = 0, channel = 2)
 	else
-		usr << sound(pick('shipambience.ogg','ambigen1.ogg','ambigen3.ogg','ambigen4.ogg','ambigen5.ogg','ambigen6.ogg','ambigen7.ogg','ambigen8.ogg','ambigen9.ogg','ambigen10.ogg','ambigen11.ogg','ambigen12.ogg','ambigen14.ogg','ambicha1.ogg','ambicha2.ogg','ambicha3.ogg','ambicha4.ogg','ambimalf.ogg','ambispace.ogg','ambimine.ogg','title2.ogg','noir.ogg','DF.ogg'), repeat = 1, wait = 0, volume = 35, channel = 2)
+		usr << sound(pick('shipambience.ogg','ambigen1.ogg','ambigen3.ogg','ambigen4.ogg','ambigen5.ogg','ambigen6.ogg','ambigen7.ogg','ambigen8.ogg','ambigen9.ogg','ambigen10.ogg','ambigen11.ogg','ambigen12.ogg','ambigen14.ogg','ambicha1.ogg','ambicha2.ogg','ambicha3.ogg','ambicha4.ogg','ambimalf.ogg','ambispace.ogg','ambimine.ogg','title2.ogg'), repeat = 1, wait = 0, volume = 35, channel = 2)
 	usr << "Toggled ambience sound."
 	return
 

@@ -20,6 +20,7 @@
 
 	//var/lasers = 0
 
+	var/locked = 1 //Behavior Controls lock
 	var/mob/living/carbon/target
 	var/oldtarget_name
 	var/threatlevel = 0

@@ -42,6 +42,7 @@
 	var/improvefloors = 0
 	var/eattiles = 0
 	var/maketiles = 0
+	var/locked = 1
 	var/turf/target
 	var/turf/oldtarget
 	var/oldloc = null
