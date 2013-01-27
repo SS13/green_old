@@ -226,6 +226,8 @@ var/fileaccess_timer = 1800 //Cannot access files by ftp until the game is finis
 // separate location, though, so: below are all lists that should not
 // ever be changed in code.
 
+var/SHOW_ROLE = 0
+
 /var/global/AI_VERB_LIST = list(
 		/mob/living/silicon/ai/proc/ai_call_shuttle,
 		/mob/living/silicon/ai/proc/show_laws_verb,

@@ -194,6 +194,25 @@ Badassery;
 	if(escaped_on_pod_5 > 0)
 		feedback_set("escaped_on_pod_5",escaped_on_pod_5)
 
+	if(SHOW_ROLE)
+		var/text = "<b>Dead here:</b>"
+		for(var/mob/M in world)
+			if(M.ckey != null)
+				if(isobserver(M) || (M.stat > 1))
+					text += M.original_name
+					text += "as ("
+					text += M.ckey
+					text += ")\n"
+		text += "<b>Living here:</b>"
+		for(var/mob/M in world)
+			if(M.ckey != null)
+				if(!isobserver(M) &&(M.stat < 2))
+					text += M.original_name
+					text += "as ("
+					text += M.ckey
+					text += ")\n"
+		captain_announce(text)
+
 
 	return 0
 
