@@ -88,15 +88,15 @@
 
 /turf/simulated/wall/New()
 	relativewall_neighbours()
-#define WALL_CHECK 0
-#ifdef WALL_CHECK
-	for(var/turf/T in CARDINAL)
-		if(istype(T, /turf/simulated/floor) ||  istype(T, /turf/floor))
-			for(var/obj/O in contents)
-				O.Move(T)
-			break
-#endif WALL_CHECK
-
+//#define WALL_CHECK 0
+//#ifdef WALL_CHECK
+//	for(var/turf/T in CARDINAL)
+//		if(istype(T, /turf/simulated/floor) ||  istype(T, /turf/floor))
+//			for(var/obj/O in contents)
+//				O.Move(T)
+//			break
+//#endif WALL_CHECK
+//
 	..()
 
 /obj/structure/falsewall/New()
