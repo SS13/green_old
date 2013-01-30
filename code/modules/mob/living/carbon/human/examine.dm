@@ -426,7 +426,17 @@
 
 			msg += "<span class = 'deptradio'>Criminal status:</span> <a href='?src=\ref[src];criminal=1'>\[[criminal]\]</a>\n"
 			//msg += "\[Set Hostile Identification\]\n"
-
+		//Idea 5 label
+		if(istype(usr:glasses, /obj/item/clothing/glasses/thermal))
+			if (src in oview(usr))
+				for(var/obj/item/weapon/gun/energy/E in wear_suit) //Suit
+					if(E)	usr << "\red You see intense heat from [wear_suit]"
+				for(var/obj/item/weapon/gun/energy/E in l_store) //Left pocket
+					if(E)	usr << "\red You see intense heat from left pocket"
+				for(var/obj/item/weapon/gun/energy/E in r_store) //Right pocket
+					if(E)	usr << "\red You see intense heat from right pocket"
+				for(var/obj/item/weapon/gun/energy/E in back && !istype(/obj/item/weapon/storage/backpack/holding, back)) //Backpack. I can't see energy weapons in bag of holding.
+					if(E)	usr << "\red You see heat from [back]"
 	if(print_flavor_text()) msg += "[print_flavor_text()]\n"
 
 	msg += "\blue *---------*"

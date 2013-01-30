@@ -411,13 +411,13 @@
 			return 1
 
 		handle_regular_hud_updates()
-
 			if (stat == 2 || (XRAY in src.mutations))
 				sight |= SEE_TURFS
 				sight |= SEE_MOBS
 				sight |= SEE_OBJS
 				see_in_dark = 8
 				see_invisible = 2
+
 			else if (stat != 2)
 				sight |= SEE_MOBS
 				sight &= ~SEE_TURFS

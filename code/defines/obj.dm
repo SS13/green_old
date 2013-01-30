@@ -12,6 +12,7 @@
 	var/datum/marked_datum
 	glide_size = 8
 	animate_movement = 2
+	var/icon/blood_overlay = null
 	var/throwforce = 1
 	var/list/attack_verb = list() //Used in attackby() to say how something was attacked "[x] has been [z.attack_verb] by [y] with [z]"
 
@@ -441,7 +442,6 @@
 /obj/item
 	name = "item"
 	icon = 'items.dmi'
-	var/icon/blood_overlay = null //this saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
 	var/abstract = 0
 	var/force = 0
 	var/item_state = null

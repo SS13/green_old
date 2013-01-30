@@ -91,7 +91,9 @@
 	icon = 'drip.dmi'
 	icon_state = "1"
 //	track_amt = 0
-
+	Stat()
+		if(prob(5))
+			del(src)
 /obj/effect/decal/cleanable/mucus
 	name = "mucus"
 	desc = "Disgusting mucus."

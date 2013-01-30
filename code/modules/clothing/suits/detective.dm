@@ -42,7 +42,7 @@
 		else
 			usr << "\blue You need your gun equiped to holster it."
 	else
-		if(istype(usr.get_active_hand(),/obj) && istype(usr.get_inactive_hand(),/obj))
+		if(usr:get_active_hand())
 			usr << "\red If you want your gun from your holster, you need an empty hand!"
 		else
 			usr.put_in_hand(gun)

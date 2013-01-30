@@ -1,8 +1,8 @@
 /obj/item/weapon/gun/projectile/detective
-	desc = "A cheap Martian knock-off of a Smith & Wesson Model 10. Uses .38-Special rounds."
+	desc = "A simple Martian knock-off of a Smith & Wesson Model 10. Uses special .72 rounds."
 	name = "revolver"
 	icon_state = "detective"
-	caliber = "357"
+	caliber = ".72"
 	origin_tech = "combat=2;materials=2"
 	ammo_type = "/obj/item/ammo_casing/c38"
 

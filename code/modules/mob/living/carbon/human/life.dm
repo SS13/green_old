@@ -1175,7 +1175,8 @@
 			for(var/image/hud in client.images)
 				if(copytext(hud.icon_state,1,4) == "hud") //ugly, but icon comparison is worse, I believe
 					client.images -= hud//del(hud)
-
+			for(var/image/I in client.images) //For thermaling.
+				del(I)
 			// Handle special vision stuff, such as thermals or ghost vision
 			// -------------------------------------------------------------
 			if (stat == 2 || (XRAY in mutations))
@@ -1185,6 +1186,11 @@
 				see_in_dark = 8
 				if(!druggy)
 					see_invisible = 2
+				for(var/obj/structure/closet/C in orange(world.view, src.loc))
+					for (var/mob/living/M in C)
+						var/image/I = image (M, C.loc)
+						I.layer = 0
+						client.images += I
 
 			else if (seer)
 				var/obj/effect/rune/R = locate() in loc
@@ -1233,6 +1239,10 @@
 				sight |= SEE_MOBS
 				if(!druggy)
 					see_invisible = 2
+				for (var/obj/structure/closet/C in orange(world.view, src.loc))
+					for (var/mob/living/M in C)
+						var/image/I = image (M, C.loc)
+						src << I
 
 			else if(istype(glasses, /obj/item/clothing/glasses/material))
 				sight |= SEE_OBJS

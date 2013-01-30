@@ -10,7 +10,7 @@
 	flags = FPRINT | TABLEPASS
 	slot_flags = SLOT_ICLOTHING
 	var/has_sensor = 1//For the crew computer 2 = unable to change mode
-	var/sensor_mode = 0
+	var/sensor_mode = 3 //Idea 2 label.
 		/*
 		1 = Report living/dead
 		2 = Report detailed damages

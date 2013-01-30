@@ -184,8 +184,8 @@
 		blood_DNA = list()
 
 	//adding blood to items
-	if (istype(src, /obj/item)&&!istype(src, /obj/item/weapon/melee/energy))//Only regular items. Energy melee weapon are not affected.
-		var/obj/item/O = src
+	if (istype(src, /obj)&&!istype(src, /obj/item/weapon/melee/energy))//Only regular items. Energy melee weapon are not affected.
+		var/obj/O = src
 
 		//if we haven't made our blood_overlay already
 		if( !O.blood_overlay )
@@ -209,10 +209,13 @@
 		blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
 		return 1 //we applied blood to the item
 
-	//adding blood to turfs
+	//adding blood to turfs and objects
 	else if (istype(src, /turf/simulated))
-		var/turf/simulated/T = src
-
+		var/turf/simulated/T
+		if (prob(65))
+			T = get_step(src, pick(cardinal))
+		else
+			T = get_turf(src)
 		//get one blood decal and infect it with virus from M.viruses
 		for(var/obj/effect/decal/cleanable/blood/B in T.contents)
 			if(!B.blood_DNA[M.dna.unique_enzymes])
@@ -223,9 +226,14 @@
 				var/datum/disease/newDisease = new D.type
 				B.viruses += newDisease
 				newDisease.holder = B
-			return 1 //we bloodied the floor
 
-		//if there isn't a blood decal already, make one.
+		//Edited copypaste. Idea 3 label.
+		if(prob(35))
+			for(var/obj/O in range(1,get_turf(M)))
+				if(prob(50))
+					O.add_blood(M)
+
+		if(istype(T, /turf/space))	return 0
 		var/obj/effect/decal/cleanable/blood/newblood = new /obj/effect/decal/cleanable/blood(T)
 		newblood.blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
 //		newblood.blood_owner = M
@@ -233,8 +241,7 @@
 		for(var/datum/disease/D in M.viruses)
 			var/datum/disease/newDisease = new D.type
 			newblood.viruses += newDisease
-			newDisease.holder = newblood
-		return 1 //we bloodied the floor
+			newDisease.holder = newblood //we bloodied the floor
 
 	//adding blood to humans
 	else if (istype(src, /mob/living/carbon/human))
@@ -308,7 +315,7 @@
 				H.bloody_hands = 0
 
 		//Cleaning blood off of items
-		else if (istype (src, /obj/item))
+		else if (istype (src, /obj))
 			var/obj/item/O = src
 			del(O.blood_DNA)
 			if(O.blood_overlay)
