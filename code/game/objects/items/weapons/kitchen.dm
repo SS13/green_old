@@ -211,7 +211,7 @@ KNIFE
 			src.add_blood(H)
 			var/turf/location = H.loc
 			if (istype(location, /turf/simulated))
-				location.add_blood(H)     ///Plik plik, the sound of blood
+				location.add_blood(H,1)     ///Plik plik, the sound of blood
 
 		M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been attacked with [src.name] by [user.name] ([user.ckey])</font>")
 		user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to attack [M.name] ([M.ckey])</font>")
@@ -252,7 +252,7 @@ KNIFE
 				H.glasses.add_blood(H)
 			var/turf/location = H.loc
 			if (istype(location, /turf/simulated))     //Addin' blood! At least on the floor and item :v
-				location.add_blood(H)
+				location.add_blood(H, 1)
 
 		if(prob(50))
 			playsound(M, 'trayhit1.ogg', 50, 1)
@@ -276,7 +276,7 @@ KNIFE
 			src.add_blood(M)
 			var/turf/location = H.loc
 			if (istype(location, /turf/simulated))
-				location.add_blood(H)
+				location.add_blood(H,1)
 
 		if(prob(50))
 			playsound(M, 'trayhit1.ogg', 50, 1)

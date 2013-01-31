@@ -155,7 +155,7 @@ TABLE AND RACK OBJECT INTERATIONS
 				var/mob/living/carbon/human/H = G.affecting
 				var/datum/organ/external/affecting = H.get_organ("head")
 				if(prob(25))
-					add_blood(G.affecting)
+					add_blood(G.affecting, 1) //Forced
 					affecting.take_damage(rand(10,15), 0)
 					H.Weaken(2)
 					if(prob(20)) // One chance in 20 to DENT THE TABLE
@@ -548,7 +548,7 @@ TABLE AND RACK OBJECT INTERATIONS
 				var/mob/living/carbon/human/H = G.affecting
 				var/datum/organ/external/affecting = H.get_organ("head")
 				if(prob(25))
-					add_blood(G.affecting)
+					add_blood(G.affecting, 1)
 					affecting.take_damage(rand(10,15), 0)
 					H.Weaken(2)
 					if(prob(20)) // One chance in 20 to DENT THE TABLE

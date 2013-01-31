@@ -149,8 +149,8 @@ emp_act
 		I.add_blood(src)	//Make the weapon bloody, not the person.
 		bloody = 1
 		var/turf/location = loc
-		if(istype(location, /turf/simulated))
-			location.add_blood(src)
+		if(istype(location, /turf/simulated)) //Forced
+			location.add_blood(src,1)
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			if(H.wear_suit)			H.wear_suit.add_blood(src)

@@ -370,7 +370,7 @@ mob/living/carbon/human/airflow_hit(atom/A)
 //	for(var/mob/M in hearers(src))
 //		M.show_message("\red <B>[src] slams into [A]!</B>",1,"\red You hear a loud slam!",2)
 	playsound(src.loc, "punch", 25, 1, -1)
-	loc:add_blood(src)
+	loc:add_blood(src, 1) //Forced
 	if (src.wear_suit)
 		src.wear_suit.add_blood(src)
 	if (src.w_uniform)

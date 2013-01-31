@@ -93,10 +93,17 @@
 
 	//back
 	if (src.back)
+		var/egun = 0
+		if(istype(usr:glasses, /obj/item/clothing/glasses/thermal))
+			if (src in view(world.view,usr))
+				for (var/obj/item/weapon/gun/energy/E in back.contents)
+					if (E)
+						egun = 1
+						break
 		if (src.back.blood_DNA)
-			msg += "<span class='warning'>[t_He] [t_has] \icon[src.back] [src.back.gender==PLURAL?"some":"a"] blood-stained [src.back] on [t_his] back.</span>\n"
+			msg += "<span class='warning'>[t_He] [t_has] \icon[src.back] [src.back.gender==PLURAL?"some":"a"] blood-stained [src.back] on [t_his] back. [egun ? "Also you see something energy-based in this </span> \n" : "</span> \n"]"
 		else
-			msg += "[t_He] [t_has] \icon[src.back] \a [src.back] on [t_his] back.\n"
+			msg += "[t_He] [t_has] \icon[src.back] \a [src.back] on [t_his] back.  [egun ? "Also you see something energy-based in this </span> \n" : "</span> \n"]"
 
 	//left hand
 	if (src.l_hand)
@@ -140,6 +147,16 @@
 			msg += "<span class='warning'>[t_He] [t_has] \icon[src.belt] [src.belt.gender==PLURAL?"some":"a"] blood-stained [src.belt.name] about [t_his] waist!</span>\n"
 		else
 			msg += "[t_He] [t_has] \icon[src.belt] \a [src.belt] about [t_his] waist.\n"
+//Pockets
+	if(istype(usr:glasses, /obj/item/clothing/glasses/thermal))
+		if (src in view(world.view,usr))
+			var/egun = 0
+			if (istype(l_store, /obj/item/weapon/gun/energy))
+				egun = 1
+			if (istype(r_store, /obj/item/weapon/gun/energy))
+				egun = 1
+			if (egun)
+				msg += "<span class='warning'>[t_He] [t_has] something energy-based in his pockets </span> \n"
 
 	//shoes
 	if (src.shoes && !skipshoes)
@@ -426,17 +443,7 @@
 
 			msg += "<span class = 'deptradio'>Criminal status:</span> <a href='?src=\ref[src];criminal=1'>\[[criminal]\]</a>\n"
 			//msg += "\[Set Hostile Identification\]\n"
-		//Idea 5 label
-		if(istype(usr:glasses, /obj/item/clothing/glasses/thermal))
-			if (src in oview(usr))
-				for(var/obj/item/weapon/gun/energy/E in wear_suit) //Suit
-					if(E)	usr << "\red You see intense heat from [wear_suit]"
-				for(var/obj/item/weapon/gun/energy/E in l_store) //Left pocket
-					if(E)	usr << "\red You see intense heat from left pocket"
-				for(var/obj/item/weapon/gun/energy/E in r_store) //Right pocket
-					if(E)	usr << "\red You see intense heat from right pocket"
-				for(var/obj/item/weapon/gun/energy/E in back && !istype(/obj/item/weapon/storage/backpack/holding, back)) //Backpack. I can't see energy weapons in bag of holding.
-					if(E)	usr << "\red You see heat from [back]"
+
 	if(print_flavor_text()) msg += "[print_flavor_text()]\n"
 
 	msg += "\blue *---------*"

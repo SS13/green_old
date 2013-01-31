@@ -172,7 +172,7 @@
 	return
 
 //returns 1 if made bloody, returns 0 otherwise
-/atom/proc/add_blood(mob/living/carbon/human/M as mob)
+/atom/proc/add_blood(mob/living/carbon/human/M as mob, forced = 0)
 	if (!( istype(M, /mob/living/carbon/human) ))
 		return 0
 	if (!istype(M.dna, /datum/dna))
@@ -212,10 +212,13 @@
 	//adding blood to turfs and objects
 	else if (istype(src, /turf/simulated))
 		var/turf/simulated/T
-		if (prob(65))
-			T = get_step(src, pick(cardinal))
+		if(forced)
+			if (prob(75))
+				T = get_step_rand(M)
+			else
+				T = get_turf(M)
 		else
-			T = get_turf(src)
+			T = get_turf(M)
 		//get one blood decal and infect it with virus from M.viruses
 		for(var/obj/effect/decal/cleanable/blood/B in T.contents)
 			if(!B.blood_DNA[M.dna.unique_enzymes])
@@ -228,12 +231,16 @@
 				newDisease.holder = B
 
 		//Edited copypaste. Idea 3 label.
-		if(prob(45))
-			for(var/obj/O in view(3,get_turf(M)))
-				if(prob(35))
+		if(prob(65) && forced)
+			for(var/obj/O in view(1, M))
+				if(prob(45))
 					O.add_blood(M)
-
-		if(istype(T, /turf/space))	return 0
+		while (1) //Blood flood
+			for(var/obj/effect/decal/cleanable/blood/B in T)
+				if (B)
+					T = get_turf(pick(range(1,T)))
+					continue
+			break
 		var/obj/effect/decal/cleanable/blood/newblood = new /obj/effect/decal/cleanable/blood(T)
 		newblood.blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
 //		newblood.blood_owner = M
@@ -316,7 +323,7 @@
 
 		//Cleaning blood off of items
 		else if (istype (src, /obj))
-			var/obj/item/O = src
+			var/obj/O = src
 			del(O.blood_DNA)
 			if(O.blood_overlay)
 				O.overlays.Remove(O.blood_overlay)

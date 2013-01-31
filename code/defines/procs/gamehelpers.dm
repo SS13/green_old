@@ -78,7 +78,7 @@
 		if(dx*dx + dy*dy <= rsq)
 			turfs += T
 
-	//turfs += centerturf
+	turfs += centerturf
 	return turfs
 
 /proc/get_dist_euclidian(atom/Loc1 as turf|mob|obj,atom/Loc2 as turf|mob|obj)

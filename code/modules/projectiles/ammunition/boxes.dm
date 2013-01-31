@@ -17,7 +17,7 @@
 
 
 /obj/item/ammo_magazine/c38
-	name = "speed loader (.38)"
+	name = "speed loader (.72)"
 	icon_state = "38"
 	ammo_type = "/obj/item/ammo_casing/c38"
 	max_ammo = 7
