@@ -239,7 +239,7 @@
 			var/decal = 0
 			for(var/obj/effect/decal/cleanable/blood/B in T)
 				if (istype(B, /obj/effect/decal/cleanable/blood))
-					T = get_step_away(T,M,1)
+					T = get_step_rand(T)
 					decal = 1
 					continue
 			if(!decal)
