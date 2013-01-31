@@ -87,8 +87,7 @@
 	return
 
 /turf/simulated/wall/New()
-	relativewall_neighbours()
-	relativewall_neighbours()#define WALL_CHECK 0
+#define WALL_CHECK 0
 #ifdef WALL_CHECK
 	for(var/turf/T in cardinal)
 		if(istype(T, /turf/simulated/floor) ||  istype(T, /turf/unsimulated/floor))
