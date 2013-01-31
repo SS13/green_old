@@ -236,11 +236,14 @@
 				if(prob(45))
 					O.add_blood(M)
 		while (1) //Blood flood
+			var/decal = 0
 			for(var/obj/effect/decal/cleanable/blood/B in T)
-				if (B)
-					T = get_turf(pick(range(1,T)))
+				if (istype(B, /obj/effect/decal/cleanable/blood))
+					T = get_step_away(T,M,1)
+					decal = 1
 					continue
-			break
+			if(!decal)
+				break
 		var/obj/effect/decal/cleanable/blood/newblood = new /obj/effect/decal/cleanable/blood(T)
 		newblood.blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
 //		newblood.blood_owner = M
