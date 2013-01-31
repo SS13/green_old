@@ -268,14 +268,14 @@
 				if ((prob(5) && paralysis <= 1 && r_ch_cou < 1))
 					drop_item()
 					spawn( 0 )
-						emote("êàøëÿåò")
+						emote("cought")
 			if (disabilities & 8)
 				if ((prob(5) && paralysis <= 1 && r_Tourette < 1))
 					Stun(10)
 					spawn(0)
 						switch(rand(1, 3))
 							if(1)
-								emote("äåðãàåòñÿ")
+								emote("twitch")
 							if(2 to 3)
 								say("[prob(50) ? ";" : ""][pick("EELS","MOTORBOATS","MERDE","ANTIDISESTABLISHMENTARIANISM","OGOPOGO","POPEMOBILE","RHOMBUS","TUMESCENCE","ZIGGURAT","DIRIGIBLES","WAFFLES","PICKLES","BIKINI","DUCK","KNICKERBOCKERS","LOQUACIOUS","MACADAMIA","MAHOGANY","KUMQUAT","PERCOLATOR","AUBERGINES","FLANGES","GOURDS","DONUTS","CALLIPYGIAN","DARJEELING","DWARFS","MAGMA","ARMOK","BERR","APPLES","SPACEMEN","NINJAS","PIRATES","BUNION")]!")
 						var/old_x = pixel_x
@@ -297,7 +297,7 @@
 						if(2)
 							say(pick("Êàê ìèíÿòü ðóêè?","åáó÷èå ôóððè!", "Ïîäåáèë", "Ïðîêëÿòûå òðàïû!", "Ýòî æè ãðèí!", "âæææææææææ!!!", "äæåô ñêâààààä!", "ÁÐÀÍÄÅÍÁÓÐÃ!", "ÁÓÄÀÏÅØÒ!", "ÏÀÓÓÓÓÓÊ!!!!", "ÏÓÊÀÍ ÁÎÌÁÀÍÓË!", "ÏÓØÊÀ", "ÐÅÂÀ ÏÎÖÎÍÛ", "Ïàòè íà õîïà!"))
 						if(3)
-							emote("ïóñêàåò ñëþíè")
+							emote("slurrs")
 
 
 		handle_mutations_and_radiation()
