@@ -194,7 +194,7 @@
 			I.Blend(new /icon('blood.dmi', "itemblood"),ICON_MULTIPLY) //adds blood and the remaining white areas become transparant
 
 			//not sure if this is worth it. It attaches the blood_overlay to every item of the same type if they don't have one already made.
-			for(var/obj/item/A in world)
+			for(var/obj/A in world)
 				if(A.type == O.type && !A.blood_overlay)
 					A.blood_overlay = I
 
@@ -228,9 +228,9 @@
 				newDisease.holder = B
 
 		//Edited copypaste. Idea 3 label.
-		if(prob(35))
-			for(var/obj/O in range(1,get_turf(M)))
-				if(prob(50))
+		if(prob(45))
+			for(var/obj/O in view(3,get_turf(M)))
+				if(prob(35))
 					O.add_blood(M)
 
 		if(istype(T, /turf/space))	return 0
