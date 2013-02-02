@@ -1,4 +1,3 @@
-#define TICK_QUOTA 100
 /atom/proc/MouseDrop_T()
 	return
 
@@ -245,40 +244,38 @@
 				else
 					if (prob(45))
 						O.add_blood(M)
-		var/i = 0
-		while (1) //Blood flood
-			var/decal = 0
-			i++
-			for(var/obj/effect/decal/cleanable/blood/B in T)
-				if (istype(B, /obj/effect/decal/cleanable/blood))
-					var/turf/Z = T
-					var/allowed = 0
-					var/j = 0
-					var/needtest = 0
-					while (!allowed)
-						Z = get_step_rand(T)
-						for (var/atom/A in Z)
-							if (istype(A, /obj/structure))
-								needtest = 1
-							if (istype(A, /turf/simulated))
-								needtest = 1
-						if(needtest)
-							var/obj/O = new /obj(T)
-							if (j > TICK_QUOTA)
-								return
-							if (step_towards(O, Z))
-								del(O)
-								allowed = 1
-							else
-								del(O)
-								j++
-					T = Z
-					decal = 1
-					break
-			if(!decal)
-				break
-			if(i > TICK_QUOTA)
-				return
+		var/list/turf/blacklist = list()
+		var/list/turf/whitelist = list()
+		whitelist += T
+		while (whitelist.len > 0) //Blood flood
+			T = pick(whitelist)
+			for (var/turf/A in range(1, T))
+				var/haveblood = 0
+				for (var/obj/effect/decal/cleanable/blood/B in A)
+					if (B)
+						haveblood = 1
+						break
+				if (haveblood)
+					if (!A in blacklist && CanReachThrough(T,A))
+						whitelist += A
+				else
+					T = A
+					goto end
+				whitelist -= T
+				blacklist += T
+		return
+
+/*
+1. Центральный турф в вайтлист
+1.5 Взять случайный турф из белого листа
+2. Осмотреть турфы вокруг range(1,T)
+3. Если на турфе нет крови - назначить его центральным турфом, если есть - занести в белый
+4. Убрать T из белого листа, занести в черный
+5. Идти в 1.5
+*/
+
+
+		end:
 		var/obj/effect/decal/cleanable/blood/newblood = new /obj/effect/decal/cleanable/blood(T)
 		newblood.blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
 //		newblood.blood_owner = M
