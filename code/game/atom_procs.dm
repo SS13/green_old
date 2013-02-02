@@ -1,3 +1,4 @@
+#define TICK_QUOTA 100
 /atom/proc/MouseDrop_T()
 	return
 
@@ -233,17 +234,51 @@
 		//Edited copypaste. Idea 3 label.
 		if(prob(65) && forced)
 			for(var/obj/O in view(1, M))
-				if(prob(45))
-					O.add_blood(M)
+				if (istype(O, /obj/machinery))
+					if (prob(60))
+						O.add_blood(M)
+						continue
+				if (istype(O, /obj/item))
+					if (prob(O:w_class))
+						O.add_blood(M)
+						continue
+				else
+					if (prob(45))
+						O.add_blood(M)
+		var/i = 0
 		while (1) //Blood flood
 			var/decal = 0
+			i++
 			for(var/obj/effect/decal/cleanable/blood/B in T)
 				if (istype(B, /obj/effect/decal/cleanable/blood))
-					T = get_step_rand(T)
+					var/turf/Z = T
+					var/allowed = 0
+					var/j = 0
+					var/needtest = 0
+					while (!allowed)
+						Z = get_step_rand(T)
+						for (var/atom/A in Z)
+							if (istype(A, /obj/structure))
+								needtest = 1
+							if (istype(A, /turf/simulated))
+								needtest = 1
+						if(needtest)
+							var/obj/O = new /obj(T)
+							if (j > TICK_QUOTA)
+								return
+							if (step_towards(O, Z))
+								del(O)
+								allowed = 1
+							else
+								del(O)
+								j++
+					T = Z
 					decal = 1
-					continue
+					break
 			if(!decal)
 				break
+			if(i > TICK_QUOTA)
+				return
 		var/obj/effect/decal/cleanable/blood/newblood = new /obj/effect/decal/cleanable/blood(T)
 		newblood.blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
 //		newblood.blood_owner = M
