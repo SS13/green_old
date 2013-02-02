@@ -288,6 +288,7 @@ var/datum/roundinfo/roundinfo = new()
 				declare_completion()
 
 			spawn(50)
+				showcredits()
 				if (mode.station_was_nuked)
 					//feedback_set_details("end_proper","nuke")
 					world << "\blue <B>Rebooting due to destruction of station in [restart_timeout/10] seconds</B>"
