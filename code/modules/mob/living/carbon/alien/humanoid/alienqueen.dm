@@ -2,7 +2,7 @@
 	name = "alien queen"
 	maxHealth = 250
 	health = 250
-	icon_state = "alienq_s"
+	icon_state = "queen_s"
 
 
 /mob/living/carbon/alien/humanoid/queen/New()
