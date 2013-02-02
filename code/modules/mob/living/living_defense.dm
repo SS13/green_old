@@ -56,7 +56,7 @@
 		return 2
 	if(!P.nodamage)
 		apply_damage((P.damage/(absorb+1)), P.damage_type, def_zone, sharp = 1, used_weapon = P.name)
-		if (prob(min(100, 15 * P.damage / (absorb + 1))) && P.flag == "bullet") //Blood everywhere from bullets. How obviously, and not maded...
+		if (prob(min(100, 15 * P.damage / (absorb + 1))) && P.damage_type == BRUTE) //Blood everywhere from bullets. How obviously, and not maded...
 			var/turf/location = loc
 			location.add_blood(src, 1) //Forced attack
 	P.on_hit(src, absorb)
