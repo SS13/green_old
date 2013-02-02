@@ -299,7 +299,6 @@
 						if(3)
 							emote("custom vпускает слюни")
 
-
 		handle_mutations_and_radiation()
 			if(getFireLoss())
 				if((COLD_RESISTANCE in mutations) || (prob(1) && prob(75)))

@@ -25,30 +25,6 @@ client/proc/onDeath()
 	if(!makejson)
 		return
 	roundinfo.deaths++
-	if(!ismob(mob))
-		return
-	var/area = get_area(mob)
-	var/attacker
-	var/tod = time2text(world.realtime)
-	var/health
-	var/last
-	if(ishuman(mob.lastattacker))
-		attacker = mob.lastattacker:name
-	else
-		attacker = "None"
-	health = "Oxy:[mob.oxyloss]Brute:[mob.bruteloss]Burn:[mob.fireloss]Toxins:[mob.toxloss]Brain:[mob.brainloss]"
-	if(mob.attack_log.len >= 1)
-		last = mob.attack_log[mob.attack_log.len]
-	else
-		last = "None"
-
-	var/DBConnection/dbcon = new()
-
-	dbcon.Connect("dbi:mysql:[sqldb]:[sqladdress]:[sqlport]","[sqllogin]","[sqlpass]")
-	if(!dbcon.IsConnected()) return
-
-	var/DBQuery/cquery = dbcon.NewQuery("INSERT INTO `deathlog` (`ckey`,`location`,`lastattacker`,`ToD`,`health`,`lasthit`) VALUES ('[ckey]',[dbcon.Quote(area)],[dbcon.Quote(attacker)],'[tod]','[health]',[dbcon.Quote(last)])")
-	if(!cquery.Execute()) message_admins(cquery.ErrorMsg())
 
 client/proc/onBought(names)
 	if(!makejson) return

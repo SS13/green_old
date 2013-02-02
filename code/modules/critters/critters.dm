@@ -22,6 +22,30 @@
 	attacktext = "chomps"
 	attack_sound = 'bite.ogg'
 
+/obj/effect/critter/sindy
+	name = "Emperial trooper"
+	desc = "Emperial evil stormtrooper."
+	icon = 'critter.dmi'
+	icon_state = "sindy"
+	health = 120
+	max_health = 120
+	aggressive = 1
+	defensive = 1
+	wanderer = 1
+	opensdoors = 1
+	atkcarbon = 1
+	atksilicon = 1
+	atkcritter = 1
+	atkmech = 1
+	atksame = 0
+	firevuln = 1
+	brutevuln = 1
+	melee_damage_lower = 25
+	melee_damage_upper = 50
+	angertext = "runs"
+	attacktext = "slised"
+	attack_sound = 'knife_hit_flesh3.ogg'
+
 
 /obj/effect/critter/roach
 	name = "cockroach"
