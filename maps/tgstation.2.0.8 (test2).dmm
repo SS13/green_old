@@ -464,7 +464,7 @@
 "aiV" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{dir = 10},/turf/simulated/wall/r_wall,/area/security/brig)
 "aiW" = (/obj/machinery/light{dir = 8},/obj/machinery/firealarm{dir = 8; pixel_x = -24},/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; tag = "Streight"},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,/turf/simulated/floor,/area/security/brig)
 "aiX" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 6},/turf/simulated/floor,/area/security/brig)
-"aiY" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/mob/living/simple_animal/parrot/Poly,/turf/simulated/floor,/area/security/brig)
+"aiY" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/simulated/floor,/area/security/brig)
 "aiZ" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 4},/turf/simulated/floor,/area/security/brig)
 "aja" = (/obj/machinery/atmospherics/pipe/manifold/supply/hidden{icon_state = "manifold-b-f"; dir = 4},/turf/simulated/floor,/area/security/brig)
 "ajb" = (/turf/simulated/floor,/area/security/brig)
