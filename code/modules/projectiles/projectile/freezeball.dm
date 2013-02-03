@@ -69,10 +69,13 @@ obj/item/weapon/gun/energy/freezegun
 		..()
 
 	process() // soooo uglycode!
-		if(occupant && occupant.stat != 2)
-			occupant:adjustOxyLoss(-4) // 4 critguys
-			occupant.weakened= 2
-			occupant.bodytemperature = 1
+		if(occupant)
+			if(occupant.stat != 2)
+				occupant:adjustOxyLoss(-4) // 4 critguys
+				occupant.weakened= 2
+				occupant.bodytemperature = 1
+		else
+			ice = 0
 		if(ice<=200)
 			freeze_tick++
 			if(freeze_tick < 4) return 0
@@ -170,6 +173,9 @@ obj/item/weapon/gun/energy/freezegun
 /obj/structure/freezedmob/proc/icecheck()
 	if (src.ice <= 0)
 		playsound(src.loc, 'Welder2.ogg', 100, 1)
+		if(!src.occupant)
+			del(src)
+			return
 		src.occupant.loc = src.loc
 		var/mob/living/M = src.occupant
 		M.canmove = 1
