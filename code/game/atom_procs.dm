@@ -1,4 +1,4 @@
-/atom/proc/MouseDrop_T()
+п»ї/atom/proc/MouseDrop_T()
 	return
 
 /atom/proc/attack_hand(mob/user as mob)
@@ -219,7 +219,7 @@
 				T = get_turf(M)
 		else
 			T = get_turf(M)
-		if(!T)//Были рантаймы, когда Т = null
+		if(!T)//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅ = null
 			return
 		//get one blood decal and infect it with virus from M.viruses
 		for(var/obj/effect/decal/cleanable/blood/B in T.contents)
