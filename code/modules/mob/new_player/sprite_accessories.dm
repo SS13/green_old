@@ -196,43 +196,43 @@
 
 	side_part
 		name = "Side Part"
-		icon_state = "side_part"
+		icon_state = "hair_side_part"
 
 	unkempt
 		name = "Unkempt"
-		icon_state = "unkempt"
+		icon_state = "hair_unkempt"
 
 	gelled_back
 		name = "Gelled back"
-		icon_state = "gelled_back"
+		icon_state = "hair_gelled_back"
 
 	middle_part
 		name = "Middle part"
-		icon_state = "middle_part"
+		icon_state = "hair_middle_part"
 
 	sargeant
 		name = "Sargeant"
-		icon_state = "sargeant"
+		icon_state = "hair_sargeant"
 
 	side_drills
 		name = "Side drills"
-		icon_state = "side_drills"
+		icon_state = "hair_side_drills"
 
 	pirate
 		name = "Pirate"
-		icon_state = "pirate"
+		icon_state = "hair_pirate"
 
 	hairband
 		name = "Hairband"
-		icon_state = "hairband"
+		icon_state = "hair_hairband"
 
 	kagami
 		name = "Kagami"
-		icon_state = "kagami"
+		icon_state = "hair_kagami"
 
 	natural
 		name = "Natural"
-		icon_state = "natural"
+		icon_state = "hair_natural"
 
 //////
 //Begin Alien Hairstyle
