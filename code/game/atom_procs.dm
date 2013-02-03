@@ -267,16 +267,6 @@
 				blacklist += T
 		return
 
-/*
-1. Центральный турф в вайтлист
-1.5 Взять случайный турф из белого листа
-2. Осмотреть турфы вокруг range(1,T)
-3. Если на турфе нет крови - назначить его центральным турфом, если есть - занести в белый
-4. Убрать T из белого листа, занести в черный
-5. Идти в 1.5
-*/
-
-
 		end:
 		var/obj/effect/decal/cleanable/blood/newblood = new /obj/effect/decal/cleanable/blood(T)
 		newblood.blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
