@@ -1,12 +1,12 @@
 //Walle
 /mob/living/simple_animal/walle
-	name = "walle"
+	name = "droid"
 	desc = "Waste Allocation Load Lifter Earth-Class."
 	icon = 'mob.dmi'
 	icon_state = "walle"
 	icon_living = "walle"
 	icon_dead = "walle_dead"
-	speak = list("Walle!","Bzzt!","Bep!","Beep!")
+	speak = list("Bzzt!","Bep!","Beep!")
 	speak_emote = list("state", "bep-bop")
 	emote_hear = list("beep")
 	emote_see = list("sweeping debris", "observing")

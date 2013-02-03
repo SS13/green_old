@@ -13,5 +13,5 @@
 				alien_talk(message)
 		else
 			if (copytext(message, 1, 2) != "*" && !stat)
-				playsound(loc, "monkey1", 25, 1, 1)//So aliens can hiss while they hiss yo/N
+				playsound(loc, "chimpers", 25, 1, 1)//So aliens can hiss while they hiss yo/N
 			return ..(message)

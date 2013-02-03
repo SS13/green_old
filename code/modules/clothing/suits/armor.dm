@@ -28,6 +28,7 @@
 	slowdown = 1
 	armor = list(melee = 80, bullet = 10, laser = 10, energy = 10, bomb = 0, bio = 0, rad = 0)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+	origin_tech = "combat=3,materials=4"
 
 
 /obj/item/clothing/suit/armor/bulletproof
@@ -36,6 +37,7 @@
 	icon_state = "bulletproof"
 	item_state = "armor"
 	armor = list(melee = 10, bullet = 80, laser = 10, energy = 10, bomb = 0, bio = 0, rad = 0)
+	origin_tech = "combat=3,materials=4"
 
 
 /obj/item/clothing/suit/armor/laserproof
@@ -44,6 +46,7 @@
 	icon_state = "armor_reflec"
 	item_state = "armor_reflec"
 	armor = list(melee = 10, bullet = 10, laser = 80, energy = 50, bomb = 0, bio = 0, rad = 0)
+	origin_tech = "combat=3,materials=4,powerstorage=3,magnets=2"
 
 /obj/item/clothing/suit/armor/internalsecurity
 	name = "Commissar coat"
@@ -135,3 +138,4 @@
 	slowdown = 1
 	armor = list(melee = 70, bullet = 10, laser = 40, energy = 10, bomb = 0, bio = 0, rad = 0)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+	origin_tech = "combat=3,materials=4"
