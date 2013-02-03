@@ -219,6 +219,8 @@
 				T = get_turf(M)
 		else
 			T = get_turf(M)
+		if(!T)//Были рантаймы, когда Т = null
+			return
 		//get one blood decal and infect it with virus from M.viruses
 		for(var/obj/effect/decal/cleanable/blood/B in T.contents)
 			if(!B.blood_DNA[M.dna.unique_enzymes])
