@@ -101,9 +101,9 @@
 						egun = 1
 						break
 		if (src.back.blood_DNA)
-			msg += "<span class='warning'>[t_He] [t_has] \icon[src.back] [src.back.gender==PLURAL?"some":"a"] blood-stained [src.back] on [t_his] back. [egun ? "Also you see something energy-based in this </span> \n" : "</span> \n"]"
+			msg += "<span class='warning'>[t_He] [t_has] \icon[src.back] [src.back.gender==PLURAL?"some":"a"] blood-stained [src.back] on [t_his] back. [egun ? "Also you see something energy-based in this." : ""]</span>\n"
 		else
-			msg += "[t_He] [t_has] \icon[src.back] \a [src.back] on [t_his] back.  [egun ? "Also you see something energy-based in this </span> \n" : "</span> \n"]"
+			msg += "[t_He] [t_has] \icon[src.back] \a [src.back] on [t_his] back.  [egun ? "Also you see something energy-based in this. </span>\n" : "</span>\n"]"
 
 	//left hand
 	if (src.l_hand)
@@ -448,7 +448,7 @@
 
 	msg += "\blue *---------*"
 	usr << msg
-	if (usr != src && istype(src, /mob/living) && istype(usr, /mob/living))
+	if (usr != src && istype(src, /mob/living)) //istype(usr, /mob/living) - WTFUCK THIS SHIT?
 		for(var/mob/O in viewers(usr, null))
 			if (istype(O, usr))
 				break
