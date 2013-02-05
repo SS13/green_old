@@ -1428,7 +1428,7 @@ datum
 			id = "laserproof"
 			req_tech = list("combat" = 3, "materials" = 4, "powerstorage" = 3, "magnets" = 2)
 			build_type = PROTOLATHE
-			materials = list("$metal" = 5000, "$glass" = 1000, "$uranium" = 500, "$silver" = 100)
+			materials = list("$metal" = 15000, "$glass" = 5000, "$uranium" = 500, "$silver" = 100)
 			build_path = "/obj/item/clothing/suit/armor/laserproof"
 
 		bulletproof
@@ -1437,17 +1437,26 @@ datum
 			id = "bulletproof"
 			req_tech = list("combat" = 3, "materials" = 4)
 			build_type = PROTOLATHE
-			materials = list("$metal" = 6500)
+			materials = list("$metal" = 15000)
 			build_path = "/obj/item/clothing/suit/armor/bulletproof"
 
 		riot
 			name = "riot suit"
 			desc = "A suit of armor with heavy padding to protect against melee attacks. Looks like it might impair movement."
-			id = "riot"
+			id = "riot suit"
 			req_tech = list("combat" = 3, "materials" = 4)
 			build_type = PROTOLATHE
-			materials = list("$metal" = 5000)
+			materials = list("$metal" = 16000)
 			build_path = "/obj/item/clothing/suit/armor/riot"
+
+		riot_helmet
+			name = "riot helmet"
+			desc = "It's a helmet specifically designed to protect against close range attacks."
+			id = "riot helmet"
+			req_tech = list("combat" = 3, "materials" = 4)
+			build_type = PROTOLATHE
+			materials = list("$metal" = 10000)
+			build_path = "/obj/item/clothing/head/helmet/riot"
 
 		knight_suit
 			name = "knight suit"
@@ -1455,8 +1464,19 @@ datum
 			id = "knight_suit"
 			req_tech = list("combat" = 3, "materials" = 4)
 			build_type = PROTOLATHE
-			materials = list("$metal" = 5500)
+			materials = list("$metal" = 12000)
 			build_path = "/obj/item/clothing/suit/armor/knight_suit"
+
+		knight_helmet
+			name = "knight_helmet"
+			desc = "knight_helmet."
+			id = "knight_helmet"
+			req_tech = list("combat" = 3, "materials" = 4)
+			build_type = PROTOLATHE
+			materials = list("$metal" = 8000)
+			build_path = "/obj/item/clothing/head/knight_helmet"
+
+
 
 /////////////////////////////////////////
 /////////////////Mining//////////////////

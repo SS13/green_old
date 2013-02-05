@@ -158,3 +158,4 @@
 	protective_temperature = 100
 	heat_transfer_coefficient = 0.10
 	flags_inv = HIDEEARS|HIDEEYES
+	origin_tech = "combat=3,materials=4"
