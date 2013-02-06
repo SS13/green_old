@@ -274,7 +274,7 @@
 /obj/item/clothing/under/fluff/jumpsuitdirty //4udo: for Hobo
 	name = "dirty jumpsuit"
 	desc = "A very dirty jumpsuit. And stinky."
-	icon = 'custom_items.dmi'
+	icon = 'uniforms.dmi'
 	icon_state = "jumpsuitdirty"
 	item_state = "jumpsuitdirty"
 	color = "jumpsuitdirty"
