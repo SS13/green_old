@@ -153,6 +153,8 @@
 			return list(ACCESS_CLOWN, ACCESS_THEATRE, ACCESS_MAINT_TUNNELS)
 		if("Mime")
 			return list(ACCESS_MIME, ACCESS_THEATRE, ACCESS_MAINT_TUNNELS)
+		if("Hobo")
+			return list(ACCESS_MAINT_TUNNELS)
 		if("Chef")
 			return list(ACCESS_KITCHEN)
 		if("Roboticist")
