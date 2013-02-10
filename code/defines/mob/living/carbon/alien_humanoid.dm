@@ -53,8 +53,3 @@
 
 	voice_message = "says"
 	say_message = "says"
-
-/mob/living/carbon/alien/humanoid/queen/large
-	icon = 'icons/mob/alienqueen.dmi'
-	icon_state = "queen_s"
-	pixel_x = -16
