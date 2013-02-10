@@ -130,7 +130,7 @@
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 
 /obj/item/clothing/suit/armor/knight_suit
-	name = "knight suit"
+	name = "Knight armour"
 	desc = "For brave heart man."
 	icon_state = "knight_suit"
 	item_state = "knight_suit"
@@ -139,3 +139,13 @@
 	armor = list(melee = 70, bullet = 10, laser = 40, energy = 10, bomb = 0, bio = 0, rad = 0)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	origin_tech = "combat=3,materials=4"
+
+/obj/item/clothing/suit/armor/moonluck_suit
+	name = "Moonluck suit"
+	desc = "Armor named after the great knight of a bygone empire."
+	icon_state = "moonluck_suit"
+	item_state = "moonluck_suit"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
+	slowdown = 1
+	armor = list(melee = 5, bullet = 2, laser = 1, energy = 1, bomb = 1, bio = 0, rad = 0)
+	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
