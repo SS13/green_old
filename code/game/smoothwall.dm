@@ -88,15 +88,24 @@
 
 /turf/simulated/wall/New()
 	relativewall_neighbours()
+<<<<<<< HEAD
 	relativewall_neighbours()
 	#define WALL_CHECK 0
 /*#ifdef WALL_CHECK
+=======
+	relativewall_neighbours()#define WALL_CHECK 0
+#ifdef WALL_CHECK
+>>>>>>> parent of 9de0766... поняши и наброски на карте
 	for(var/turf/T in cardinal)
 		if(istype(T, /turf/simulated/floor) ||  istype(T, /turf/unsimulated/floor))
 			for(var/obj/O in contents)
 				O.Move(T)
 			break
+<<<<<<< HEAD
 #endif WALL_CHECK*/
+=======
+#endif WALL_CHECK
+>>>>>>> parent of 9de0766... поняши и наброски на карте
 	relativewall_neighbours()
 	..()
 
