@@ -127,7 +127,6 @@
 	flags = FPRINT|TABLEPASS|SUITSPACE|HEADCOVERSEYES
 	armor = list(melee = 82, bullet = 15, laser = 5,energy = 5, bomb = 5, bio = 2, rad = 0)
 	flags_inv = HIDEEARS
-	origin_tech = "combat=3,materials=4"
 
 /obj/item/clothing/head/helmet/cap
 	name = "captain's cap"

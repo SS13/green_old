@@ -1419,46 +1419,6 @@ datum
 			build_path = "/obj/item/ammo_casing/shotgun/stunshell"
 
 /////////////////////////////////////////
-/////////////////Armor//////////////////
-/////////////////////////////////////////
-
-		laserproof
-			name = "ablative armour vest"
-			desc = "A vest that excels in protecting the wearer against energy projectiles."
-			id = "laserproof"
-			req_tech = list("combat" = 3, "materials" = 4, "powerstorage" = 3, "magnets" = 2)
-			build_type = PROTOLATHE
-			materials = list("$metal" = 5000, "$glass" = 1000, "$uranium" = 500, "$silver" = 100)
-			build_path = "/obj/item/clothing/suit/armor/laserproof"
-
-		bulletproof
-			name = "bulletproof vest"
-			desc = "A vest that excels in protecting the wearer against high-velocity solid projectiles."
-			id = "bulletproof"
-			req_tech = list("combat" = 3, "materials" = 4)
-			build_type = PROTOLATHE
-			materials = list("$metal" = 6500)
-			build_path = "/obj/item/clothing/suit/armor/bulletproof"
-
-		riot
-			name = "riot suit"
-			desc = "A suit of armor with heavy padding to protect against melee attacks. Looks like it might impair movement."
-			id = "riot"
-			req_tech = list("combat" = 3, "materials" = 4)
-			build_type = PROTOLATHE
-			materials = list("$metal" = 5000)
-			build_path = "/obj/item/clothing/suit/armor/riot"
-
-		knight_suit
-			name = "knight suit"
-			desc = "For brave heart man."
-			id = "knight_suit"
-			req_tech = list("combat" = 3, "materials" = 4)
-			build_type = PROTOLATHE
-			materials = list("$metal" = 5500)
-			build_path = "/obj/item/clothing/suit/armor/knight_suit"
-
-/////////////////////////////////////////
 /////////////////Mining//////////////////
 /////////////////////////////////////////
 

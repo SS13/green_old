@@ -314,8 +314,6 @@ var/datum/roundinfo/roundinfo = new()
 
 /datum/controller/gameticker/proc/declare_completion()
 
-	world << sound('space_asshole.ogg')
-
 	for (var/mob/living/silicon/ai/aiPlayer in world)
 		if (aiPlayer.stat != 2)
 			world << "<b>[aiPlayer.name] (Played by: [aiPlayer.key])'s laws at the end of the game were:</b>"
