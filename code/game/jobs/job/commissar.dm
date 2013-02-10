@@ -5,7 +5,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "YOU ARE NOT DAMN SHITCURITY! PROTECT ALL HEADS!"
+	supervisors = "all heads"
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
