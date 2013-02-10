@@ -554,13 +554,9 @@
 
 				U.whisper("GIN'YU CAPAN")
 				U.verbs -= /mob/proc/swap
-				//Remove special verbs from both mobs
 				if(U.mind.special_verbs.len)
 					for(var/V in U.mind.special_verbs)
 						U.verbs -= V
-				if(H.mind.special_verbs.len)
-					for(var/V in H.mind.special_verbs)
-						H.verbs -= V
 
 				var/mob/dead/observer/G = new /mob/dead/observer(H) //To properly transfer clients so no-one gets kicked off the game.
 
@@ -574,7 +570,7 @@
 				H.mind = U.mind
 				if(H.mind.special_verbs.len)
 					var/spell_loss = 1//Can lose only one spell during transfer.
-					var/probability = 5 //To determine the chance of wizard losing their spell.
+					var/probability = 95 //To determine the chance of wizard losing their spell.
 					for(var/V in H.mind.special_verbs)
 						if(spell_loss == 0)
 							H.verbs += V
