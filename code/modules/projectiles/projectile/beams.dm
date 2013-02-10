@@ -61,7 +61,7 @@
 	name = "laser"
 	icon_state = "laser"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
-	damage = 20
+	damage = 15
 	damage_type = BURN
 	flag = "laser"
 	eyeblur = 4
@@ -76,7 +76,7 @@
 	name = "heavy laser"
 	icon_state = "heavylaser"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
-	damage = 60
+	damage = 50
 	damage_type = BURN
 	flag = "laser"
 	eyeblur = 6
@@ -91,7 +91,7 @@
 	name = "xray beam"
 	icon_state = "xray"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
-	damage = 30
+	damage = 25
 	damage_type = BURN
 	eyeblur = 2
 
@@ -105,7 +105,7 @@
 	name = "pulse"
 	icon_state = "u_laser"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
-	damage = 40
+	damage = 35
 	damage_type = BURN
 	eyeblur = 5
 
@@ -119,7 +119,7 @@
 	name = "death laser"
 	icon_state = "heavylaser"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
-	damage = 60
+	damage = 55
 	damage_type = BURN
 	flag = "laser"
 	eyeblur = 6

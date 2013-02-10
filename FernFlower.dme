@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+// HEAD
 // DM Environment file for baystation12.dme.
 // All manual changes should be made outside the BEGIN_ and END_ blocks.
 // New source code should be placed in .dm files: choose File/New --> Code File.
@@ -1326,7 +1326,7 @@
 #include "interface\skin.dmf"
 #include "maps\tgstation.2.0.8 (test2).dmm"
 // END_INCLUDE
-=======
+//=======
 // DM Environment file for baystation12.dme.
 // All manual changes should be made outside the BEGIN_ and END_ blocks.
 // New source code should be placed in .dm files: choose File/New --> Code File.
@@ -2653,4 +2653,3 @@
 #include "interface\skin.dmf"
 #include "maps\tgstation.2.0.8 (test2).dmm"
 // END_INCLUDE
->>>>>>> parent of 84aca26... Фикс экзамина у гостов.
