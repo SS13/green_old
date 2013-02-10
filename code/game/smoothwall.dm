@@ -89,6 +89,7 @@
 /turf/simulated/wall/New()
 	relativewall_neighbours()
 <<<<<<< HEAD
+<<<<<<< HEAD
 	relativewall_neighbours()
 	#define WALL_CHECK 0
 /*#ifdef WALL_CHECK
@@ -107,6 +108,17 @@
 #endif WALL_CHECK
 >>>>>>> parent of 9de0766... поняши и наброски на карте
 	relativewall_neighbours()
+=======
+#define WALL_CHECK 0
+#ifdef WALL_CHECK
+	for(var/turf/T in CARDINAL)
+		if(istype(T, /turf/simulated/floor) ||  istype(T, /turf/floor))
+			for(var/obj/O in contents)
+				O.Move(T)
+			break
+#endif WALL_CHECK
+
+>>>>>>> parent of b288947... убрал некомпилирующийся код интеркросса+озв.йана
 	..()
 
 /obj/structure/falsewall/New()

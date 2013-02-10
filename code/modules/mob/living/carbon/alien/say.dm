@@ -19,8 +19,6 @@
 			return ..(message)
 	else
 
-
-
 // ~lol~
 /mob/living/carbon/alien/say_quote(var/text)
 //	var/ending = copytext(text, length(text))
