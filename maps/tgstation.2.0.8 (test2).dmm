@@ -3479,7 +3479,7 @@
 "boU" = (/obj/structure/rack,/turf/simulated/floor{tag = "icon-whitepurple (NORTH)"; icon_state = "whitepurple"; dir = 1},/area/medical/research{name = "Research Division"})
 "boV" = (/obj/structure/closet/wardrobe/toxins_white,/turf/simulated/floor{tag = "icon-whitepurple (NORTHEAST)"; icon_state = "whitepurple"; dir = 5},/area/medical/research{name = "Research Division"})
 "boW" = (/turf/simulated/wall/r_wall,/area/maintenance/asmaint2)
-"boX" = (/obj/machinery/door/airlock/glass/glass_research{name = "Anomaly Storage"; req_access_txt = "7"},/turf/simulated/floor{icon_state = "white"},/area/toxins/anomaly)
+"boX" = (/obj/machinery/door/airlock/research{name = "Long Term Storage"; req_access_txt = "30"},/turf/simulated/floor{icon_state = "white"},/area/toxins/anomaly)
 "boY" = (/turf/simulated/floor{tag = "icon-whitepurple (WEST)"; icon_state = "whitepurple"; dir = 8},/area/toxins/anomaly)
 "boZ" = (/obj/structure/table,/obj/item/weapon/anobattery,/obj/item/weapon/anobattery,/obj/item/weapon/anobattery,/obj/item/weapon/anobattery,/obj/item/weapon/anobattery,/turf/simulated/floor{icon_state = "white"},/area/toxins/anomaly)
 "bpa" = (/obj/structure/table,/obj/item/weapon/weldingtool,/obj/item/clothing/head/helmet/welding,/turf/simulated/floor{icon_state = "white"},/area/toxins/anomaly)

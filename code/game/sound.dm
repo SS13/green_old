@@ -55,8 +55,6 @@
 		if ("swing_hit") soundin = pick('genhit1.ogg', 'genhit2.ogg', 'genhit3.ogg')
 		if ("hiss") soundin = pick('hiss1.ogg','hiss2.ogg','hiss3.ogg','hiss4.ogg')
 		if ("A_SMDOG") soundin = pick('A_SMDOG.ogg', 'wolfhowl01.ogg')
-		if ("beep") soundin = pick('Beep001.ogg')
-		if ("chimpers") soundin = pick('monkey1.ogg')
 
 	var/sound/S = sound(soundin)
 	S.wait = 0 //No queue
