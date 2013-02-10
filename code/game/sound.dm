@@ -15,7 +15,6 @@
 		if ("beep") soundin = pick('Beep001.ogg')
 		if ("chimpers") soundin = pick('monkey1.ogg')
 		if ("meaw") soundin = pick('meaw1.ogg', 'meaw2.ogg', 'meaw3.ogg')
-		if ("laught") soundin = pick('laught1.ogg', 'laught2.ogg', 'laught3.ogg', 'laught4.ogg', 'laught5.ogg', 'laught6.ogg', 'laught7.ogg')
 
 	var/sound/S = sound(soundin)
 	S.wait = 0 //No queue
@@ -60,7 +59,6 @@
 		if ("beep") soundin = pick('Beep001.ogg')
 		if ("chimpers") soundin = pick('monkey1.ogg')
 		if ("meaw") soundin = pick('meaw1.ogg', 'meaw2.ogg', 'meaw3.ogg')
-		if ("laught") soundin = pick('laught1.ogg', 'laught2.ogg', 'laught3.ogg', 'laught4.ogg', 'laught5.ogg', 'laught6.ogg', 'laught7.ogg')
 
 	var/sound/S = sound(soundin)
 	S.wait = 0 //No queue
