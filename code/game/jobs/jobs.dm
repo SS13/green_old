@@ -41,7 +41,6 @@ var/const
 	CLOWN			=(1<<11)
 	MIME			=(1<<12)
 	ASSISTANT		=(1<<13)
-	HOBO			=(1<<15)
 
 
 var/list/assistant_occupations = list(
@@ -100,8 +99,7 @@ var/list/civilian_positions = list(
 	"Chaplain",
 	"Assistant",
 	"Clown",
-	"Mime",
-	"Hobo"
+	"Mime"
 )
 
 
@@ -126,7 +124,7 @@ var/list/nonhuman_positions = list(
 
 /proc/GetRank(var/job)
 	switch(job)
-		if("Bartender","Chef","Lawyer","Librarian","Janitor","Assistant","Unassigned", "Clown", "Mime", "Hobo")
+		if("Bartender","Chef","Lawyer","Librarian","Janitor","Assistant","Unassigned", "Clown", "Mime")
 			return 0
 		if("Chaplain","Botanist","Hydroponicist","Medical Doctor","Atmospheric Technician","Geneticist", "Virologist", "Surgeon", "Emergency Physician", "Counselor")
 			return 1
