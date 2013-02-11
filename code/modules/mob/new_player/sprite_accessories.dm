@@ -194,46 +194,6 @@
 		name = "Three"
 		icon_state = "hair_three"
 
-	side_part
-		name = "Side Part"
-		icon_state = "side_part"
-
-	unkempt
-		name = "Unkempt"
-		icon_state = "unkempt"
-
-	gelled_back
-		name = "Gelled back"
-		icon_state = "gelled_back"
-
-	middle_part
-		name = "Middle part"
-		icon_state = "middle_part"
-
-	sargeant
-		name = "Sargeant"
-		icon_state = "sargeant"
-
-	side_drills
-		name = "Side drills"
-		icon_state = "side_drills"
-
-	pirate
-		name = "Pirate"
-		icon_state = "pirate"
-
-	hairband
-		name = "Hairband"
-		icon_state = "hairband"
-
-	kagami
-		name = "Kagami"
-		icon_state = "kagami"
-
-	natural
-		name = "Natural"
-		icon_state = "natural"
-
 //////
 //Begin Alien Hairstyle
 //////
