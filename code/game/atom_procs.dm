@@ -1,4 +1,4 @@
-﻿/atom/proc/MouseDrop_T()
+/atom/proc/MouseDrop_T()
 	return
 
 /atom/proc/attack_hand(mob/user as mob)
