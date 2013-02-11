@@ -90,9 +90,14 @@
 	relativewall_neighbours()
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	relativewall_neighbours()
 	#define WALL_CHECK 0
 /*#ifdef WALL_CHECK
+=======
+	relativewall_neighbours()#define WALL_CHECK 0
+#ifdef WALL_CHECK
+>>>>>>> parent of 9de0766... поняши и наброски на карте
 =======
 	relativewall_neighbours()#define WALL_CHECK 0
 #ifdef WALL_CHECK
@@ -102,6 +107,7 @@
 			for(var/obj/O in contents)
 				O.Move(T)
 			break
+<<<<<<< HEAD
 <<<<<<< HEAD
 #endif WALL_CHECK*/
 =======
@@ -119,6 +125,10 @@
 #endif WALL_CHECK
 
 >>>>>>> parent of b288947... убрал некомпилирующийся код интеркросса+озв.йана
+=======
+#endif WALL_CHECK
+	relativewall_neighbours()
+>>>>>>> parent of 9de0766... поняши и наброски на карте
 	..()
 
 /obj/structure/falsewall/New()
