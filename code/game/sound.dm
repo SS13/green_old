@@ -1,4 +1,3 @@
-//<<<<<<< HEAD
 /proc/playsound(var/atom/source, soundin, vol as num, vary, extrarange as num)
 	//Frequency stuff only works with 45kbps oggs.
 

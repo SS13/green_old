@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-kavainoe4udo - Game Master
-
 editorrus - Game Master
-=======
 NaN - Game Master
->>>>>>> parent of b288947... убрал некомпилирующийся код интеркросса+озв.йана
