@@ -15,6 +15,7 @@
 	var/log_adminwarn = 0				// log warnings admins get about bomb construction and such
 	var/log_pda = 0						// log pda messages
 	var/log_hrefs = 0					// logs all links clicked in-game. Could be used for debugging and tracking down exploits
+	var/use_bwhitelist = 1					// use bwhitelist
 	var/sql_enabled = 1					// for sql switching
 	var/allow_vote_restart = 0 			// allow votes to restart
 	var/allow_vote_mode = 0				// allow votes to change mode
@@ -180,6 +181,9 @@
 
 				if ("log_hrefs")
 					config.log_hrefs = 1
+
+				if ("no_bwhitelist")
+					config.use_bwhitelist = 0
 
 				if ("allow_vote_restart")
 					config.allow_vote_restart = 1

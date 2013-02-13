@@ -10,8 +10,9 @@ world/IsBanned(key,address,computer_id)
 		return list("reason"="guest", "desc"="\nReason: Guests not allowed.brb")
 
 	//whitelist
-	if(!check_bwhitelist(ckey(key)))
-		return list("reason"="not in whitelist", "desc"="\nYou are not in whitelist.\nGo to forum: http://forum.ss13.ru/index.php?showforum=48")
+	if(config.use_bwhitelist)
+		if(!check_bwhitelist(ckey(key)))
+			return list("reason"="not in whitelist", "desc"="\nYou are not in whitelist.\nGo to forum: http://forum.ss13.ru/index.php?showforum=48")
 
 	//Ban Checking
 	. = CheckBan( ckey(key), computer_id, address )
