@@ -8,10 +8,10 @@
 	real_name = name
 	spawn (1)
 		if(!istype(src, /mob/living/carbon/alien/humanoid/queen))
-			stand_icon = new /icon('alien.dmi', "alien_s")
-			lying_icon = new /icon('alien.dmi', "alien_l")
-			resting_icon = new /icon('alien.dmi', "alienh_sleep")
-			running_icon = new /icon('alien.dmi', "alienh_running")
+			stand_icon = new /icon('alien.dmi', "queen_s")
+			lying_icon = new /icon('alien.dmi', "queen_l")
+			resting_icon = new /icon('alien.dmi', "queen_sleep")
+			running_icon = new /icon('alien.dmi', "queen_running")
 		icon = stand_icon
 		rebuild_appearance()
 		src << "\blue Your icons have been generated!"

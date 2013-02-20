@@ -271,6 +271,14 @@
 	item_state = "jumpsuitdown"
 	color = "jumpsuitdown"
 
+/obj/item/clothing/under/fluff/jumpsuitdirty //4udo: for Hobo
+	name = "dirty jumpsuit"
+	desc = "A very dirty jumpsuit. And stinky."
+	icon = 'uniforms.dmi'
+	icon_state = "jumpsuitdirty"
+	item_state = "jumpsuitdirty"
+	color = "jumpsuitdirty"
+
 /obj/item/clothing/under/fluff/olddressuniform //desiderium: Momiji Inubashiri
 	name = "retired dress uniform"
 	desc = "A retired Station Head of Staff uniform, phased out twenty years ago for the newer jumpsuit design, but still acceptable dress. Lovingly maintained."

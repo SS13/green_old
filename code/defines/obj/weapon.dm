@@ -759,9 +759,15 @@
 
 /obj/item/weapon/card/id/gold
 	name = "identification card"
-	desc = "A golden card which shows authority."
+	desc = "Old identification card."
 	icon_state = "gold"
 	item_state = "gold_id"
+
+/obj/item/weapon/card/id/old
+	name = "identification card"
+	desc = "A golden card which shows authority."
+	icon_state = "old"
+	item_state = "old_id"
 
 /obj/item/weapon/card/id/syndicate
 	name = "agent card"

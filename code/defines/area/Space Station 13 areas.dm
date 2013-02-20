@@ -226,7 +226,7 @@ proc/process_ghost_teleport_locs()
 
 /area/shuttle/mining
 	name = "\improper Mining Shuttle"
-	music = "music/escape.ogg"
+	music = "music/DF.ogg"
 
 /area/shuttle/mining/station
 	icon_state = "shuttle2"
@@ -420,11 +420,13 @@ proc/process_ghost_teleport_locs()
 	icon_state = "asteroid"
 	requires_power = 0
 	ul_Lighting = 1
+	music = 'DF.ogg'
 
 /area/asteroid/cave				// -- TLE
 	name = "\improper Asteroid - Underground"
 	icon_state = "cave"
 	requires_power = 0
+	music = 'DF.ogg'
 
 /area/asteroid/artifactroom
 	name = "\improper Asteroid - Artifact"
@@ -1190,11 +1192,13 @@ proc/process_ghost_teleport_locs()
 /area/security/detectives_office
 	name = "\improper Detective's Office"
 	icon_state = "detective"
+	music = 'noir.ogg'
 	Entered()
 		if(prob(1))
-			usr << sound('Intro.wma', volume=5)
+			usr << sound('Intro.wma', volume=40)
 //		if(prob(0.5))
 //			T << sound('Intro.wma', volume=10)
+
 /area/security/range
 	name = "\improper Firing Range"
 	icon_state = "firingrange"

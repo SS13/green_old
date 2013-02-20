@@ -60,3 +60,18 @@
 			if(movement_target)
 				stop_automated_movement = 1
 				walk_to(src,movement_target,0,3)
+
+/mob/living/simple_animal/cat/say(var/message)
+
+	if (length(message) >= 2)
+		if (copytext(message, 1, 3) == ":a")
+			message = copytext(message, 3)
+			message = trim(copytext(sanitize(message), 1, MAX_MESSAGE_LEN))
+			if (stat == 2)
+				return say_dead(message)
+			else
+				alien_talk(message)
+		else
+			if (copytext(message, 1, 2) != "*" && !stat)
+				playsound(loc, "meaw", 25, 1, 1)//So aliens can hiss while they hiss yo/N
+			return ..(message)

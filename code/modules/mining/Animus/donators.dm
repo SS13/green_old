@@ -136,6 +136,7 @@
 	dat += "Butler Set: <A href='?src=\ref[src];item=/obj/effect/landmark/costume/butler;cost=750'>750</A><br>"
 	dat += "Highlander Set: <A href='?src=\ref[src];item=/obj/effect/landmark/costume/highlander;cost=1100'>1100</A><br>"
 	dat += "Scratch Set: <A href='?src=\ref[src];item=/obj/effect/landmark/costume/scratch;cost=750'>750</A><br>"
+	dat += "Moonluck armour: <A href='?src=\ref[src];item=/obj/item/clothing/suit/armor/moonluck_suit;cost=2500'>2500</A><br>"
 	dat += "<b>Shoes:</b> <br>"
 	dat += "Clown Shoes: <A href='?src=\ref[src];item=/obj/item/clothing/shoes/clown_shoes;cost=200'>200</A><br>"
 	dat += "Red Shoes: <A href='?src=\ref[src];item=/obj/item/clothing/shoes/red;cost=200'>200</A><br>"

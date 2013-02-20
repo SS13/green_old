@@ -88,6 +88,17 @@
 
 /turf/simulated/wall/New()
 	relativewall_neighbours()
+	relativewall_neighbours()
+	#define WALL_CHECK 0
+/*#ifdef WALL_CHECK
+	for(var/turf/T in cardinal)
+		if(istype(T, /turf/simulated/floor) ||  istype(T, /turf/unsimulated/floor))
+			for(var/obj/O in contents)
+				O.Move(T)
+			break
+#endif WALL_CHECK*/
+	relativewall_neighbours()
+	..()
 
 /obj/structure/falsewall/New()
 	relativewall_neighbours()

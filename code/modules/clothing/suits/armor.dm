@@ -28,6 +28,7 @@
 	slowdown = 1
 	armor = list(melee = 80, bullet = 10, laser = 10, energy = 10, bomb = 0, bio = 0, rad = 0)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+	origin_tech = "combat=3,materials=4"
 
 
 /obj/item/clothing/suit/armor/bulletproof
@@ -36,6 +37,7 @@
 	icon_state = "bulletproof"
 	item_state = "armor"
 	armor = list(melee = 10, bullet = 80, laser = 10, energy = 10, bomb = 0, bio = 0, rad = 0)
+	origin_tech = "combat=3,materials=4"
 
 
 /obj/item/clothing/suit/armor/laserproof
@@ -44,6 +46,7 @@
 	icon_state = "armor_reflec"
 	item_state = "armor_reflec"
 	armor = list(melee = 10, bullet = 10, laser = 80, energy = 50, bomb = 0, bio = 0, rad = 0)
+	origin_tech = "combat=3,materials=4,powerstorage=3,magnets=2"
 
 /obj/item/clothing/suit/armor/internalsecurity
 	name = "Commissar coat"
@@ -127,11 +130,22 @@
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 
 /obj/item/clothing/suit/armor/knight_suit
-	name = "knight suit"
+	name = "Knight armour"
 	desc = "For brave heart man."
 	icon_state = "knight_suit"
 	item_state = "knight_suit"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	slowdown = 1
 	armor = list(melee = 70, bullet = 10, laser = 40, energy = 10, bomb = 0, bio = 0, rad = 0)
+	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+	origin_tech = "combat=3,materials=4"
+
+/obj/item/clothing/suit/armor/moonluck_suit
+	name = "Moonluck suit"
+	desc = "Armor named after the great knight of a bygone empire."
+	icon_state = "moonluck_suit"
+	item_state = "moonluck_suit"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
+	slowdown = 1
+	armor = list(melee = 5, bullet = 2, laser = 1, energy = 1, bomb = 1, bio = 0, rad = 0)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
