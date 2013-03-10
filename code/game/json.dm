@@ -1,46 +1,7 @@
 
 var/jsonpath = "/srv/byond/green"
 var/dmepath = "/srv/byond/green/baystation12.dme"
-var/makejson = 1 //temp
-proc/makejson()
-
-	if(!makejson)
-		return
-	fdel("[jsonpath]/info.json")
-		//usr << "Error cant delete json"
-	//else
-		//usr << "Deleted json in public html"
-	fdel("info.json")
-		//usr << "error cant delete local json"
-	//else
-		//usr << "Deleted local json"
-	var/F = file("info.json")
-	if(!isfile(F))
-		return
-	var/mode
-	if(ticker)
-		if(ticker.current_state == 1)
-			mode = "Round Setup"
-		else if(ticker.hide_mode)
-			mode = "SECRET"
-		else
-			mode = master_mode
-	var/playerscount = 0
-	var/players = ""
-	var/admins = "no"
-	for(var/client/C)
-		playerscount++
-		if(C.holder && C.holder.level >= 0)		// make sure retired admins don't make nt think admins are on
-			if(!C.stealth)
-				admins = "yes"
-				players += "[C.key];"
-			else
-				players += "[C.fakekey];"
-		else
-			players += "[C.key];"
-	F << "{\"mode\":\"[mode]\",\"players\" : \"[players]\",\"playercount\" : \"[playerscount]\",\"admin\" : \"[admins]\",\"time\" : \"[time2text(world.realtime,"MM/DD - hh:mm")]\"}"
-	fcopy("info.json","[jsonpath]/info.json")
-
+var/makejson = 0 //temp
 /proc/switchmap(newmap,newpath)
 	var/oldmap
 	var/obj/mapinfo/M = locate()
