@@ -47,12 +47,12 @@
 				temp_message[H] = ninjaspeak(temp_message[H])
 				pick_list -= H
 			message = dd_list2text(temp_message, " ")
-			message = dd_replaceText(message, "o", "¤")
-			message = dd_replaceText(message, "p", "ş")
-			message = dd_replaceText(message, "l", "£")
-			message = dd_replaceText(message, "s", "§")
-			message = dd_replaceText(message, "u", "µ")
-			message = dd_replaceText(message, "b", "ß")
+			message = dd_replaceText(message, "o", "")
+			message = dd_replaceText(message, "p", "")
+			message = dd_replaceText(message, "l", "")
+			message = dd_replaceText(message, "s", "")
+			message = dd_replaceText(message, "u", "")
+			message = dd_replaceText(message, "b", "İ¢)
 
 	message = capitalize(message)
 
@@ -165,5 +165,5 @@
 	for (var/mob/M in world)
 		if (istype(M, /mob/new_player))
 			continue
-		if (M.stat > 1 && !(M in heard_a) && M.client.ghost_ears)
+		if (M.stat > 1 && !(M in heard_a) && M.client && M.client.ghost_ears)
 			M.show_message(rendered, 2)

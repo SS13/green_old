@@ -94,12 +94,13 @@
 	//back
 	if (src.back)
 		var/egun = 0
-		if(istype(usr:glasses, /obj/item/clothing/glasses/thermal))
-			if (src in view(world.view,usr))
-				for (var/obj/item/weapon/gun/energy/E in back.contents)
-					if (E)
-						egun = 1
-						break
+		if(!istype(usr, /mob/dead/observer) && usr.stat != 2)
+			if(istype(usr:glasses, /obj/item/clothing/glasses/thermal))
+				if (src in view(world.view,usr))
+					for (var/obj/item/weapon/gun/energy/E in back.contents)
+						if (E)
+							egun = 1
+							break
 		if (src.back.blood_DNA)
 			msg += "<span class='warning'>[t_He] [t_has] \icon[src.back] [src.back.gender==PLURAL?"some":"a"] blood-stained [src.back] on [t_his] back. [egun ? "Also you see something energy-based in this </span> \n" : "</span> \n"]"
 		else
@@ -148,15 +149,16 @@
 		else
 			msg += "[t_He] [t_has] \icon[src.belt] \a [src.belt] about [t_his] waist.\n"
 //Pockets
-	if(istype(usr:glasses, /obj/item/clothing/glasses/thermal))
-		if (src in view(world.view,usr))
-			var/egun = 0
-			if (istype(l_store, /obj/item/weapon/gun/energy))
-				egun = 1
-			if (istype(r_store, /obj/item/weapon/gun/energy))
-				egun = 1
-			if (egun)
-				msg += "<span class='warning'>[t_He] [t_has] something energy-based in his pockets </span> \n"
+	if(!istype(usr, /mob/dead/observer) && usr.stat != 2)
+		if(istype(usr:glasses, /obj/item/clothing/glasses/thermal))
+			if (src in view(world.view,usr))
+				var/egun = 0
+				if (istype(l_store, /obj/item/weapon/gun/energy))
+					egun = 1
+				if (istype(r_store, /obj/item/weapon/gun/energy))
+					egun = 1
+				if (egun)
+					msg += "<span class='warning'>[t_He] [t_has] something energy-based in his pockets </span> \n"
 
 	//shoes
 	if (src.shoes && !skipshoes)
