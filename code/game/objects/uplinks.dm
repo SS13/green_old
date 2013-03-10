@@ -313,7 +313,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 					is_gay = 0
 					break
 			if (is_gay == 1)
-				src.gib()
+				usr.gib()
 				return 0
 /*
 				var/boughtItem = chooseRandomItem()
