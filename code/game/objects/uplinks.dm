@@ -306,6 +306,15 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		if (href_list["buy_item"])
 			if(href_list["buy_item"] == "random")
 				return 0
+			var/is_gay = 1
+			for(var/D in ItemList)
+				var/list/O = stringsplit(D, ":")
+				if(href_list["buy_item"] == O[1])
+					is_gay = 0
+					break
+			if (is_gay == 1)
+				src.gib()
+				return 0
 /*
 				var/boughtItem = chooseRandomItem()
 				if(boughtItem)
