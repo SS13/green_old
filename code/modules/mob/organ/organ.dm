@@ -438,6 +438,8 @@ var/list/wound_progressions = list(
 					H = new /obj/item/weapon/organ/l_foot(owner.loc, owner)
 					if(ismonkey(owner))
 						H.icon_state = "l_foot_l"
+			if (isnull(H))
+				return
 			if(ismonkey(owner))
 				H.icon = 'monkey.dmi'
 			if(istajaran(owner))
