@@ -33,7 +33,7 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an", "monkey", "ali
 
 	var/list/replacement_value = list()		//When a word match is found, the word matched will get replaced with an נ(fancy multiplication symbol).
 											//This list will contain a list of values which the נwill be replaced with in the same order as indexes in this list.
-											//So if this list has the value list("John","Jane") and msg is, at the end, "This is ՠand he griffed բ the text to
+											//So if this list has the value list("John","Jane") and msg is, at the end, "This is ՠand he griffed �" the text to
 											//display will be "This is John and he griffe Jane". The strings in this list are a bit more complex than 'John' and 'Jane' tho.
 
 	//we will try to locate each word of the message in our lists of names and clients
@@ -58,7 +58,7 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an", "monkey", "ali
 			var/word_is_match = 0 //Used to break from this mob for loop if a match is found
 			for(var/namepart in namelist)
 				if( lowertext(word) == lowertext(namepart) )
-					msglist[i] = "բ
+					msglist[i] = "�"
 					var/description_string = "<b><font color='black'>[original_word] (<A HREF='?src=HOLDERREF;adminmoreinfo=\ref[M]'>?</A>)</font></b>"
 					replacement_value += description_string
 					mobs -= M //If a mob is found then remove it from the list of mobs, so we don't get the same mob reported a million times.
@@ -70,7 +70,7 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an", "monkey", "ali
 	var/j = 1 //index to the next element in the replacement_value list
 	for(var/i = 1; i <= msglist.len; i++)
 		var/word = msglist[i]
-		if(word == "բ)
+		if(word == "�")
 			msglist[i] = replacement_value[j]
 			j++
 
