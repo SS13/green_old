@@ -20,7 +20,7 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an", "monkey", "ali
 	var/original_msg = msg
 
 	//The symbol נ(fancy multiplication sign) will be used to mark where to put replacements, so the original message must not contain it.
-	msg = dd_replaceText(msg, "բ, "")
+	msg = dd_replaceText(msg, "�", "")
 	msg = dd_replaceText(msg, "HOLDERREF", "HOLDER-REF") //HOLDERREF is a key word which gets replaced with the admin's holder ref later on, so it mustn't be in the original message
 	msg = dd_replaceText(msg, "ADMINREF", "ADMIN-REF") //ADMINREF is a key word which gets replaced with the admin's client's ref. So it mustn't be in the original message.
 
