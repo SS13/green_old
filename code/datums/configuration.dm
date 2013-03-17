@@ -57,6 +57,8 @@
 	var/load_jobs_from_txt = 0
 	var/usealienwhitelist = 0
 
+	var/das_champ = 0
+
 	var/server
 	var/banappeals
 	var/wikiurl
@@ -346,6 +348,9 @@
 
 				else
 					diary << "Unknown setting in configuration: '[name]'"
+
+				if ("das_champ")
+					config.das_champ = 1
 
 		else if(type == "game_options")
 			if(!value)

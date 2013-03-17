@@ -2,6 +2,9 @@
 	set category = "IC"
 	set name = "Pray"
 
+	if (config.das_champ)
+		return
+
 	msg = copytext(sanitize(msg), 1, MAX_MESSAGE_LEN)
 
 	if (!msg)

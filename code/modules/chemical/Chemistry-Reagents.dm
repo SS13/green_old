@@ -1369,6 +1369,8 @@ datum
 			color = "#C8A5DC" // rgb: 200, 165, 220
 
 			on_mob_life(var/mob/living/M as mob)
+				if (config.das_champ)
+					return
 				if(!M) M = holder.my_atom ///This can even heal dead people.
 				M.setCloneLoss(0)
 				M.setOxyLoss(0)

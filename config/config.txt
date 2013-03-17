@@ -1,6 +1,9 @@
 ## Uncomment for no whitelist
 #NO_BWHITELIST
 
+## Uncomment for CHAMP MODE
+#DAS_CHAMP
+
 ## When you commit an edit to this, ask a developer to update it on the server
 
 ## Alert levels
