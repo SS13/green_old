@@ -187,6 +187,9 @@
 				if ("no_bwhitelist")
 					config.use_bwhitelist = 0
 
+				if ("das_champ")
+					config.das_champ = 1
+
 				if ("allow_vote_restart")
 					config.allow_vote_restart = 1
 
@@ -348,9 +351,6 @@
 
 				else
 					diary << "Unknown setting in configuration: '[name]'"
-
-				if ("das_champ")
-					config.das_champ = 1
 
 		else if(type == "game_options")
 			if(!value)
