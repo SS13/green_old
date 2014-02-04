@@ -15,3 +15,4 @@ zone
 							//of points they're connected at.
 		list/space_tiles // Any space tiles in this list will cause air to flow out.
 		last_update = 0
+		ShareRequired = 0
